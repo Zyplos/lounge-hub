@@ -3,7 +3,7 @@
 import React from "react";
 import { jsx } from "@theme-ui/core";
 import { Text, Button, Spinner, Heading } from "@theme-ui/components";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 import useSWR from "swr";
 
 import AuthContext from "./internals/AuthContext";
@@ -59,20 +59,23 @@ function App() {
   //   );
   return (
     <AuthContext.Provider value={userData}>
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route exact path="/wiki">
-          <WikiPage />
-        </Route>
-        <Route path="/wiki/crafting">
-          <CraftingRecipes />
-        </Route>
-        <Route path="*">
-          <NotFound />
-        </Route>
-      </Switch>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route path="/wiki/crafting">
+            <CraftingRecipes />
+          </Route>
+          <Route path="/wiki">
+            <WikiPage />
+          </Route>
+
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </AuthContext.Provider>
   );
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
 import { SWRConfig } from "swr";
 import { ColorModeProvider } from "@theme-ui/color-modes";
 import fetch from "node-fetch";
@@ -19,13 +18,11 @@ ReactDOM.render(
         fetcher: (...args) => fetch(...args).then((res) => res.json()),
       }}
     >
-      <BrowserRouter>
-        <ContactThemeProvider>
-          <ColorModeProvider>
-            <App />
-          </ColorModeProvider>
-        </ContactThemeProvider>
-      </BrowserRouter>
+      <ContactThemeProvider>
+        <ColorModeProvider>
+          <App />
+        </ColorModeProvider>
+      </ContactThemeProvider>
     </SWRConfig>
   </React.StrictMode>,
   document.getElementById("root")

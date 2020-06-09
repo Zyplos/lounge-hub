@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { jsx } from "@theme-ui/core";
-import { Heading, Grid, Flex } from "@theme-ui/components";
+import { Heading, Grid, Flex, Alert } from "@theme-ui/components";
 
 import Navbar from "../components/Navbar";
 import DiscordServerOverview from "../components/DiscordServerOverview";
@@ -37,6 +37,9 @@ function Home() {
         }}
       >
         <Grid gap={3}>
+          <Alert sx={{ bg: "purple", width: "30%" }}>
+            !!! Development build !!!
+          </Alert>
           <Grid gap={5} columns={2}>
             <div>
               <Heading sx={{ mb: 3 }}>Minecraft • Vanilla</Heading>

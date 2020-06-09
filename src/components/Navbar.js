@@ -3,7 +3,6 @@
 import React, { useContext } from "react";
 import { jsx } from "@theme-ui/core";
 import {
-  Link,
   Box,
   Grid,
   Flex,
@@ -11,16 +10,24 @@ import {
   Heading,
   Avatar,
   Divider,
+  Text,
 } from "@theme-ui/components";
+import useSWR from "swr";
+import { Link, NavLink } from "react-router-dom";
 
 import ThemeToggle from "../components/ThemeToggle";
 import AuthContext from "../internals/AuthContext";
+import authFetcher from "../internals/authFetcher";
 
 import emblem from "../assets/emblem.png";
 import mindspaceId from "../assets/mindspaceId.svg";
 
 export default () => {
   const userData = useContext(AuthContext);
+  const { data: asData, error } = useSWR(
+    `${process.env.REACT_APP_AUTHBASE_ROOT}/profile`,
+    authFetcher
+  );
   return (
     <Box
       color="white"
@@ -84,23 +91,43 @@ export default () => {
               </Heading>
             </React.Fragment>
           )}
+          {!userData && error && (
+            <Text>
+              Authspace
+              <br />
+              Offline
+            </Text>
+          )}
         </Flex>
         <Divider sx={{ m: 0 }} />
-        <Grid gap={0}>
-          <section>
-            <Heading as="h4">Section</Heading>
+        <Grid>
+          <NavLink
+            to={`/`}
+            sx={{
+              color: "white",
+            }}
+          >
+            Home
+          </NavLink>
 
-            <p sx={{ ml: 2 }}>
-              <Link
-                to={`/logs/finale`}
-                sx={{
-                  color: "white",
-                }}
-              >
-                » Date
-              </Link>
-            </p>
-          </section>
+          <NavLink
+            to={`/wiki`}
+            sx={{
+              color: "white",
+            }}
+          >
+            Wiki
+          </NavLink>
+
+          <NavLink
+            to={`/wiki/crafting`}
+            sx={{
+              color: "white",
+            }}
+          >
+            Wiki/Crafting
+          </NavLink>
+
           <ThemeToggle />
         </Grid>
       </Grid>
