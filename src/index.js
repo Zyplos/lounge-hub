@@ -1,14 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { SWRConfig } from "swr";
+import { ColorModeProvider } from "@theme-ui/color-modes";
+import fetch from "node-fetch";
+
+import ContactThemeProvider from "./internals/ContactThemeProvider";
+
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+require("@south-paw/typeface-minecraft");
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <SWRConfig
+      value={{
+        fetcher: (...args) => fetch(...args).then((res) => res.json()),
+      }}
+    >
+      <BrowserRouter>
+        <ContactThemeProvider>
+          <ColorModeProvider>
+            <App />
+          </ColorModeProvider>
+        </ContactThemeProvider>
+      </BrowserRouter>
+    </SWRConfig>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
