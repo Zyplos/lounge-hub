@@ -74,7 +74,7 @@ function Wiki() {
         <WikiCard
           link="/wiki/mobs"
           image={zombieHead}
-          gradient={{ left: "#52c234", right: "#061700" }}
+          gradient={{ left: "#b0e83f", right: "#2c4002" }}
           heading="Mobs"
           description="Gamerules and drops have been changed a bit."
         />
