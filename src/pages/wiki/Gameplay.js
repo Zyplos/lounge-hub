@@ -54,7 +54,7 @@ export default () => {
           </div>
           <div>
             <Heading>mobGriefing</Heading>
-            <Text>false</Text>
+            <Text>true</Text>
           </div>
         </Grid>
 
