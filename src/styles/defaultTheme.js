@@ -8,6 +8,17 @@ export default {
     monospace: "Menlo, monospace",
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
+  radii: {
+    borderRadius: 0,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    borderBottomLeftRadius: 0,
+    borderEndEndRadius: 0,
+    borderEndStartRadius: 0,
+    borderStartEndRadius: 0,
+    borderStartStartRadius: 0,
+  },
   fontWeights: {
     body: 400,
     heading: 700,
@@ -27,12 +38,14 @@ export default {
     darkGrayAccent: "#353535",
     discord: "#7289DA",
     twitch: "#9146ff",
+    cardBg: "#c7aea9",
     modes: {
       dark: {
         text: "#fff",
-        background: "#0A0A0A",
+        background: "#212020",
         darkGray: "#000",
         muted: "#717171",
+        cardBg: "#4a403e",
       },
     },
   },

@@ -3,17 +3,15 @@ import { jsx } from "@theme-ui/core";
 import { Flex, Text, Alert, Grid } from "@theme-ui/components";
 import useSWR from "swr";
 
-export default (props) => {
-  const { data, error } = useSWR(`https://api.mcsrvstat.us/2/${props.ip}`);
-  if (error) {
-    return <p>error</p>;
-  }
-  if (!data) {
-    return <p>loading minecraft</p>;
-  }
+import defaultServerIcon from "../assets/defaultServerIcon.png";
 
-  const getPlayerImage = (username) => {
-    return `https://minotar.net/helm/${username}/100.png`;
+export default (props) => {
+  const data = props.data;
+
+  console.log(data);
+
+  const getPlayerImage = (uuid) => {
+    return `https://crafatar.com/avatars/${uuid}?size=64&default=MHF_Steve&overlay`;
   };
 
   const computedPlural = () => {
@@ -27,7 +25,7 @@ export default (props) => {
     return "players";
   };
 
-  if (!data.online) {
+  if (!data || !data.description) {
     return <Alert>This server is currently offline.</Alert>;
   }
 
@@ -37,26 +35,33 @@ export default (props) => {
         <div>
           <img
             class="server-image mr-4"
-            src={data.icon}
+            src={data.favicon || defaultServerIcon}
             alt="server icon"
             sx={{ mr: 3 }}
           />
         </div>
-        <Flex sx={{ flexDirection: "column", justifyContent: "center" }}>
-          <Text>{data.motd.clean[0]}</Text>
-          <Text>{data.motd.clean[1]}</Text>
+        <Flex
+          sx={{
+            flexDirection: "column",
+            justifyContent: "center",
+            fontFamily: "Minecraft, monospace",
+          }}
+        >
+          <div
+            dangerouslySetInnerHTML={{ __html: data.description.html }}
+          ></div>
         </Flex>
       </Flex>
       <Text>
         IP: {props.ip} •{" "}
-        {data.players.online !== 0 ? data.players.online : "No "}
+        {data.players.online !== 0 ? data.players.online : "No"}{" "}
         {computedPlural()} online
-        {data.version ? " • " + data.version : ""}
+        {data.version ? " • " + data.version.name : ""}
       </Text>
       {data.players.online === 0 && <Alert>No one's online.</Alert>}
-      {data.players.online > 0 && data.players.list && (
+      {data.players.online > 0 && data.players.sample && (
         <Flex sx={{ flexDirection: "row" }}>
-          {data.players.list.map((player, index) => {
+          {data.players.sample.map((player, index) => {
             return (
               <Flex
                 key={index}
@@ -67,12 +72,12 @@ export default (props) => {
                 }}
               >
                 <img
-                  src={getPlayerImage(player)}
+                  src={getPlayerImage(player.id)}
                   alt="player icon"
                   sx={{ width: "45px", height: "45px" }}
                 />
 
-                <Text>{player}</Text>
+                <Text>{player.name}</Text>
               </Flex>
             );
           })}

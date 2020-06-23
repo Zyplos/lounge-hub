@@ -13,10 +13,10 @@ function MinecraftContainer(props) {
         backgroundColor: colorMode === "dark" ? "#252525" : "#c6c6c6",
 
         color: colorMode === "dark" ? "#fff" : "#373737",
-        p: 4,
+        p: [2, 4],
         boxShadow:
           colorMode === "dark"
-            ? "-6px -6px 0px 0px #080808 inset, 6px 6px 0px 0px #585858 inset"
+            ? "-6px -6px 0px 0px #1b1b1b inset, 6px 6px 0px 0px #585858 inset"
             : "-6px -6px 0px 0px #555555 inset, 6px 6px 0px 0px #fff inset",
 
         border: "4px solid #000",
