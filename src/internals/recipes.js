@@ -1,7 +1,7 @@
-import milkBucket from "../assets/items/milk_bucket.png";
+import waterBucket from "../assets/items/water_bucket.png";
 import slimeBall from "../assets/items/slime_ball.png";
 import wheat from "../assets/items/wheat.png";
-import sugar from "../assets/items/sugar.png";
+import greenDye from "../assets/items/green_dye.png";
 import rottenFlesh from "../assets/items/rotten_flesh.png";
 import leather from "../assets/items/leather.png";
 import cookedMutton from "../assets/items/cooked_mutton.png";
@@ -36,8 +36,8 @@ export default [
   {
     type: "crafting",
     input: [
-      ["Milk Bucket", milkBucket],
-      ["Sugar", sugar],
+      ["Water Bucket", waterBucket],
+      ["Green Dye", greenDye],
       false,
 
       ["Wheat", wheat],
@@ -68,17 +68,17 @@ export default [
   {
     type: "stonecutter",
     input: ["Polished Andesite", polishedAndesite],
-    result: ["Cobblestone", cobblestone],
+    result: ["Andesite", andesite],
   },
   {
     type: "stonecutter",
     input: ["Polished Diorite", polishedDiorite],
-    result: ["Cobblestone", cobblestone],
+    result: ["Diorite", diorite],
   },
   {
     type: "stonecutter",
     input: ["Polished Granite", polishedGranite],
-    result: ["Cobblestone", cobblestone],
+    result: ["Granite", granite],
   },
   {
     type: "smoker",

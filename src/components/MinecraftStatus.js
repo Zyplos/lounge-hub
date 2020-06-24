@@ -60,7 +60,7 @@ export default (props) => {
       </Text>
       {data.players.online === 0 && <Alert>No one's online.</Alert>}
       {data.players.online > 0 && data.players.sample && (
-        <Flex sx={{ flexDirection: "row" }}>
+        <Grid sx={{ gridTemplateColumns: "repeat(5, 1fr)" }}>
           {data.players.sample.map((player, index) => {
             return (
               <Flex
@@ -68,7 +68,8 @@ export default (props) => {
                 sx={{
                   flexDirection: "column",
                   alignItems: "center",
-                  mb: 0,
+                  m: 0,
+                  flexWrap: "wrap",
                 }}
               >
                 <img
@@ -81,7 +82,7 @@ export default (props) => {
               </Flex>
             );
           })}
-        </Flex>
+        </Grid>
       )}
     </Grid>
   );

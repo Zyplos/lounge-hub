@@ -103,6 +103,9 @@ function CraftingRecipes() {
           Note: Anything that can be dyed can be redyed with their respective
           recipes.
         </Text>
+        <Text>
+          <i>Extra note: redye recipes don't work at the moment.</i>
+        </Text>
       </Grid>
     </MainLayout>
   );

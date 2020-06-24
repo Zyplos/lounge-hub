@@ -15,7 +15,7 @@ function Home() {
   return (
     <MainLayout>
       <Grid gap={3}>
-        <Grid gap={5} columns={[1, 2]}>
+        {/* <Grid gap={5} columns={[1, 2]}>
           <div>
             <Heading sx={{ mb: 3 }}>Minecraft • Vanilla</Heading>
             <MinecraftStatus data={minecraftData.vanilla} ip="mc.zyand.co" />
@@ -27,7 +27,11 @@ function Home() {
               ip="mc.zyand.co:25577"
             />
           </div>
-        </Grid>
+        </Grid> */}
+        <div>
+          <Heading sx={{ mb: 3 }}>Minecraft • Vanilla</Heading>
+          <MinecraftStatus data={minecraftData.vanilla} ip="mc.zyand.co" />
+        </div>
         <Heading sx={{ mt: 4 }}>the lounge</Heading>
         <DiscordServerOverview />
       </Grid>

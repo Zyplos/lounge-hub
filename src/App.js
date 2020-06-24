@@ -34,7 +34,7 @@ function App() {
   } = useSWR(
     `${process.env.REACT_APP_AUTHBASE_ROOT}/minecraft/status/vanilla`,
     authFetcher,
-    { refreshInterval: 15000 }
+    { refreshInterval: 30000 }
   );
 
   const {
@@ -43,7 +43,7 @@ function App() {
   } = useSWR(
     `${process.env.REACT_APP_AUTHBASE_ROOT}/minecraft/status/modded`,
     authFetcher,
-    { refreshInterval: 15000 }
+    { refreshInterval: 30000 }
   );
   // if (error)
   //   return (

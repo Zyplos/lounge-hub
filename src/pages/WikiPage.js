@@ -76,7 +76,7 @@ function Wiki() {
           image={zombieHead}
           gradient={{ left: "#b0e83f", right: "#2c4002" }}
           heading="Mobs"
-          description="Gamerules and drops have been changed a bit."
+          description="They've been changed a bit."
         />
         <WikiCard
           link="/wiki/the-aether"

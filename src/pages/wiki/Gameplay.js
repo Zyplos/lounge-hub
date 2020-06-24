@@ -56,6 +56,10 @@ export default () => {
             <Heading>mobGriefing</Heading>
             <Text>true</Text>
           </div>
+          <div>
+            <Heading>doWeatherCycle</Heading>
+            <Text>false</Text>
+          </div>
         </Grid>
 
         <Heading>Sleeping</Heading>
