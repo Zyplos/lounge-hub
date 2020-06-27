@@ -66,6 +66,16 @@ function CraftingRecipes() {
                   type="Smoker"
                 />
               );
+            } else if (type === "blasting") {
+              return (
+                <Furnace
+                  key={index}
+                  input={input}
+                  result={result}
+                  amount={amount}
+                  type="Blast Furnace"
+                />
+              );
             } else if (type === "stonecutter") {
               return (
                 <Stonecutter

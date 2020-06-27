@@ -6,6 +6,7 @@ import rottenFlesh from "../assets/items/rotten_flesh.png";
 import leather from "../assets/items/leather.png";
 import cookedMutton from "../assets/items/cooked_mutton.png";
 
+import stone from "../assets/items/stone.png";
 import cobblestone from "../assets/items/cobblestone.png";
 import andesite from "../assets/items/andesite.png";
 import diorite from "../assets/items/diorite.png";
@@ -13,6 +14,9 @@ import granite from "../assets/items/granite.png";
 import polishedAndesite from "../assets/items/polished_andesite.png";
 import polishedDiorite from "../assets/items/polished_diorite.png";
 import polishedGranite from "../assets/items/polished_granite.png";
+
+import glass from "../assets/items/glass.png";
+import sand from "../assets/items/sand.png";
 
 import oakLog from "../assets/items/oak_log.png";
 import birchLog from "../assets/items/birch_log.png";
@@ -225,5 +229,15 @@ export default [
       false,
     ],
     result: ["Crimson Stem", crimsonStem, 4],
+  },
+  {
+    type: "blasting",
+    input: ["Cobblestone", cobblestone],
+    result: ["Stone", stone],
+  },
+  {
+    type: "blasting",
+    input: ["Sand", sand],
+    result: ["Glass", glass],
   },
 ];
