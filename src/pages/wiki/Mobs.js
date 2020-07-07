@@ -14,8 +14,10 @@ export default () => {
         <Divider />
         <Text>Mob behavior has been modified a bit:</Text>
         <Text>
-          Mob griefing is <b>NOT</b> off. This is to allow villager mob farms to
-          function. However, creeper explosions are disabled.
+          Mob griefing is technically off. However, this gamerule has been split
+          into two. Hostile mobs that grief the world will no longer do so.
+          Creepers should do damage again. Passive mobs that can break blocks
+          (like Villagers) will still be able to break blocks.
         </Text>
         <Text>
           All mobs have a chance to drop their own head as an item. These
@@ -24,7 +26,7 @@ export default () => {
         <Text>
           The Ender Dragon will drop an Elytra and a Dragon Egg when it dies.
         </Text>
-        <Text>Shulkers will drop more than 1 Shulker Shell.</Text>
+        <Text>Shulkers can drop more than 1 Shulker Shell.</Text>
       </Grid>
     </MainLayout>
   );

@@ -39,7 +39,7 @@ export default () => {
         <Heading>Gamerules</Heading>
         <Grid
           sx={{
-            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr) )",
+            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr) )",
             gridAutoRows: "1fr",
             "& > div": {
               bg: "cardBg",
@@ -54,11 +54,15 @@ export default () => {
           </div>
           <div>
             <Heading>mobGriefing</Heading>
-            <Text>true</Text>
+            <Text>false*</Text>
           </div>
           <div>
             <Heading>doWeatherCycle</Heading>
             <Text>false</Text>
+          </div>
+          <div>
+            <Heading>maxEntityCramming</Heading>
+            <Text>45</Text>
           </div>
         </Grid>
 
@@ -67,9 +71,7 @@ export default () => {
           Only one person on the server has to sleep for it to turn to day.
         </Text>
 
-        <Heading>
-          Tree Chopping <Badge>Currently not working</Badge>
-        </Heading>
+        <Heading>Tree Chopping</Heading>
         <Text>
           Hold <kbd>Shift</kbd> and break the bottom of a tree to break the
           entire thing down. This won't work on logs that you've placed down.

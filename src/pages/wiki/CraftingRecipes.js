@@ -90,32 +90,6 @@ function CraftingRecipes() {
             }
           })}
         </Grid>
-        <Heading>Redye Recipes</Heading>
-        <div sx={{ display: "flex" }}>
-          <CraftingTable
-            input={[
-              false,
-              false,
-              false,
-
-              ["White Wool", whiteWoolItem],
-              ["Any Dye", dyeItem],
-              false,
-
-              false,
-              false,
-              false,
-            ]}
-            result={["Dyed Wool", woolItem]}
-          />
-        </div>
-        <Text>
-          Note: Anything that can be dyed can be redyed with their respective
-          recipes.
-        </Text>
-        <Text>
-          <i>Extra note: redye recipes don't work at the moment.</i>
-        </Text>
       </Grid>
     </MainLayout>
   );
