@@ -32,15 +32,16 @@ export default () => {
         </Text>
 
         <Heading>Entering the Deep Dark</Heading>
-        <blockquote cite="https://zyplos.dev/ram.exe/">
-          <p>
-            i literally have no idea. ill put a command block for it somewhere i
-            guess. make a nice place for it
-          </p>
-          <footer>
-            — me, <cite>just now</cite>
-          </footer>
-        </blockquote>
+        <Text>
+          You need a <b>Deep Dark Teleporter</b> to get to The Deep Dark. To
+          make one, drop <b>4 obsidian</b>, <b>4 ender pearls</b>, and{" "}
+          <b>1 diamond block</b> on top of a crafting table
+        </Text>
+        <Text>
+          The portal block will only work on the overworld. Once you've placed
+          it down <kbd>Shift</kbd> on the block for a few seconds and you'll be
+          teleported to The Deep Dark.
+        </Text>
       </Grid>
     </MainLayout>
   );
