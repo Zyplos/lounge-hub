@@ -57,6 +57,12 @@ export default () => {
           }}
         >
           <div>
+            <Heading>
+              Season 6 <Badge>Current</Badge>
+            </Heading>
+            <Text>Enigmatica 2</Text>
+          </div>
+          <div>
             <Heading>Season 5</Heading>
             <Text>Tekxit</Text>
           </div>

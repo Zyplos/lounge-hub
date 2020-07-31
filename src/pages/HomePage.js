@@ -15,23 +15,21 @@ function Home() {
   return (
     <MainLayout>
       <Grid gap={3}>
-        {/* <Grid gap={5} columns={[1, 2]}>
-          <div>
-            <Heading sx={{ mb: 3 }}>Minecraft • Vanilla</Heading>
-            <MinecraftStatus data={minecraftData.vanilla} ip="mc.zyand.co" />
-          </div>
-          <div>
-            <Heading sx={{ mb: 3 }}>Minecraft • Modded</Heading>
-            <MinecraftStatus
-              data={minecraftData.modded}
-              ip="mc.zyand.co:25577"
-            />
-          </div>
-        </Grid> */}
-        <div>
-          <Heading sx={{ mb: 3 }}>Minecraft • Vanilla</Heading>
-          <MinecraftStatus data={minecraftData.vanilla} ip="mc.zyand.co" />
-        </div>
+        {minecraftData && (
+          <Grid gap={5} columns={[1, 1, 2]}>
+            <div>
+              <Heading sx={{ mb: 3 }}>Minecraft • Vanilla</Heading>
+              <MinecraftStatus data={minecraftData.vanilla} ip="mc.zyand.co" />
+            </div>
+            <div>
+              <Heading sx={{ mb: 3 }}>Minecraft • Enigmatica 2</Heading>
+              <MinecraftStatus
+                data={minecraftData.modded}
+                ip="mc.zyand.co:25577"
+              />
+            </div>
+          </Grid>
+        )}
         <Heading sx={{ mt: 4 }}>the lounge</Heading>
         <DiscordServerOverview />
       </Grid>

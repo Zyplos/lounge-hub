@@ -1,7 +1,6 @@
 /** @jsx jsx **/
 import { jsx } from "@theme-ui/core";
 import { Flex, Text, Alert, Grid } from "@theme-ui/components";
-import useSWR from "swr";
 
 import defaultServerIcon from "../assets/defaultServerIcon.png";
 

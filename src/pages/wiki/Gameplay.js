@@ -77,15 +77,10 @@ export default () => {
           entire thing down. This won't work on logs that you've placed down.
         </Text>
 
-        <Heading>
-          Veinminer <Badge>Currently not working</Badge>
-        </Heading>
+        <Heading>Veinminer</Heading>
         <Text>
-          Hold <kbd>Shift</kbd> and break an ore block to mine that entire vein.{" "}
-          <i>
-            Reportedly doesn't take Fortune enchantments into account. Maybe a
-            future update will fix that.
-          </i>
+          Hold <kbd>Shift</kbd> and break an ore block to mine that entire vein.
+          Enchantments on your pickaxe are accounted for.
         </Text>
 
         <Heading>

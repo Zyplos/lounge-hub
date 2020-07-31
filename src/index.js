@@ -4,7 +4,8 @@ import { SWRConfig } from "swr";
 import { ColorModeProvider } from "@theme-ui/color-modes";
 import fetch from "node-fetch";
 
-import ContactThemeProvider from "./internals/ContactThemeProvider";
+import { ThemeProvider } from "@theme-ui/core";
+import theme from "./styles/defaultTheme";
 
 import "./index.css";
 import App from "./App";
@@ -18,11 +19,11 @@ ReactDOM.render(
         fetcher: (...args) => fetch(...args).then((res) => res.json()),
       }}
     >
-      <ContactThemeProvider>
+      <ThemeProvider theme={theme}>
         <ColorModeProvider>
           <App />
         </ColorModeProvider>
-      </ContactThemeProvider>
+      </ThemeProvider>
     </SWRConfig>
   </React.StrictMode>,
   document.getElementById("root")

@@ -20,6 +20,8 @@ function Wiki(props) {
       <section
         sx={{
           display: ["none", "flex"],
+          width: "100px",
+          minWidth: "100px",
           "& > div": {
             p: 4,
           },

@@ -35,7 +35,7 @@ export default () => {
         <Text>
           You need a <b>Deep Dark Teleporter</b> to get to The Deep Dark. To
           make one, drop <b>4 obsidian</b>, <b>4 ender pearls</b>, and{" "}
-          <b>1 diamond block</b> on top of a crafting table
+          <b>1 diamond block</b> on top of a crafting table.
         </Text>
         <Text>
           The portal block will only work on the overworld. Once you've placed
