@@ -33,7 +33,7 @@ export default {
     background: "#fff",
     primary: "#ff3e3e",
     secondary: "#ffde00",
-    muted: "#b9b9b9",
+    muted: "#808080",
     darkGray: "#242424",
     darkGrayAccent: "#353535",
     discord: "#7289DA",

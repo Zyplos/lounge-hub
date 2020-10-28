@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
   const vanillaIp =
     process.env.NODE_ENV === "development" ? "192.168.1.149" : "mc.zyand.co";
   const moddedIp =
-    process.env.NODE_ENV === "development" ? "localhost" : "mc.zyand.co";
+    process.env.NODE_ENV === "development" ? "192.168.1.151" : "mc.zyand.co";
 
   const vanillaData = await getServerData(vanillaIp, 25565);
   const moddedData = await getServerData(moddedIp, 25577);

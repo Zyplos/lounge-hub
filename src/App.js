@@ -7,6 +7,7 @@ import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 import useSWR from "swr";
 
 import AuthContext from "./internals/AuthContext";
+import usePageTracking from "./internals/usePageTracking";
 import MinecraftContext from "./internals/MinecraftContext";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
@@ -28,9 +29,10 @@ function App() {
       refreshInterval: 30000,
     }
   );
+  usePageTracking();
   return (
-    <MinecraftContext.Provider value={minecraftError || minecraftData}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <MinecraftContext.Provider value={minecraftError || minecraftData}>
         <Switch>
           <Route exact path="/">
             <HomePage />
@@ -61,8 +63,8 @@ function App() {
             <NotFound />
           </Route>
         </Switch>
-      </BrowserRouter>
-    </MinecraftContext.Provider>
+      </MinecraftContext.Provider>
+    </BrowserRouter>
   );
 }
 

@@ -106,7 +106,13 @@ export default () => {
               />
 
               <Flex sx={{ justifyContent: "center", flexDirection: "column" }}>
-                <Text>
+                <Text
+                  sx={{
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
                   {member.username}
                   {knownBots.includes(member.username) && (
                     <Badge variant="discord" sx={{ ml: 2 }}>

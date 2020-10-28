@@ -37,6 +37,19 @@ function Wiki(props) {
       >
         {props.children}
       </article>
+      <div
+        id="nav-toggle"
+        sx={{
+          position: "absolute",
+          bottom: 30,
+          right: 30,
+          fontSize: 5,
+          padding: 3,
+          backgroundColor: "cardBg",
+        }}
+      >
+        ≡
+      </div>
     </div>
   );
 }
