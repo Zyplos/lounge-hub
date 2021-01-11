@@ -7,7 +7,7 @@ function App() {
   const { data: minecraftData, minecraftError } = useSWR(
     `/api/minecraft/status`,
     {
-      refreshInterval: 30000,
+      refreshInterval: 60000,
     }
   );
   return (

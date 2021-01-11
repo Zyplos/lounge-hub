@@ -133,11 +133,7 @@ function DiscordServerOverview() {
                     </span>
                   )}
                 </p>
-                {member.status === "streaming" && (
-                  <p as="span" variant="bold">
-                    Live on Twitch!
-                  </p>
-                )}
+                {member.status === "streaming" && <b>Live on Twitch!</b>}
                 {member.game && (
                   <p
                     variant={member.status === "streaming" ? "white" : "muted"}
@@ -145,10 +141,7 @@ function DiscordServerOverview() {
                       fontSize: "14px",
                     }}
                   >
-                    <p as="span" variant="bold">
-                      Playing
-                    </p>{" "}
-                    {member.game.name}
+                    <b>Playing</b> {member.game.name}
                   </p>
                 )}
               </div>

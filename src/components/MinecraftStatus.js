@@ -47,7 +47,7 @@ function MinecraftStatus(props) {
       <div css={{ display: "flex", flexDirection: "row" }}>
         <div>
           <img
-            class="server-image mr-4"
+            className="server-image mr-4"
             src={data.favicon || defaultServerIcon}
             alt="server icon"
             css={{ mr: 3 }}

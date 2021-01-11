@@ -9,6 +9,7 @@ import NavBar from "../components/Navbar";
 // import Navbar from "../components/Navbar";
 
 function MainLayout(props) {
+  console.log(props);
   return (
     <div
       css={{
@@ -20,22 +21,24 @@ function MainLayout(props) {
       id="App"
     >
       <section
-        css={{
+        css={(theme) => ({
           display: ["none", "flex"],
-          width: "100px",
-          minWidth: "100px",
-          "& > div": {
-            p: 4,
-          },
-        }}
+
+          // width: "100px",
+          // minWidth: "100px",
+          // "& > div": {
+          //   padding: "16px",
+          // },
+        })}
       >
         <NavBar />
       </section>
       <article
-        css={{
+        css={(theme) => ({
           flexGrow: "1",
+          padding: theme.space[4],
           p: 4,
-        }}
+        })}
       >
         {props.children}
       </article>
