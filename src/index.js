@@ -1,14 +1,15 @@
+/** @jsxImportSource @theme-ui/core */
 import React from "react";
 import ReactDOM from "react-dom";
 import { SWRConfig } from "swr";
+import { ThemeProvider } from "@theme-ui/core";
 import { ColorModeProvider } from "@theme-ui/color-modes";
 import fetch from "cross-fetch";
 
-import { ThemeProvider } from "@theme-ui/core";
 import theme from "./internals/cinnaTheme";
 
-import "./index.css";
 import App from "./App";
+import "./index.css";
 require("@south-paw/typeface-minecraft");
 
 ReactDOM.render(
