@@ -1,6 +1,6 @@
 {
-  "short_name": "the lounge hub",
-  "name": "the lounge hub",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#ff3e3e",
-  "background_color": "#242424"
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
