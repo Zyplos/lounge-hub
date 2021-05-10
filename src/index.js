@@ -5,6 +5,7 @@ import { SWRConfig } from "swr";
 import { ThemeProvider } from "@theme-ui/core";
 import { ColorModeProvider } from "@theme-ui/color-modes";
 import fetch from "cross-fetch";
+import { BrowserRouter } from "react-router-dom";
 
 import theme from "./internals/cinnaTheme";
 
@@ -22,7 +23,9 @@ ReactDOM.render(
     >
       <ThemeProvider theme={theme}>
         <ColorModeProvider>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </ColorModeProvider>
       </ThemeProvider>
     </SWRConfig>

@@ -44,7 +44,6 @@ function MinecraftStatus(props) {
       <Flex sx={{ flexDirection: "row" }}>
         <div>
           <img
-            class="server-image mr-4"
             src={data.favicon || defaultServerIcon}
             alt="server icon"
             sx={{ mr: 3 }}

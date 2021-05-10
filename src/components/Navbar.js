@@ -1,16 +1,6 @@
 /** @jsxImportSource @theme-ui/core */
-import React, { useContext } from "react";
-import { jsx } from "@theme-ui/core";
-import {
-  Box,
-  Grid,
-  Flex,
-  Image,
-  Heading,
-  Avatar,
-  Divider,
-  Text,
-} from "@theme-ui/components";
+import { useContext } from "react";
+import { Grid } from "@theme-ui/components";
 import { Link } from "react-router-dom";
 
 // import ThemeToggle from "../components/ThemeToggle";
@@ -49,8 +39,8 @@ function Navbar() {
   return (
     <div
       sx={{
-        backgroundColor: (theme) => theme.colors.backgroundSecondary,
-        padding: (theme) => theme.space[4],
+        backgroundColor: "backgroundSecondary",
+        padding: 4,
         overflowY: "scroll",
         scrollbarWidth: "thin",
         scrollbarColor: "green orange",
@@ -58,13 +48,27 @@ function Navbar() {
           width: "1px",
         },
         "::-webkit-scrollbar-track": {
-          background: (theme) => theme.colors.backgroundTertiary,
+          background: "backgroundTertiary",
         },
         "::-webkit-scrollbar-thumb": {
-          backgroundColor: (theme) => theme.colors.primary,
+          backgroundColor: "primary",
         },
       }}
     >
+      <div
+        id="nav-toggle"
+        sx={{
+          position: "absolute",
+          bottom: 30,
+          right: 30,
+          fontSize: 5,
+          padding: 3,
+          backgroundColor: "cardBg",
+          display: "none",
+        }}
+      >
+        ≡
+      </div>
       <Grid gap={4} sx={{ justifyItems: "center" }}>
         <div sx={{ display: "flex" }}>
           <Link
@@ -104,7 +108,7 @@ function Navbar() {
               }}
             />
             <MinecraftLabel>
-              {minecraftData.vanilla.onlinePlayers}
+              {minecraftData.vanilla.players.online}
             </MinecraftLabel>
           </MinecraftContainer>
         )}
@@ -118,7 +122,7 @@ function Navbar() {
               }}
             />
             <MinecraftLabel>
-              {minecraftData.modded.onlinePlayers}
+              {minecraftData.modded.players.online}
             </MinecraftLabel>
           </MinecraftContainer>
         )}

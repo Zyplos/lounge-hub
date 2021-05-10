@@ -1,7 +1,8 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import MinecraftContext from "./internals/MinecraftContext";
 import useSWR from "swr";
+import Wiki from "./pages/WikiRouter";
 
 function App() {
   const { data: minecraftData, minecraftError } = useSWR(
@@ -11,32 +12,14 @@ function App() {
     }
   );
   return (
-    <BrowserRouter>
+    <div>
       <MinecraftContext.Provider value={minecraftError || minecraftData}>
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/wiki/servers">
-            <h1>wiki servers</h1>
-          </Route>
-          <Route exact path="/wiki/crafting-recipes">
-            <h1>wiki crafting</h1>
-          </Route>
-          <Route exact path="/wiki/gameplay">
-            <h1>wiki gamneplay</h1>
-          </Route>
-          <Route exact path="/wiki/mobs">
-            <h1>wiki mobs</h1>
-          </Route>
-          <Route exact path="/wiki/the-aether">
-            <h1>wiki aether</h1>
-          </Route>
-          <Route exact path="/wiki/the-deep-dark">
-            <h1>wiki deep dark</h1>
-          </Route>
-          <Route exact path="/wiki">
-            <h1>wiki home</h1>
+          <Route path="/wiki">
+            <Wiki />
           </Route>
 
           <Route path="*">
@@ -44,7 +27,7 @@ function App() {
           </Route>
         </Switch>
       </MinecraftContext.Provider>
-    </BrowserRouter>
+    </div>
   );
 }
 
