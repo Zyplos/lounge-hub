@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import Home from "./pages/Home";
+import Home from "./pages/Home";
 import MinecraftContext from "./internals/MinecraftContext";
 import useSWR from "swr";
 
@@ -15,7 +15,7 @@ function App() {
       <MinecraftContext.Provider value={minecraftError || minecraftData}>
         <Switch>
           <Route exact path="/">
-            <h1>home</h1>
+            <Home />
           </Route>
           <Route exact path="/wiki/servers">
             <h1>wiki servers</h1>

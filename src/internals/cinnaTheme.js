@@ -42,7 +42,9 @@ const theme = {
     modes: {
       dark: {
         text: "#fff",
-        background: "#212020",
+        background: "#383332",
+        backgroundSecondary: "#212020",
+        backgroundTertiary: "#332E30",
         darkGray: "#000",
         muted: "#717171",
         cardBg: "#4a403e",
@@ -92,6 +94,7 @@ const theme = {
   },
   styles: {
     root: {
+      color: "red",
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",

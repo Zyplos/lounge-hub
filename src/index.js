@@ -10,6 +10,7 @@ import theme from "./internals/cinnaTheme";
 
 import App from "./App";
 import "./index.css";
+
 require("@south-paw/typeface-minecraft");
 
 ReactDOM.render(
