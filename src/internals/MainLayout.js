@@ -27,6 +27,7 @@ function MainLayout(props) {
         sx={{
           flexGrow: "1",
           p: 4,
+          pb: [4, 6],
         }}
       >
         {props.children}

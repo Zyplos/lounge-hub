@@ -5,8 +5,8 @@ import WikiCard from "../../components/WikiCard";
 
 import craftingTable from "../../assets/crafting-table.png";
 import glowstone from "../../assets/glowstone.png";
-import zombieHead from "../../assets/zombie-head.png";
-import stone from "../../assets/stone.png";
+// import zombieHead from "../../assets/zombie-head.png";
+import grassBlock from "../../assets/grass-block.png";
 import commandBlock from "../../assets/command-block.png";
 import jigsawBlock from "../../assets/jigsaw-block.png";
 // import endPortal from "../../assets/end-portal-frame-filled.png";
@@ -32,12 +32,11 @@ function WikiHome() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: ["center", "start"],
+            fontFamily: "Minecraft, monospace",
           }}
         >
-          <Text sx={{ fontSize: [2, 3] }}>welcome to zy & co.'s</Text>
-          <Text sx={{ fontSize: [5, 6], fontFamily: "Minecraft, monospace" }}>
-            Server Wiki
-          </Text>
+          <Text sx={{ fontSize: [2, 3] }}>the lounge SMP's</Text>
+          <Text sx={{ fontSize: [5, 6] }}>Server Wiki</Text>
         </div>
         <WikiCard
           link="/wiki/changelog"
@@ -61,11 +60,11 @@ function WikiHome() {
           description="A few quality of life changes to Vanilla."
         />
         <WikiCard
-          link="/wiki/mobs"
-          image={zombieHead}
-          gradient={{ left: "#b0e83f", right: "#2c4002" }}
-          heading="Mobs"
-          description="They've been changed a bit."
+          link="/wiki/land-claiming"
+          image={grassBlock}
+          gradient={{ left: "#67be51", right: "#267712" }}
+          heading="Land Claiming"
+          description="Claim land for your community."
         />
         <WikiCard
           link="/wiki/the-aether"
@@ -73,13 +72,6 @@ function WikiHome() {
           gradient={{ left: "#72EDF2", right: "#5151E5" }}
           heading="The Aether"
           description="Travel into the sky dimension!"
-        />
-        <WikiCard
-          link="/wiki/the-deeper-dark"
-          image={stone}
-          gradient={{ left: "#414345", right: "#232526" }}
-          heading="The Deeper Dark"
-          description="The most valuable wasteland."
         />
       </Grid>
     </React.Fragment>

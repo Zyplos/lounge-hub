@@ -12,6 +12,7 @@ function WikiCard({ link, image, gradient, heading, description }) {
         sx={{
           flexDirection: "row",
           background: `linear-gradient( 135deg, ${gradient.left} 10%, ${gradient.right} 100%)`,
+          // backgroundColor: gradient.right,
           px: 4,
           py: 3,
           alignItems: "center",

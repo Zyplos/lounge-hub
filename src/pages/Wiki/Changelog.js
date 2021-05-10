@@ -1,5 +1,10 @@
 /** @jsxImportSource @theme-ui/core */
 import { Heading, Grid, Text, Badge, Divider } from "@theme-ui/components";
+import SmallCardGrid from "../../components/SmallCardGrid";
+
+const SmallerCardGrid = ({ ...props }) => (
+  <SmallCardGrid width="200px" {...props} />
+);
 
 function Changelog() {
   return (
@@ -7,17 +12,7 @@ function Changelog() {
       <Heading as="h1">Server History</Heading>
       <Divider />
       <Heading>Vanilla Minecraft</Heading>
-      <Grid
-        sx={{
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr) )",
-          gridAutoRows: "1fr",
-          "& > div": {
-            bg: "cardBg",
-            p: 3,
-            borderRadius: "10px",
-          },
-        }}
-      >
+      <SmallerCardGrid>
         <div>
           <Heading>
             Season 4 <Badge>Current</Badge>
@@ -36,20 +31,10 @@ function Changelog() {
           <Heading>Season 1</Heading>
           <Text>1.13</Text>
         </div>
-      </Grid>
+      </SmallerCardGrid>
 
       <Heading>Modded Minecraft</Heading>
-      <Grid
-        sx={{
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr) )",
-          gridAutoRows: "1fr",
-          "& > div": {
-            bg: "cardBg",
-            p: 3,
-            borderRadius: "10px",
-          },
-        }}
-      >
+      <SmallerCardGrid>
         <div>
           <Heading>Season 7</Heading>
           <Text>Vanilla & Sprinkles</Text>
@@ -78,20 +63,10 @@ function Changelog() {
           <Heading>Season 1</Heading>
           <Text>zy & co.'s modpack</Text>
         </div>
-      </Grid>
+      </SmallerCardGrid>
 
       <Heading>Terraria</Heading>
-      <Grid
-        sx={{
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr) )",
-          gridAutoRows: "1fr",
-          "& > div": {
-            bg: "cardBg",
-            p: 3,
-            borderRadius: "10px",
-          },
-        }}
-      >
+      <SmallerCardGrid>
         <div>
           <Heading>Season 2</Heading>
           <Text>Journey's End</Text>
@@ -100,7 +75,7 @@ function Changelog() {
           <Heading>Season 1</Heading>
           <Text>1.3</Text>
         </div>
-      </Grid>
+      </SmallerCardGrid>
     </Grid>
   );
 }
