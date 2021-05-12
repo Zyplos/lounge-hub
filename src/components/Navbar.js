@@ -34,6 +34,34 @@ const MinecraftLabel = ({ ...props }) => (
   />
 );
 
+const NavMinecraftItem = ({ image, name, playerAmount }) => {
+  return (
+    <MinecraftContainer>
+      <img
+        src={image}
+        alt={name}
+        sx={{
+          width: "32px",
+        }}
+      />
+      <MinecraftLabel>{playerAmount}</MinecraftLabel>
+    </MinecraftContainer>
+  );
+};
+
+const NavDivider = () => {
+  return (
+    <div
+      sx={{
+        margin: (theme) => `${theme.space[1]}px 0px`,
+        width: "100%",
+        background: (theme) => theme.colors.background,
+        height: "3px",
+      }}
+    ></div>
+  );
+};
+
 function Navbar() {
   const minecraftData = useContext(MinecraftContext);
   return (
@@ -81,14 +109,8 @@ function Navbar() {
             <img src={emblem} width="48px" alt="emblem" />
           </Link>
         </div>
-        <div
-          sx={{
-            margin: (theme) => `${theme.space[1]}px 0px`,
-            width: "100%",
-            background: (theme) => theme.colors.background,
-            height: "3px",
-          }}
-        ></div>
+
+        <NavDivider />
 
         <Link to={`/`}>
           <HomeIcon sx={{ width: "32px" }} />
@@ -98,33 +120,23 @@ function Navbar() {
           <WikiIcon sx={{ width: "32px" }} />
         </Link>
 
+        {minecraftData && (minecraftData.vanilla || minecraftData.modded) && (
+          <NavDivider />
+        )}
+
         {minecraftData && minecraftData.vanilla && (
-          <MinecraftContainer>
-            <img
-              src={playerHead}
-              alt="Server Status"
-              sx={{
-                width: "32px",
-              }}
-            />
-            <MinecraftLabel>
-              {minecraftData.vanilla.players.online}
-            </MinecraftLabel>
-          </MinecraftContainer>
+          <NavMinecraftItem
+            image={playerHead}
+            name="Vanilla Server Status"
+            playerAmount={minecraftData.vanilla.players.online}
+          />
         )}
         {minecraftData && minecraftData.modded && (
-          <MinecraftContainer>
-            <img
-              src={computerHead}
-              alt="Server Status"
-              sx={{
-                width: "32px",
-              }}
-            />
-            <MinecraftLabel>
-              {minecraftData.modded.players.online}
-            </MinecraftLabel>
-          </MinecraftContainer>
+          <NavMinecraftItem
+            image={computerHead}
+            name="Modded Server Status"
+            playerAmount={minecraftData.modded.players.online}
+          />
         )}
       </Grid>
     </div>
