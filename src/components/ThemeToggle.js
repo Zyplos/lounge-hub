@@ -1,11 +1,11 @@
-import React from "react";
+/** @jsxImportSource @theme-ui/core */
 import { useColorMode } from "@theme-ui/color-modes";
 import { Button } from "@theme-ui/components";
-export default (props) => {
+function ThemeToggle() {
   const [colorMode, setColorMode] = useColorMode();
   return (
     <Button
-      onClick={(e) => {
+      onClick={() => {
         setColorMode(colorMode === "default" ? "dark" : "default");
       }}
       sx={{
@@ -121,4 +121,6 @@ export default (props) => {
       )}
     </Button>
   );
-};
+}
+
+export default ThemeToggle;

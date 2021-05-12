@@ -1,20 +1,9 @@
-/** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React, { useContext } from "react";
-import { jsx } from "@theme-ui/core";
-import {
-  Box,
-  Grid,
-  Flex,
-  Image,
-  Heading,
-  Avatar,
-  Divider,
-  Text,
-} from "@theme-ui/components";
+/** @jsxImportSource @theme-ui/core */
+import { useContext } from "react";
+import { Grid } from "@theme-ui/components";
 import { Link } from "react-router-dom";
 
-import ThemeToggle from "../components/ThemeToggle";
+// import ThemeToggle from "../components/ThemeToggle";
 import MinecraftContext from "../internals/MinecraftContext";
 
 import emblem from "../assets/emblem.png";
@@ -22,14 +11,65 @@ import { ReactComponent as HomeIcon } from "../assets/home-icon.svg";
 import { ReactComponent as WikiIcon } from "../assets/wiki-icon.svg";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
+import ThemeToggle from "./ThemeToggle";
 
-export default () => {
+const MinecraftContainer = ({ ...props }) => (
+  <div
+    {...props}
+    sx={{
+      fontFamily: "Minecraft, monospace",
+      position: "relative",
+    }}
+  />
+);
+
+const MinecraftLabel = ({ ...props }) => (
+  <div
+    {...props}
+    sx={{
+      color: "white",
+      position: "absolute",
+      bottom: "-3px",
+      right: "-3px",
+    }}
+  />
+);
+
+const NavMinecraftItem = ({ image, name, playerAmount }) => {
+  return (
+    <MinecraftContainer>
+      <img
+        src={image}
+        alt={name}
+        sx={{
+          width: "32px",
+        }}
+      />
+      <MinecraftLabel>{playerAmount}</MinecraftLabel>
+    </MinecraftContainer>
+  );
+};
+
+const NavDivider = () => {
+  return (
+    <div
+      sx={{
+        margin: (theme) => `${theme.space[1]}px 0px`,
+        width: "100%",
+        background: (theme) => theme.colors.backgroundTertiary,
+        height: "3px",
+      }}
+    ></div>
+  );
+};
+
+function Navbar() {
   const minecraftData = useContext(MinecraftContext);
   return (
-    <Box
-      color="white"
-      bg="darkGray"
+    <div
       sx={{
+        backgroundColor: "backgroundSecondary",
+        padding: 4,
         overflowY: "scroll",
         scrollbarWidth: "thin",
         scrollbarColor: "green orange",
@@ -37,15 +77,29 @@ export default () => {
           width: "1px",
         },
         "::-webkit-scrollbar-track": {
-          background: (theme) => theme.colors.darkGrayAccent,
+          background: "backgroundTertiary",
         },
         "::-webkit-scrollbar-thumb": {
-          backgroundColor: (theme) => theme.colors.primary,
+          backgroundColor: "primary",
         },
       }}
     >
-      <Grid sx={{ justifyItems: "center" }}>
-        <Flex>
+      <div
+        id="nav-toggle"
+        sx={{
+          position: "absolute",
+          bottom: 30,
+          right: 30,
+          fontSize: 5,
+          padding: 3,
+          backgroundColor: "cardBg",
+          display: "none",
+        }}
+      >
+        ≡
+      </div>
+      <Grid gap={4} sx={{ justifyItems: "center" }}>
+        <div sx={{ display: "flex" }}>
           <Link
             to="/"
             sx={{
@@ -53,76 +107,43 @@ export default () => {
               alignSelf: "center",
             }}
           >
-            <Image src={emblem} width="50px" />
+            <img src={emblem} width="48px" alt="emblem" />
           </Link>
-        </Flex>
-        <div sx={{ my: 1, width: "100%", bg: "gray", height: "1px" }}></div>
-        <Grid>
-          <Link to={`/`}>
-            <HomeIcon sx={{ width: "32px" }} />
-          </Link>
+        </div>
 
-          <Link to={`/wiki`}>
-            <WikiIcon sx={{ width: "32px" }} />
-          </Link>
+        <NavDivider />
 
-          {/* <img src={playerHead} alt="Server Count" sx={{ width: "32px" }} /> */}
+        <Link to={`/`}>
+          <HomeIcon sx={{ width: "32px" }} />
+        </Link>
 
-          {minecraftData &&
-            minecraftData.vanilla &&
-            minecraftData.vanilla.players && (
-              <div
-                sx={{ fontFamily: "Minecraft,monospace", position: "relative" }}
-              >
-                <img
-                  src={playerHead}
-                  alt="Server Status"
-                  sx={{
-                    width: "32px",
-                  }}
-                />
-                <Text
-                  sx={{
-                    color: "white",
-                    position: "absolute",
-                    bottom: "-4px",
-                    right: "4px",
-                  }}
-                >
-                  {minecraftData.vanilla.players.online}
-                </Text>
-              </div>
-            )}
-          {minecraftData &&
-            minecraftData.modded &&
-            minecraftData.modded.players && (
-              <div
-                sx={{ fontFamily: "Minecraft,monospace", position: "relative" }}
-              >
-                <img
-                  src={computerHead}
-                  alt="Server Status"
-                  sx={{
-                    width: "32px",
-                  }}
-                />
-                <Text
-                  sx={{
-                    color: "white",
-                    position: "absolute",
-                    bottom: "-4px",
-                    right: "4px",
-                  }}
-                >
-                  {minecraftData.modded.players.online}
-                </Text>
-              </div>
-            )}
-          <span sx={{ mt: 4 }}>
-            <ThemeToggle />
-          </span>
-        </Grid>
+        <Link to={`/wiki`}>
+          <WikiIcon sx={{ width: "32px" }} />
+        </Link>
+
+        <ThemeToggle />
+
+        {minecraftData && (minecraftData.vanilla || minecraftData.modded) && (
+          <NavDivider />
+        )}
+
+        {minecraftData && minecraftData.vanilla && (
+          <NavMinecraftItem
+            image={playerHead}
+            name="Vanilla Server Status"
+            playerAmount={minecraftData.vanilla.players.online}
+          />
+        )}
+        {minecraftData && minecraftData.modded && (
+          <NavMinecraftItem
+            image={computerHead}
+            name="Modded Server Status"
+            playerAmount={minecraftData.modded.players.online}
+          />
+        )}
       </Grid>
-    </Box>
+    </div>
   );
-};
+}
+
+export default Navbar;

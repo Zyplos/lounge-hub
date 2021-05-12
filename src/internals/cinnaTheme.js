@@ -1,9 +1,8 @@
-export default {
+const theme = {
   breakpoints: ["40em", "52em", "64em"],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
-    body:
-      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+    body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
     heading: "inherit",
     monospace: "Menlo, monospace",
   },
@@ -31,6 +30,8 @@ export default {
   colors: {
     text: "#000",
     background: "#fff",
+    backgroundSecondary: "#302F2F",
+    backgroundTertiary: "#222222",
     primary: "#ff3e3e",
     secondary: "#ffde00",
     muted: "#808080",
@@ -42,9 +43,11 @@ export default {
     modes: {
       dark: {
         text: "#fff",
-        background: "#212020",
+        background: "#383332",
+        backgroundSecondary: "#212020",
+        backgroundTertiary: "#332E30",
         darkGray: "#000",
-        muted: "#717171",
+        muted: "#8e8e8e",
         cardBg: "#4a403e",
       },
     },
@@ -92,6 +95,7 @@ export default {
   },
   styles: {
     root: {
+      color: "red",
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",
@@ -146,3 +150,5 @@ export default {
     },
   },
 };
+
+export default theme;

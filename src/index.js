@@ -1,15 +1,17 @@
+/** @jsxImportSource @theme-ui/core */
 import React from "react";
 import ReactDOM from "react-dom";
 import { SWRConfig } from "swr";
-import { ColorModeProvider } from "@theme-ui/color-modes";
-import fetch from "node-fetch";
-
 import { ThemeProvider } from "@theme-ui/core";
-import theme from "./styles/defaultTheme";
+import { ColorModeProvider } from "@theme-ui/color-modes";
+import fetch from "cross-fetch";
+import { BrowserRouter } from "react-router-dom";
 
-import "./index.css";
+import theme from "./internals/cinnaTheme";
+
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+import "./index.css";
+
 require("@south-paw/typeface-minecraft");
 
 ReactDOM.render(
@@ -21,15 +23,12 @@ ReactDOM.render(
     >
       <ThemeProvider theme={theme}>
         <ColorModeProvider>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </ColorModeProvider>
       </ThemeProvider>
     </SWRConfig>
   </React.StrictMode>,
   document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

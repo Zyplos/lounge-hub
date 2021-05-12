@@ -1,27 +1,26 @@
-/** @jsx jsx **/
+/** @jsxImportSource @theme-ui/core */
 import React from "react";
 import useSWR from "swr";
-import { jsx } from "@theme-ui/core";
 import { Text, Spinner, Flex, Badge, Grid } from "@theme-ui/components";
 
-import FullScreenBox from "../components/FullScreenBox";
+import FullBox from "./FullBox";
 
-export default () => {
+function DiscordServer() {
   const { data: discordData, error } = useSWR(
     "https://canary.discordapp.com/api/guilds/426394718172086273/widget.json"
   );
   if (error)
     return (
-      <FullScreenBox>
+      <FullBox>
         <Text variant="fullbox">Error getting Discord status.</Text>
         <pre>{JSON.stringify(error, false, 1)}</pre>
-      </FullScreenBox>
+      </FullBox>
     );
   if (!discordData)
     return (
-      <FullScreenBox>
+      <FullBox>
         <Spinner title="Loading Discord Status" size={200} />
-      </FullScreenBox>
+      </FullBox>
     );
   const knownBots = [
     "Metabyte",
@@ -143,9 +142,8 @@ export default () => {
           );
         })}
       </Grid>
-      <Badge sx={{ width: "50px", textAlign: "center" }}>
-        {discordData.members.length} / 42
-      </Badge>
     </React.Fragment>
   );
-};
+}
+
+export default DiscordServer;

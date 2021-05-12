@@ -1,7 +1,6 @@
-/** @jsx jsx **/
-import { jsx } from "@theme-ui/core";
+/** @jsxImportSource @theme-ui/core */
 
-export default (props) => {
+function FullBox(props) {
   return (
     <div
       {...props}
@@ -18,4 +17,6 @@ export default (props) => {
       {props.children}
     </div>
   );
-};
+}
+
+export default FullBox;

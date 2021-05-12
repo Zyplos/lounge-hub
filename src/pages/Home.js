@@ -1,11 +1,9 @@
-/** @jsx jsx **/
-// eslint-disable-next-line no-unused-vars
-import React, { useContext } from "react";
-import { jsx } from "@theme-ui/core";
-import { Heading, Grid, Flex, Alert } from "@theme-ui/components";
+/** @jsxImportSource @theme-ui/core */
+import { useContext } from "react";
+import { Heading, Grid } from "@theme-ui/components";
+import MainLayout from "../internals/MainLayout";
 
-import MainLayout from "../layouts/MainLayout";
-import DiscordServerOverview from "../components/DiscordServerOverview";
+import DiscordServer from "../components/DiscordServer";
 import MinecraftStatus from "../components/MinecraftStatus";
 
 import MinecraftContext from "../internals/MinecraftContext";
@@ -18,20 +16,23 @@ function Home() {
         {minecraftData && (
           <Grid gap={5} columns={[1, 1, 2]}>
             <div>
-              <Heading sx={{ mb: 3 }}>Minecraft • Vanilla</Heading>
-              <MinecraftStatus data={minecraftData.vanilla} ip="mc.zyand.co" />
+              <Heading sx={{ mb: 3 }}>Minecraft • Main Server</Heading>
+              <MinecraftStatus
+                data={minecraftData.vanilla}
+                ip="mc.lounge.haus"
+              />
             </div>
             <div>
-              <Heading sx={{ mb: 3 }}>Minecraft • Enigmatica 2</Heading>
+              <Heading sx={{ mb: 3 }}>Minecraft • Off-season</Heading>
               <MinecraftStatus
                 data={minecraftData.modded}
-                ip="mc.zyand.co:25577"
+                ip="modded.lounge.haus"
               />
             </div>
           </Grid>
         )}
         <Heading sx={{ mt: 4 }}>the lounge</Heading>
-        <DiscordServerOverview />
+        <DiscordServer />
       </Grid>
     </MainLayout>
   );

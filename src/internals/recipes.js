@@ -82,7 +82,7 @@ import strippedDarkOakLog from "../assets/items/stripped_dark_oak_log.png";
 import strippedCrimsonStem from "../assets/items/stripped_crimson_stem.png";
 import strippedWarpedStem from "../assets/items/stripped_warped_stem.png";
 
-export default [
+const recipes = [
   {
     type: "crafting",
     input: [
@@ -722,3 +722,5 @@ export default [
     result: ["Lever", lever],
   },
 ];
+
+export default recipes;

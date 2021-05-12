@@ -1,7 +1,4 @@
-/** @jsx jsx **/
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import { jsx } from "@theme-ui/core";
+/** @jsxImportSource @theme-ui/core */
 import { useColorMode } from "@theme-ui/color-modes";
 
 function MinecraftContainer(props) {

@@ -1,10 +1,9 @@
-/** @jsx jsx **/
-import { jsx } from "@theme-ui/core";
+/** @jsxImportSource @theme-ui/core */
 import { Flex, Text, Alert, Grid } from "@theme-ui/components";
 
 import defaultServerIcon from "../assets/defaultServerIcon.png";
 
-export default (props) => {
+function MinecraftStatus(props) {
   const data = props.data;
 
   console.log(data);
@@ -14,18 +13,30 @@ export default (props) => {
   };
 
   const computedPlural = () => {
-    if (data.players) {
-      if (data.players.online === 1) {
-        return "player";
-      } else {
-        return "players";
-      }
-    }
-    return "players";
+    if (!data.players) return "players";
+
+    return data.players.online === 1 ? "player" : "players";
   };
 
   if (!data || !data.description) {
     return <Alert>This server is currently offline.</Alert>;
+  }
+
+  // sort players so they dont change positions on component refresh
+  if (data.players.online > 0 && data.players.sample) {
+    data.samplePlayers.sort(function (a, b) {
+      var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      // names must be equal
+      return 0;
+    });
   }
 
   return (
@@ -33,7 +44,6 @@ export default (props) => {
       <Flex sx={{ flexDirection: "row" }}>
         <div>
           <img
-            class="server-image mr-4"
             src={data.favicon || defaultServerIcon}
             alt="server icon"
             sx={{ mr: 3 }}
@@ -57,7 +67,7 @@ export default (props) => {
         {computedPlural()} online
         {data.version ? " • " + data.version.name : ""}
       </Text>
-      {data.players.online === 0 && <Alert>No one's online.</Alert>}
+      {data.players.online === 0 && <Text>No one's online at the moment.</Text>}
       {data.players.online > 0 && data.players.sample && (
         <Grid sx={{ gridTemplateColumns: "repeat(5, 1fr)" }}>
           {data.players.sample.map((player, index) => {
@@ -85,4 +95,6 @@ export default (props) => {
       )}
     </Grid>
   );
-};
+}
+
+export default MinecraftStatus;
