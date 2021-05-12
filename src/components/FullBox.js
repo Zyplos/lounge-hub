@@ -1,14 +1,14 @@
 /** @jsxImportSource @theme-ui/core */
 
-function FullBox(props) {
+function FullBox({ useDims, ...props }) {
   return (
     <div
       {...props}
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: props.useDims ? "100vh" : "none",
-        maxHeight: props.useDims ? "100vh" : "none",
+        height: useDims ? "100vh" : "none",
+        maxHeight: useDims ? "100vh" : "none",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
