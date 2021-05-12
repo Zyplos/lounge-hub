@@ -3,12 +3,11 @@ import { useContext } from "react";
 import { Grid } from "@theme-ui/components";
 import { Link } from "react-router-dom";
 
-// import ThemeToggle from "../components/ThemeToggle";
 import MinecraftContext from "../internals/MinecraftContext";
 
 import emblem from "../assets/emblem.png";
-import { ReactComponent as HomeIcon } from "../assets/home-icon.svg";
-import { ReactComponent as WikiIcon } from "../assets/wiki-icon.svg";
+import HomeIcon from "../assets/home-icon.png";
+import WikiIcon from "../assets/wiki-icon.png";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
 import ThemeToggle from "./ThemeToggle";
@@ -114,11 +113,11 @@ function Navbar() {
         <NavDivider />
 
         <Link to={`/`}>
-          <HomeIcon sx={{ width: "32px" }} />
+          <img src={HomeIcon} alt="Home Icon" sx={{ width: "32px" }} />
         </Link>
 
         <Link to={`/wiki`}>
-          <WikiIcon sx={{ width: "32px" }} />
+          <img src={WikiIcon} alt="Wiki Icon" sx={{ width: "32px" }} />
         </Link>
 
         <ThemeToggle />
