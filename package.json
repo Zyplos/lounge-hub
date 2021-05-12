@@ -1,6 +1,8 @@
 {
   "name": "lounge-hub",
   "version": "0.1.0",
+  "author": "Angel (Zyplos)",
+  "repository": "https://github.com/Zyplos/lounge-hub",
   "private": true,
   "dependencies": {
     "@south-paw/typeface-minecraft": "^1.0.0",

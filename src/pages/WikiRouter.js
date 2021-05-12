@@ -3,6 +3,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import MainLayout from "../internals/MainLayout";
 import WikiHome from "./Wiki";
 import Changelog from "./Wiki/Changelog";
+import CraftingRecipes from "./Wiki/CraftingRecipes";
 import Gameplay from "./Wiki/Gameplay";
 import LandClaiming from "./Wiki/LandClaiming";
 import TheAether from "./Wiki/TheAether";
@@ -20,7 +21,7 @@ function Wiki() {
           <Changelog />
         </Route>
         <Route path={`${path}/crafting-recipes`}>
-          <h1>crafting</h1>
+          <CraftingRecipes />
         </Route>
         <Route path={`${path}/gameplay`}>
           <Gameplay />

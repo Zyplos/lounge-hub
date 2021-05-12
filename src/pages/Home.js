@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Heading, Grid } from "@theme-ui/components";
 import MainLayout from "../internals/MainLayout";
 
-import DiscordServerOverview from "../components/DiscordServer";
+import DiscordServer from "../components/DiscordServer";
 import MinecraftStatus from "../components/MinecraftStatus";
 
 import MinecraftContext from "../internals/MinecraftContext";
@@ -32,7 +32,7 @@ function Home() {
           </Grid>
         )}
         <Heading sx={{ mt: 4 }}>the lounge</Heading>
-        <DiscordServerOverview />
+        <DiscordServer />
       </Grid>
     </MainLayout>
   );
