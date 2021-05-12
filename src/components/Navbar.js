@@ -11,6 +11,7 @@ import { ReactComponent as HomeIcon } from "../assets/home-icon.svg";
 import { ReactComponent as WikiIcon } from "../assets/wiki-icon.svg";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
+import ThemeToggle from "./ThemeToggle";
 
 const MinecraftContainer = ({ ...props }) => (
   <div
@@ -55,7 +56,7 @@ const NavDivider = () => {
       sx={{
         margin: (theme) => `${theme.space[1]}px 0px`,
         width: "100%",
-        background: (theme) => theme.colors.background,
+        background: (theme) => theme.colors.backgroundTertiary,
         height: "3px",
       }}
     ></div>
@@ -119,6 +120,8 @@ function Navbar() {
         <Link to={`/wiki`}>
           <WikiIcon sx={{ width: "32px" }} />
         </Link>
+
+        <ThemeToggle />
 
         {minecraftData && (minecraftData.vanilla || minecraftData.modded) && (
           <NavDivider />
