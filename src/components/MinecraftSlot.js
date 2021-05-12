@@ -16,6 +16,33 @@ function MinecraftSlot({ name, image, amount, type = "normal", ...props }) {
     position: "relative",
   };
 
+  const tooltipStyles = {
+    ":before": {
+      content: `'${name}'`,
+      position: "absolute",
+
+      top: "150%",
+      transform: "translateY(-50%)",
+
+      left: "-60%",
+
+      width: "100px",
+      padding: "7px",
+      borderRadius: "7px",
+      border: "3px solid #2f0864",
+      background: "#1a0c1b",
+      color: "#fff",
+      textAlign: "center",
+
+      zIndex: 30,
+
+      display: "none",
+    },
+    ":hover:before": {
+      display: "table",
+    },
+  };
+
   const stonecutterStyles = {
     backgroundColor: "#a09172",
     border: "2px solid #e0ca9f",
@@ -24,9 +51,18 @@ function MinecraftSlot({ name, image, amount, type = "normal", ...props }) {
   };
 
   if (type === "stonecutter") styles = { ...styles, ...stonecutterStyles };
+  if (name) styles = { ...styles, ...tooltipStyles };
 
   return (
-    <span {...props} sx={styles}>
+    <span
+      className="ACTUAL-MINECRAFT-SLOT"
+      {...props}
+      sx={{ ...styles }}
+      // onMouseEnter={() => setIsShown(true)}
+      // onMouseLeave={() => setIsShown(false)}
+    >
+      {/* {name && isShown && <span sx={tooltipStyles}>{name}</span>} */}
+
       {name && image && (
         <img
           src={image}

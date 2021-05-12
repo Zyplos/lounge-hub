@@ -39,7 +39,7 @@ function Furnace({ input, result, type }) {
             <rect x="76.15" width="6.92" height="13.85" />
             <polygon points="90 69.23 90 41.54 83.08 41.54 83.08 27.69 76.15 27.69 76.15 13.85 69.23 13.85 69.23 48.46 76.15 48.46 76.15 62.31 69.23 62.31 69.23 90 76.15 90 83.08 90 90 90 90 83.08 83.08 83.08 83.08 69.23 90 69.23" />
           </svg>
-          <MinecraftSlot image={coalImage} name="Fuel" />
+          <MinecraftSlot image={coalImage} name="Any Fuel" />
         </Grid>
 
         <MinecraftResultArrow />
