@@ -121,9 +121,9 @@ function Navbar() {
           <img src={WikiIcon} alt="Wiki Icon" sx={{ width: "32px" }} />
         </Link>
 
-        <Link to={`/mc/player`}>
+        {/* <Link to={`/mc/player`}>
           <img src={PlayerIcon} alt="Player Icon" sx={{ width: "32px" }} />
-        </Link>
+        </Link> */}
 
         <ThemeToggle />
 
