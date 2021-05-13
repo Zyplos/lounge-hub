@@ -8,6 +8,7 @@ import MinecraftContext from "../internals/MinecraftContext";
 import emblem from "../assets/emblem.png";
 import HomeIcon from "../assets/home-icon.png";
 import WikiIcon from "../assets/wiki-icon.png";
+import PlayerIcon from "../assets/player-icon.png";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
 import ThemeToggle from "./ThemeToggle";
@@ -120,26 +121,35 @@ function Navbar() {
           <img src={WikiIcon} alt="Wiki Icon" sx={{ width: "32px" }} />
         </Link>
 
+        <Link to={`/mc/player`}>
+          <img src={PlayerIcon} alt="Player Icon" sx={{ width: "32px" }} />
+        </Link>
+
         <ThemeToggle />
 
-        {minecraftData && (minecraftData.vanilla || minecraftData.modded) && (
-          <NavDivider />
-        )}
+        {minecraftData &&
+          (minecraftData.vanilla.players || minecraftData.modded.players) && (
+            <NavDivider />
+          )}
 
-        {minecraftData && minecraftData.vanilla && (
-          <NavMinecraftItem
-            image={playerHead}
-            name="Vanilla Server Status"
-            playerAmount={minecraftData.vanilla.players.online}
-          />
-        )}
-        {minecraftData && minecraftData.modded && (
-          <NavMinecraftItem
-            image={computerHead}
-            name="Modded Server Status"
-            playerAmount={minecraftData.modded.players.online}
-          />
-        )}
+        {minecraftData &&
+          minecraftData.vanilla &&
+          minecraftData.vanilla.players && (
+            <NavMinecraftItem
+              image={playerHead}
+              name="Vanilla Server Status"
+              playerAmount={minecraftData.vanilla.players.online}
+            />
+          )}
+        {minecraftData &&
+          minecraftData.modded &&
+          minecraftData.modded.players && (
+            <NavMinecraftItem
+              image={computerHead}
+              name="Modded Server Status"
+              playerAmount={minecraftData.modded.players.online}
+            />
+          )}
       </Grid>
     </div>
   );
