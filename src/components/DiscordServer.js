@@ -9,19 +9,21 @@ function DiscordServer() {
   const { data: discordData, error } = useSWR(
     "https://canary.discordapp.com/api/guilds/426394718172086273/widget.json"
   );
-  if (error)
+  if (error) {
     return (
       <FullBox>
         <Text variant="fullbox">Error getting Discord status.</Text>
         <pre>{JSON.stringify(error, false, 1)}</pre>
       </FullBox>
     );
-  if (!discordData)
+  }
+  if (!discordData) {
     return (
       <FullBox>
         <Spinner title="Loading Discord Status" size={200} />
       </FullBox>
     );
+  }
   const knownBots = [
     "Metabyte",
     "Buggy",

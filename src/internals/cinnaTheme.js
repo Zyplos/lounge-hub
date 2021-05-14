@@ -64,6 +64,12 @@ const theme = {
       fontSize: 7,
       fontFamily: "monospace",
     },
+    display: {
+      // extends the text.heading styles
+      variant: "text.heading",
+      fontSize: [7],
+      fontWeight: "display",
+    },
     italic: {
       fontStyle: "italic",
     },

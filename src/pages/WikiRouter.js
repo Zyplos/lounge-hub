@@ -8,14 +8,14 @@ import {
   useLocation,
 } from "react-router-dom";
 import MainLayout from "../internals/MainLayout";
-import WikiHome from "./Wiki";
-import Changelog from "./Wiki/Changelog";
-import CraftingRecipes from "./Wiki/CraftingRecipes";
-import Gameplay from "./Wiki/Gameplay";
-import LandClaiming from "./Wiki/LandClaiming";
-import TheAether from "./Wiki/TheAether";
+import WikiHome from "./wiki";
+import Changelog from "./wiki/Changelog";
+import CraftingRecipes from "./wiki/CraftingRecipes";
+import Gameplay from "./wiki/Gameplay";
+import LandClaiming from "./wiki/LandClaiming";
+import TheAether from "./wiki/TheAether";
 
-function Wiki() {
+function WikiRouter() {
   let { path } = useRouteMatch();
   let { pathname } = useLocation();
   return (
@@ -55,4 +55,4 @@ function Wiki() {
   );
 }
 
-export default Wiki;
+export default WikiRouter;

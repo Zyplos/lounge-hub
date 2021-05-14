@@ -2,14 +2,15 @@
 
 import Navbar from "../components/Navbar";
 
-function MainLayout(props) {
+function MainLayout({ noPadding, ...props }) {
   return (
     <div
       sx={{
         display: "flex",
         flexDirection: "row",
         alignSelf: "stretch",
-        minHeight: "100vh",
+        maxHeight: "100vh",
+        height: "100vh",
       }}
       id="App"
     >
@@ -26,8 +27,9 @@ function MainLayout(props) {
       <article
         sx={{
           flexGrow: "1",
-          p: 4,
-          pb: [4, 6],
+          p: noPadding ? 0 : 4,
+          pb: noPadding ? 0 : [4, 6],
+          overflowY: "scroll",
         }}
       >
         {props.children}

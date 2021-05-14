@@ -2,7 +2,8 @@ import { Switch, Route, useLocation, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import MinecraftContext from "./internals/MinecraftContext";
 import useSWR from "swr";
-import Wiki from "./pages/WikiRouter";
+import WikiRouter from "./pages/WikiRouter";
+import MCRouter from "./pages/MCRouter";
 import FullBox from "./components/FullBox";
 import { Button, Grid, Heading, Text } from "@theme-ui/components";
 
@@ -22,7 +23,10 @@ function App() {
             <Home />
           </Route>
           <Route path="/wiki">
-            <Wiki />
+            <WikiRouter />
+          </Route>
+          <Route path="/mc">
+            <MCRouter />
           </Route>
 
           <Route path="*">
