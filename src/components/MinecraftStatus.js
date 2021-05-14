@@ -6,8 +6,6 @@ import defaultServerIcon from "../assets/defaultServerIcon.png";
 function MinecraftStatus(props) {
   const data = props.data;
 
-  console.log(data);
-
   const getPlayerImage = (uuid) => {
     return `https://crafatar.com/avatars/${uuid}?size=64&default=MHF_Steve&overlay`;
   };
@@ -24,7 +22,7 @@ function MinecraftStatus(props) {
 
   // sort players so they dont change positions on component refresh
   if (data.players.online > 0 && data.players.sample) {
-    data.samplePlayers.sort(function (a, b) {
+    data.players.sample.sort(function (a, b) {
       var nameA = a.name.toUpperCase(); // ignore upper and lowercase
       var nameB = b.name.toUpperCase(); // ignore upper and lowercase
       if (nameA < nameB) {
