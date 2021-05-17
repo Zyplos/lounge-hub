@@ -9,6 +9,7 @@ import emblem from "../assets/emblem.png";
 import HomeIcon from "../assets/home-icon.png";
 import WikiIcon from "../assets/wiki-icon.png";
 import PlayerIcon from "../assets/player-icon.png";
+import { ReactComponent as DimensionIcon } from "../assets/dimension-icon.svg";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
 import ThemeToggle from "./ThemeToggle";
@@ -72,7 +73,7 @@ function Navbar() {
         padding: 4,
         overflowY: "scroll",
         scrollbarWidth: "thin",
-        scrollbarColor: "green orange",
+        scrollbarColor: "#ff3e3e #242424",
         "::-webkit-scrollbar": {
           width: "1px",
         },
@@ -121,9 +122,15 @@ function Navbar() {
           <img src={WikiIcon} alt="Wiki Icon" sx={{ width: "32px" }} />
         </Link>
 
-        {/* <Link to={`/mc/player`}>
+        <Link to={`/mc`}>
+          <DimensionIcon
+            sx={{ width: "32px", height: "32px", fill: "white" }}
+          />
+        </Link>
+
+        <Link to={`/mc/player`}>
           <img src={PlayerIcon} alt="Player Icon" sx={{ width: "32px" }} />
-        </Link> */}
+        </Link>
 
         <ThemeToggle />
 

@@ -7,6 +7,9 @@ const theme = {
     monospace: "Menlo, monospace",
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
+  sizes: {
+    container: "85%",
+  },
   radii: {
     borderRadius: 0,
     borderTopRightRadius: 0,

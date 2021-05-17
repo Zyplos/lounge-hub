@@ -29,7 +29,7 @@ function MainLayout({ noPadding, ...props }) {
           flexGrow: "1",
           p: noPadding ? 0 : 4,
           pb: noPadding ? 0 : [4, 6],
-          overflowY: "scroll",
+          overflowY: "auto",
         }}
       >
         {props.children}
