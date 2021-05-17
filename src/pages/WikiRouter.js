@@ -8,7 +8,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import MainLayout from "../internals/MainLayout";
-import WikiHome from "./wiki";
+import WikiHome from "./wiki/index";
 import Changelog from "./wiki/Changelog";
 import CraftingRecipes from "./wiki/CraftingRecipes";
 import Gameplay from "./wiki/Gameplay";
