@@ -171,7 +171,7 @@ function Player() {
     >
       <div
         sx={{
-          overflowY: "scroll",
+          overflowY: "auto",
           "::-webkit-scrollbar": {
             width: "5px",
           },
@@ -251,26 +251,34 @@ function Player() {
           </div>
         </Box>
         <Grid p={4}>
-          <Button
-            onClick={() =>
-              updateMapFrameHome(
-                player.home_x,
-                player.home_y,
-                player.home_z,
-                DimensionInternalNameMap[player.home_dimension]
-              )
-            }
-            p={0}
-            bg="transparent"
-            sx={{ textAlign: "left", cursor: "pointer" }}
-          >
-            <ChunkCard
-              x={player.home_x}
-              y={player.home_y}
-              z={player.home_z}
-              dimension="home"
-            />
-          </Button>
+          {player.home_x &&
+            player.home_y &&
+            player.home_z &&
+            player.home_dimension && (
+              <Button
+                onClick={() =>
+                  updateMapFrameHome(
+                    player.home_x,
+                    player.home_y,
+                    player.home_z,
+                    DimensionInternalNameMap[player.home_dimension]
+                  )
+                }
+                p={0}
+                bg="transparent"
+                sx={{ textAlign: "left", cursor: "pointer" }}
+              >
+                <ChunkCard
+                  x={player.home_x}
+                  y={player.home_y}
+                  z={player.home_z}
+                  dimension="home"
+                />
+              </Button>
+            )}
+          {chunkData.data.length === 0 && (
+            <Text>This player has not claimed any chunks yet.</Text>
+          )}
           {chunkData.data.map((chunk, index) => {
             return (
               <Button
