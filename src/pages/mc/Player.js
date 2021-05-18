@@ -27,10 +27,7 @@ import {
   DimensionInternalNameMap,
 } from "../../internals/Utils";
 
-const mapUrlBase =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:8100"
-    : "http://mc.lounge.haus:8100";
+const mapUrlBase = "https://mc.lounge.haus";
 
 const ChunkCard = ({ x, z, y, dimension, claimed_on }) => {
   const isHome = dimension === "home";
