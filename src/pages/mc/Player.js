@@ -13,23 +13,27 @@ import { useParams } from "react-router";
 import useSWR from "swr";
 import FullBox from "../../components/FullBox";
 import PortraitTest from "../../assets/portrait.png";
-import emblem from "../../assets/community/emblem.png";
-import peggrune from "../../assets/community/peggrune.png";
 import { ReactComponent as CalendarIcon } from "../../assets/calendar-icon.svg";
 import { ReactComponent as CommunityIcon } from "../../assets/community-icon.svg";
 import { ReactComponent as DimensionIcon } from "../../assets/dimension-icon.svg";
 import { ReactComponent as HomeIcon } from "../../assets/home-icon.svg";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Children, useEffect, useState } from "react";
+import {
+  CommunityIdMap,
+  CommunityColorMap,
+  DimensionColorMap,
+  DimensionNameMap,
+  DimensionInternalNameMap,
+} from "../../internals/Utils";
 
 const mapUrlBase =
   process.env.NODE_ENV === "development"
     ? "http://localhost:8100"
     : "http://mc.lounge.haus:8100";
 
-const ChunkCard = ({ x, z, dimension, claimed_on }) => {
-  const dimensionName = "The Overworld";
-  const dimensionColor = "#41BC49";
+const ChunkCard = ({ x, z, y, dimension, claimed_on }) => {
+  const isHome = dimension === "home";
   return (
     <div
       sx={{
@@ -42,23 +46,37 @@ const ChunkCard = ({ x, z, dimension, claimed_on }) => {
     >
       <div
         sx={{
-          backgroundColor: dimensionColor,
-          borderRadius: "10px",
-          p: 2,
           mr: 3,
         }}
       >
-        {dimension === "home" ? (
+        {isHome ? (
           <HomeIcon fill="white" />
         ) : (
-          <DimensionIcon fill="white" />
+          <DimensionIcon fill={DimensionColorMap[dimension]} />
         )}
       </div>
       <Grid>
         <Text sx={{ variant: "text.heading", fontSize: 3 }}>
-          ({x}, {z})
+          {isHome ? "Home" : `(${x}, ${z})`}
         </Text>
-        <Text>Claimed on {claimed_on.toDateString()}</Text>
+        {isHome ? (
+          <Text>
+            Set at {x}, {y}, {z}
+          </Text>
+        ) : (
+          // /tp Zyplos 474.43 63.00 396.33 321.99 -14.24
+          // 474:63:396:50:321.99:-14.24
+          // http://localhost:8100/#world:474:59:396:5:321:1.4:0:0:free
+          <Text>
+            Claimed{" "}
+            {claimed_on.toLocaleDateString("en-US", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </Text>
+        )}
       </Grid>
     </div>
   );
@@ -87,8 +105,9 @@ function Player() {
   if (!uuid) {
     return (
       <h1>
-        no uuid{" "}
-        <Link to="player/3dd5724c1bf54749b6332c04f3962b2e">test profile</Link>
+        no uuid <Link to="player/3dd5724c1bf54749b6332c04f3962b2e">CID 1</Link>
+        <Link to="player/b24ec2cb47b74337a3713be527ac71ec">CID 2</Link>
+        <Link to="player/3709f893520544b6996bd583e1966716">CID 3</Link>
       </h1>
     );
   }
@@ -123,15 +142,23 @@ function Player() {
     );
   }
 
-  function updateMapFrame(x, z) {
+  function updateMapFrame(x, z, dimension) {
     const newCoords = findChunkCenter(x, z);
     setMapUrl(
-      `${mapUrlBase}/#world:${newCoords.x}:${newCoords.y}:${newCoords.z}:30:0:0:0:0:perspective`
+      `${mapUrlBase}/#${dimension}:${newCoords.x}:${newCoords.y}:${newCoords.z}:30:0:0:0:0:perspective`
+    );
+  }
+  function updateMapFrameHome(x, y, z, dimension) {
+    setMapUrl(
+      `${mapUrlBase}/#${dimension}:${x}:${y}:${z}:5:0:1.4:0:0:perspective`
     );
   }
 
   const player = playerData.data[0];
   const joinDate = new Date(player.joined);
+
+  const communityName = CommunityIdMap[player.community_id];
+  const communityColor = CommunityColorMap[player.community_id];
 
   return (
     <Grid
@@ -156,7 +183,11 @@ function Player() {
           },
         }}
       >
-        <Box color="white" bg="#ff3e3e" sx={{ position: "sticky", top: 0 }}>
+        <Box
+          color="white"
+          bg={communityColor}
+          sx={{ position: "sticky", top: 0 }}
+        >
           <div
             sx={{
               height: "125px",
@@ -167,7 +198,7 @@ function Player() {
             }}
           >
             <img
-              src={PortraitTest}
+              src={`https://visage.surgeplay.com/full/320/${player.player_id}`}
               alt={`${player.name}'s portrait`}
               sx={{ height: "320px", alignSelf: "flex-start", mr: 2 }}
             ></img>
@@ -177,7 +208,7 @@ function Player() {
               }}
             >
               <Heading as="h1" sx={{ fontSize: 4 }}>
-                Zyplos
+                {player.name}
               </Heading>
               <Text>
                 <CommunityIcon
@@ -189,7 +220,7 @@ function Player() {
                     mr: 2,
                   }}
                 />
-                the lounge
+                {communityName}
               </Text>
               <Text>
                 <CalendarIcon
@@ -201,11 +232,11 @@ function Player() {
                     mr: 2,
                   }}
                 />
-                Joined on {joinDate.toDateString()}
+                Joined on {joinDate.toLocaleDateString("en-US")}
               </Text>
 
               <img
-                src={emblem}
+                src={`/static-assets/community/${player.community_id}.png`}
                 alt="community watermark"
                 sx={{
                   position: "absolute",
@@ -220,20 +251,45 @@ function Player() {
           </div>
         </Box>
         <Grid p={4}>
-          <ChunkCard x={1} z={37} dimension="home" claimed_on={new Date()} />
+          <Button
+            onClick={() =>
+              updateMapFrameHome(
+                player.home_x,
+                player.home_y,
+                player.home_z,
+                DimensionInternalNameMap[player.home_dimension]
+              )
+            }
+            p={0}
+            bg="transparent"
+            sx={{ textAlign: "left", cursor: "pointer" }}
+          >
+            <ChunkCard
+              x={player.home_x}
+              y={player.home_y}
+              z={player.home_z}
+              dimension="home"
+            />
+          </Button>
           {chunkData.data.map((chunk, index) => {
             return (
               <Button
-                onClick={() => updateMapFrame(chunk.x, chunk.z)}
+                onClick={() =>
+                  updateMapFrame(
+                    chunk.x,
+                    chunk.z,
+                    DimensionInternalNameMap[chunk.dimension]
+                  )
+                }
+                key={index}
                 p={0}
                 bg="transparent"
                 sx={{ textAlign: "left", cursor: "pointer" }}
               >
                 <ChunkCard
-                  key={index}
                   x={chunk.x}
                   z={chunk.z}
-                  dimension="The Overworld"
+                  dimension={chunk.dimension}
                   claimed_on={new Date()}
                 />
               </Button>

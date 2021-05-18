@@ -9,7 +9,7 @@ import emblem from "../assets/emblem.png";
 import HomeIcon from "../assets/home-icon.png";
 import WikiIcon from "../assets/wiki-icon.png";
 import PlayerIcon from "../assets/player-icon.png";
-import { ReactComponent as DimensionIcon } from "../assets/dimension-icon.svg";
+import { ReactComponent as BlockIcon } from "../assets/block-icon.svg";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
 import ThemeToggle from "./ThemeToggle";
@@ -123,9 +123,7 @@ function Navbar() {
         </Link>
 
         <Link to={`/mc`}>
-          <DimensionIcon
-            sx={{ width: "32px", height: "32px", fill: "white" }}
-          />
+          <BlockIcon sx={{ width: "32px", height: "32px", fill: "white" }} />
         </Link>
 
         <Link to={`/mc/player`}>

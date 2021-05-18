@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
     .then((connection) => {
       connection
         .execute(
-          "SELECT BIN_TO_UUID(player_id) AS player_id, name, joined FROM players WHERE player_id=UUID_TO_BIN(?)",
+          "SELECT BIN_TO_UUID(player_id) AS player_id, name, joined, community_id, home_x, home_y, home_z, BIN_TO_UUID(home_dimension) AS home_dimension FROM players WHERE player_id=UUID_TO_BIN(?)",
           [uuid]
         )
         .then(([rows, fields]) => {
