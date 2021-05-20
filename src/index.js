@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { SWRConfig } from "swr";
-import { ThemeProvider } from "@theme-ui/core";
+import { ThemeProvider } from "@theme-ui/theme-provider";
 import { ColorModeProvider } from "@theme-ui/color-modes";
 import fetch from "cross-fetch";
 import { BrowserRouter } from "react-router-dom";
