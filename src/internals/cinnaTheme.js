@@ -104,7 +104,6 @@ const theme = {
   },
   styles: {
     root: {
-      color: "red",
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",

@@ -14,6 +14,7 @@ function MinecraftSlot({ name, image, amount, type = "normal", ...props }) {
     borderRightColor: colorMode === "dark" ? "#585858" : "#FFF",
     borderBottomColor: colorMode === "dark" ? "#585858" : "#FFF",
     position: "relative",
+    boxSizing: "content-box",
   };
 
   const tooltipStyles = {

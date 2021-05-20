@@ -2,8 +2,6 @@
 import {
   Box,
   Button,
-  Container,
-  Flex,
   Grid,
   Heading,
   Spinner,
@@ -12,22 +10,23 @@ import {
 import { useParams } from "react-router";
 import useSWR from "swr";
 import FullBox from "../../components/FullBox";
-import PortraitTest from "../../assets/portrait.png";
 import { ReactComponent as CalendarIcon } from "../../assets/calendar-icon.svg";
 import { ReactComponent as CommunityIcon } from "../../assets/community-icon.svg";
 import { ReactComponent as DimensionIcon } from "../../assets/dimension-icon.svg";
 import { ReactComponent as HomeIcon } from "../../assets/home-icon.svg";
 import { Link } from "react-router-dom";
-import { Children, useEffect, useState } from "react";
+import { useState } from "react";
 import {
   CommunityIdMap,
   CommunityColorMap,
   DimensionColorMap,
-  DimensionNameMap,
   DimensionInternalNameMap,
 } from "../../internals/Utils";
 
-const mapUrlBase = "https://mc.lounge.haus";
+const mapUrlBase =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8100"
+    : "https://mc.lounge.haus";
 
 const ChunkCard = ({ x, z, y, dimension, claimed_on }) => {
   const isHome = dimension === "home";
@@ -61,9 +60,6 @@ const ChunkCard = ({ x, z, y, dimension, claimed_on }) => {
             Set at {x}, {y}, {z}
           </Text>
         ) : (
-          // /tp Zyplos 474.43 63.00 396.33 321.99 -14.24
-          // 474:63:396:50:321.99:-14.24
-          // http://localhost:8100/#world:474:59:396:5:321:1.4:0:0:free
           <Text>
             Claimed{" "}
             {claimed_on.toLocaleDateString("en-US", {
