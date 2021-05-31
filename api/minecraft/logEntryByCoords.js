@@ -24,9 +24,10 @@ module.exports = async (req, res) => {
     .then((connection) => {
       connection
         .execute(
-          "SELECT chunk_id, BIN_TO_UUID(player_id) AS player_id, name, claimed_on, x, z," +
-            "BIN_TO_UUID(dimension) AS dimension " +
-            "FROM chunks JOIN players USING (player_id) WHERE x=? AND z=? AND dimension=UUID_TO_BIN(?)",
+          "SELECT x, z, BIN_TO_UUID(dimension) AS dimension, BIN_TO_UUID(player_id) AS player_id, name, entered_time " +
+            "FROM logentries JOIN players USING (player_id) " +
+            "WHERE x=? AND z=? AND dimension=UUID_TO_BIN(?) " +
+            "ORDER BY id DESC",
           [x, z, dimension]
         )
         .then(([rows, fields]) => {

@@ -13,7 +13,7 @@ import FullBox from "../../components/FullBox";
 import { ReactComponent as CalendarIcon } from "../../assets/calendar-icon.svg";
 import { ReactComponent as CommunityIcon } from "../../assets/community-icon.svg";
 import { ReactComponent as DimensionIcon } from "../../assets/dimension-icon.svg";
-import { ReactComponent as HomeIcon } from "../../assets/home-icon.svg";
+import { ReactComponent as BaseIcon } from "../../assets/base-icon.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -21,15 +21,13 @@ import {
   CommunityColorMap,
   DimensionColorMap,
   DimensionInternalNameMap,
+  mapUrlBase,
+  findChunkCenter,
+  prettyPrintDate,
+  prettyPrintDateAndTime,
 } from "../../internals/Utils";
 
-const mapUrlBase =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:8100"
-    : "https://mc.lounge.haus";
-
-const ChunkCard = ({ x, z, y, dimension, claimed_on }) => {
-  const isHome = dimension === "home";
+const ChunkCard = ({ x, z, y, dimension, claimed_on, isHome }) => {
   return (
     <div
       sx={{
@@ -46,7 +44,7 @@ const ChunkCard = ({ x, z, y, dimension, claimed_on }) => {
         }}
       >
         {isHome ? (
-          <HomeIcon fill="white" />
+          <BaseIcon fill={DimensionColorMap[dimension]} />
         ) : (
           <DimensionIcon fill={DimensionColorMap[dimension]} />
         )}
@@ -60,26 +58,12 @@ const ChunkCard = ({ x, z, y, dimension, claimed_on }) => {
             Set at {x}, {y}, {z}
           </Text>
         ) : (
-          <Text>
-            Claimed{" "}
-            {claimed_on.toLocaleDateString("en-US", {
-              weekday: "long",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </Text>
+          <Text>Claimed {prettyPrintDateAndTime(claimed_on)}</Text>
         )}
       </Grid>
     </div>
   );
 };
-
-function findChunkCenter(cx, cz) {
-  const x = cx * 16 + 8;
-  const z = cz * 16 + 8;
-  return { x, y: 90, z };
-}
 
 function Player() {
   const { uuid } = useParams();
@@ -95,15 +79,6 @@ function Player() {
   );
   console.log("CHUNKDATA", chunkData, "PLAYERDATA", playerData);
 
-  if (!uuid) {
-    return (
-      <h1>
-        no uuid <Link to="player/3dd5724c1bf54749b6332c04f3962b2e">CID 1</Link>
-        <Link to="player/b24ec2cb47b74337a3713be527ac71ec">CID 2</Link>
-        <Link to="player/3709f893520544b6996bd583e1966716">CID 3</Link>
-      </h1>
-    );
-  }
   if (playerError) {
     return (
       <FullBox>
@@ -191,15 +166,11 @@ function Player() {
             }}
           >
             <img
-              src={`https://visage.surgeplay.com/full/320/${player.player_id}`}
+              src={`https://visage.surgeplay.com/full/304/${player.player_id}`}
               alt={`${player.name}'s portrait`}
               sx={{ height: "320px", alignSelf: "flex-start", mr: 2 }}
             ></img>
-            <Grid
-              sx={{
-                gap: 2,
-              }}
-            >
+            <Grid gap={2}>
               <Heading as="h1" sx={{ fontSize: 4 }}>
                 {player.name}
               </Heading>
@@ -209,7 +180,7 @@ function Player() {
                     height: (theme) => theme.fontSizes[3],
                     width: (theme) => theme.fontSizes[3],
                     fill: "white",
-                    verticalAlign: "bottom",
+                    verticalAlign: "text-bottom",
                     mr: 2,
                   }}
                 />
@@ -221,11 +192,11 @@ function Player() {
                     height: (theme) => theme.fontSizes[3],
                     width: (theme) => theme.fontSizes[3],
                     fill: "white",
-                    verticalAlign: "bottom",
+                    verticalAlign: "text-bottom",
                     mr: 2,
                   }}
                 />
-                Joined on {joinDate.toLocaleDateString("en-US")}
+                Joined on {prettyPrintDate(joinDate)}
               </Text>
 
               <img
@@ -234,7 +205,7 @@ function Player() {
                 sx={{
                   position: "absolute",
                   width: "45px",
-                  opacity: "50%",
+                  opacity: "75%",
                   top: "25px",
                   right: "25px",
                   zIndex: -1,
@@ -265,7 +236,8 @@ function Player() {
                   x={player.home_x}
                   y={player.home_y}
                   z={player.home_z}
-                  dimension="home"
+                  dimension={player.home_dimension}
+                  isHome
                 />
               </Button>
             )}
@@ -291,22 +263,24 @@ function Player() {
                   x={chunk.x}
                   z={chunk.z}
                   dimension={chunk.dimension}
-                  claimed_on={new Date()}
+                  claimed_on={new Date(chunk.claimed_on)}
                 />
               </Button>
             );
           })}
         </Grid>
       </div>
-      <iframe
-        sx={{
-          width: "100%",
-          height: "100%",
-          border: "none",
-        }}
-        src={currentMapUrl}
-        title={`${player.name}'s Base`}
-      ></iframe>
+      <div>
+        <iframe
+          sx={{
+            width: "100%",
+            height: "100%",
+            border: "none",
+          }}
+          src={currentMapUrl}
+          title={`${player.name}'s Base`}
+        ></iframe>
+      </div>
     </Grid>
   );
 }

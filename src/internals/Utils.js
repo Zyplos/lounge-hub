@@ -1,9 +1,9 @@
 const CommunityIdMap = {
   1: "the lounge",
   2: "3 AM",
-  3: "pegg group",
-  4: "blaster group",
-  5: "jay group",
+  3: "MK7 Rock Rock Mountain",
+  4: "blaster's circle",
+  5: "The ultimate Minecraft fan club",
   6: "vold group",
 };
 
@@ -12,8 +12,8 @@ const CommunityColorMap = {
   2: "#00a3a3",
   3: "#0094ff",
   4: "#7c00ff",
-  5: "#f1f353",
-  6: "#ffd300",
+  5: "#bfc125",
+  6: "#d8b01a",
 };
 
 const DimensionNameMap = {
@@ -37,10 +37,35 @@ const DimensionColorMap = {
   XXXXXXXXXXXXXXXXXXEND: "#C9B979",
 };
 
+const mapUrlBase =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8100"
+    : "https://mc.lounge.haus";
+
+const findChunkCenter = (cx, cz) => {
+  const x = cx * 16 + 8;
+  const z = cz * 16 + 8;
+  return { x, y: 90, z };
+};
+
+const prettyPrintDateAndTime = (date) => {
+  return date.toLocaleString("en-US", {
+    dateStyle: "short",
+    timeStyle: "short",
+  });
+};
+const prettyPrintDate = (date) => {
+  return date.toLocaleDateString("en-US");
+};
+
 module.exports = {
   CommunityIdMap,
   CommunityColorMap,
   DimensionNameMap,
   DimensionColorMap,
   DimensionInternalNameMap,
+  mapUrlBase,
+  findChunkCenter,
+  prettyPrintDateAndTime,
+  prettyPrintDate,
 };
