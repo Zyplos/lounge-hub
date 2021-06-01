@@ -74,14 +74,15 @@ function VisitorsLog() {
   if (!logData) {
     return (
       <FullBox useDims>
-        <Spinner title="Loading Player Data" size={200} />
+        <Spinner title="Grabbing log entries" size={200} /> Grabbing log
+        entries.
       </FullBox>
     );
   }
   if (!chunkData) {
     return (
       <FullBox useDims>
-        <Spinner title="Loading Chunk Data" size={200} />
+        <Spinner title="Loading Chunk Data" size={200} /> Loading chunk data.
       </FullBox>
     );
   }

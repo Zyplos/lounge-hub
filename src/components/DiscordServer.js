@@ -21,6 +21,7 @@ function DiscordServer() {
     return (
       <FullBox>
         <Spinner title="Loading Discord Status" size={200} />
+        Loading Discord status.
       </FullBox>
     );
   }

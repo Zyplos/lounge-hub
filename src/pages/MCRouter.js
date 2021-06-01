@@ -6,6 +6,7 @@ import {
   useRouteMatch,
   Link,
   useLocation,
+  Redirect,
 } from "react-router-dom";
 import MainLayout from "../internals/MainLayout";
 import MCHome from "./mc";
@@ -40,7 +41,7 @@ function MCRouter() {
           </h1>
         </Route>
         <Route path={`${path}/map`}>
-          <h1>map page</h1>
+          <Redirect to="https://mc.lounge.haus" />
         </Route>
 
         <Route path="*">

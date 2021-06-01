@@ -18,7 +18,12 @@ function MainLayout({ noPadding, ...props }) {
     >
       <Text
         variant="muted"
-        sx={{ position: "absolute", bottom: "25px", right: "25px" }}
+        sx={{
+          position: "absolute",
+          bottom: "25px",
+          right: "35px",
+          zIndex: 100,
+        }}
       >
         Still in development
       </Text>

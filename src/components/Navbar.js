@@ -9,6 +9,7 @@ import emblem from "../assets/emblem.png";
 import HomeIcon from "../assets/home-icon.png";
 import WikiIcon from "../assets/wiki-icon.png";
 import PlayerIcon from "../assets/player-icon.png";
+import MapIcon from "../assets/map-icon.png";
 import { ReactComponent as BlockIcon } from "../assets/block-icon.svg";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
@@ -129,6 +130,10 @@ function Navbar() {
         <Link to={`/mc/player`}>
           <img src={PlayerIcon} alt="Player Icon" sx={{ width: "32px" }} />
         </Link>
+
+        <a href="https://mc.lounge.haus">
+          <img src={MapIcon} alt="Map Icon" sx={{ width: "32px" }} />
+        </a>
 
         <ThemeToggle />
 

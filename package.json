@@ -5,6 +5,7 @@
   "repository": "https://github.com/Zyplos/lounge-hub",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.4.0",
     "@south-paw/typeface-minecraft": "^1.0.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",

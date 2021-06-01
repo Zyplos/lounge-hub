@@ -1,3 +1,13 @@
+/*
+world                            7b1803e0-1cfa-443d-9948-ebaebd2b73e7
+world_nether                     84eecff0-14f8-420f-bb5b-b1c65bf966af
+world_the_end                    5ed9a5e9-1093-46a3-9727-8159c353c128
+world_zydims_aether              e500537f-d92d-4ace-9021-6fc5a39cb977
+world_zydims_the_deep_dark       aa56d4ca-102f-4da0-9211-336f6e795edf
+aether                           80550102-945a-4a9f-8e71-10c4a259a591
+the_deep_dark                    66981552-9dc5-430b-a46b-ed748d9384d1
+*/
+
 const CommunityIdMap = {
   1: "the lounge",
   2: "3 AM",
@@ -19,22 +29,22 @@ const CommunityColorMap = {
 const DimensionNameMap = {
   "7b1803e0-1cfa-443d-9948-ebaebd2b73e7": "The Overworld",
   "80550102-945a-4a9f-8e71-10c4a259a591": "The Aether",
-  XXXXXXXXXXXXXXXXXXNETHER: "The Nether",
-  XXXXXXXXXXXXXXXXXXEND: "The End",
+  "84eecff0-14f8-420f-bb5b-b1c65bf966af": "The Nether",
+  "5ed9a5e9-1093-46a3-9727-8159c353c128": "The End",
 };
 
 const DimensionInternalNameMap = {
   "7b1803e0-1cfa-443d-9948-ebaebd2b73e7": "world",
   "80550102-945a-4a9f-8e71-10c4a259a591": "aether",
-  XXXXXXXXXXXXXXXXXXNETHER: "nether",
-  XXXXXXXXXXXXXXXXXXEND: "end",
+  "84eecff0-14f8-420f-bb5b-b1c65bf966af": "nether",
+  "5ed9a5e9-1093-46a3-9727-8159c353c128": "end",
 };
 
 const DimensionColorMap = {
   "7b1803e0-1cfa-443d-9948-ebaebd2b73e7": "#41BC49",
   "80550102-945a-4a9f-8e71-10c4a259a591": "#6CBAE8",
-  XXXXXXXXXXXXXXXXXXNETHER: "#B81E1E",
-  XXXXXXXXXXXXXXXXXXEND: "#C9B979",
+  "84eecff0-14f8-420f-bb5b-b1c65bf966af": "#B81E1E",
+  "5ed9a5e9-1093-46a3-9727-8159c353c128": "#C9B979",
 };
 
 // const mapUrlBase =

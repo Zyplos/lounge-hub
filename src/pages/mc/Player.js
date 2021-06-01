@@ -7,7 +7,7 @@ import {
   Spinner,
   Text,
 } from "@theme-ui/components";
-import { useParams, useHistory, Redirect } from "react-router";
+import { useParams, Redirect } from "react-router";
 import useSWR from "swr";
 import FullBox from "../../components/FullBox";
 import { ReactComponent as CalendarIcon } from "../../assets/calendar-icon.svg";
@@ -66,7 +66,6 @@ const ChunkCard = ({ x, z, y, dimension, claimed_on, isHome }) => {
 
 function Player() {
   const { name } = useParams();
-  const history = useHistory();
 
   const { data: playerData, playerError } = useSWR(
     `/api/minecraft/player?name=${name}`
@@ -125,7 +124,7 @@ function Player() {
   }
   function updateMapFrameHome(x, y, z, dimension) {
     setMapUrl(
-      `${mapUrlBase}/#${dimension}:${x}:${y}:${z}:5:0:1.4:0:0:perspective`
+      `${mapUrlBase}/#${dimension}:${x}:${y + 4}:${z}:5:0:1.4:0:0:free`
     );
   }
 

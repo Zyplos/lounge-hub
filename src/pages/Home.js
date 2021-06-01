@@ -10,27 +10,22 @@ import MinecraftContext from "../internals/MinecraftContext";
 
 function Home() {
   const minecraftData = useContext(MinecraftContext);
+  const vanilla = minecraftData ? minecraftData.vanilla : null;
+  const modded = minecraftData ? minecraftData.modded : null;
   return (
     <MainLayout>
       <Grid gap={3}>
-        {minecraftData && (
-          <Grid gap={5} columns={[1, 1, 2]}>
-            <div>
-              <Heading sx={{ mb: 3 }}>Minecraft • Main Server</Heading>
-              <MinecraftStatus
-                data={minecraftData.vanilla}
-                ip="mc.lounge.haus"
-              />
-            </div>
-            <div>
-              <Heading sx={{ mb: 3 }}>Minecraft • Off-season</Heading>
-              <MinecraftStatus
-                data={minecraftData.modded}
-                ip="modded.lounge.haus"
-              />
-            </div>
-          </Grid>
-        )}
+        <Grid gap={5} columns={[1, 1, 2]}>
+          <div>
+            <Heading sx={{ mb: 3 }}>Minecraft • Main Server</Heading>
+            <MinecraftStatus data={vanilla} ip="mc.lounge.haus" />
+          </div>
+          <div>
+            <Heading sx={{ mb: 3 }}>Minecraft • Off-season</Heading>
+            <MinecraftStatus data={modded} ip="modded.lounge.haus" />
+          </div>
+        </Grid>
+
         <Heading sx={{ mt: 4 }}>the lounge</Heading>
         <DiscordServer />
       </Grid>

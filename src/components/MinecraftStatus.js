@@ -2,9 +2,14 @@
 import { Flex, Text, Alert, Grid } from "@theme-ui/components";
 
 import defaultServerIcon from "../assets/defaultServerIcon.png";
+import MinecraftStatusSkeleton from "./MinecraftStatusSkeleton";
 
 function MinecraftStatus(props) {
   const data = props.data;
+
+  if (!data) {
+    return <MinecraftStatusSkeleton />;
+  }
 
   const getPlayerImage = (uuid) => {
     return `https://crafatar.com/avatars/${uuid}?size=64&default=MHF_Steve&overlay`;
@@ -82,7 +87,7 @@ function MinecraftStatus(props) {
                 <img
                   src={getPlayerImage(player.id)}
                   alt="player icon"
-                  sx={{ width: "45px", height: "45px" }}
+                  sx={{ width: "45px", height: "45px", mb: 1 }}
                 />
 
                 <Text>{player.name}</Text>

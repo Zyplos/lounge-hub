@@ -1,6 +1,6 @@
 /** @jsxImportSource @theme-ui/core */
 import { useState } from "react";
-import { Link, useHistory, useLocation, useParams } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { Heading, Grid, Button, Text, Alert } from "@theme-ui/components";
 import FullBox from "../../components/FullBox";
 
