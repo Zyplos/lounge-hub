@@ -7,7 +7,7 @@ function FullBox({ useDims, ...props }) {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: useDims ? "100vh" : "none",
+        height: useDims ? "100vh" : "auto",
         maxHeight: useDims ? "100vh" : "none",
         alignItems: "center",
         justifyContent: "center",

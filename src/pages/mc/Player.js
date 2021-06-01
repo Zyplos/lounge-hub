@@ -7,14 +7,13 @@ import {
   Spinner,
   Text,
 } from "@theme-ui/components";
-import { useParams } from "react-router";
+import { useParams, useHistory, Redirect } from "react-router";
 import useSWR from "swr";
 import FullBox from "../../components/FullBox";
 import { ReactComponent as CalendarIcon } from "../../assets/calendar-icon.svg";
 import { ReactComponent as CommunityIcon } from "../../assets/community-icon.svg";
 import { ReactComponent as DimensionIcon } from "../../assets/dimension-icon.svg";
 import { ReactComponent as BaseIcon } from "../../assets/base-icon.svg";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import {
   CommunityIdMap,
@@ -66,13 +65,14 @@ const ChunkCard = ({ x, z, y, dimension, claimed_on, isHome }) => {
 };
 
 function Player() {
-  const { uuid } = useParams();
+  const { name } = useParams();
+  const history = useHistory();
 
   const { data: playerData, playerError } = useSWR(
-    `/api/minecraft/player?uuid=${uuid}`
+    `/api/minecraft/player?name=${name}`
   );
   const { data: chunkData, chunkError } = useSWR(
-    `/api/minecraft/chunkByUUID?uuid=${uuid}`
+    () => `/api/minecraft/chunkByUUID?uuid=` + playerData.data[0].player_id
   );
   const [currentMapUrl, setMapUrl] = useState(
     mapUrlBase + "/#world:-7:58:214:30:0:0:0:0:perspective"
@@ -81,7 +81,7 @@ function Player() {
 
   if (playerError) {
     return (
-      <FullBox>
+      <FullBox useDims>
         <Text variant="fullbox">Error getting player data.</Text>
         <pre>{JSON.stringify(playerError, false, 1)}</pre>
       </FullBox>
@@ -89,7 +89,7 @@ function Player() {
   }
   if (chunkError) {
     return (
-      <FullBox>
+      <FullBox useDims>
         <Text variant="fullbox">Error getting chunk data.</Text>
         <pre>{JSON.stringify(chunkError, false, 1)}</pre>
       </FullBox>
@@ -97,15 +97,22 @@ function Player() {
   }
   if (!playerData) {
     return (
-      <FullBox>
+      <FullBox useDims>
         <Spinner title="Loading Player Data" size={200} />
+        Grabbing player profile.
       </FullBox>
     );
   }
+
+  // no player found, return to player lookup home
+  if (playerData.data.length === 0) {
+    return <Redirect to="/mc/player#notfound" />;
+  }
+
   if (!chunkData) {
     return (
-      <FullBox>
-        <Spinner title="Loading Chunk Data" size={200} />
+      <FullBox useDims>
+        <Spinner title="Loading Chunk Data" size={200} /> Loading chunk claims.
       </FullBox>
     );
   }

@@ -57,7 +57,7 @@ function VisitorsLog() {
 
   if (logError) {
     return (
-      <FullBox>
+      <FullBox useDims>
         <Text variant="fullbox">Error getting log data.</Text>
         <pre>{JSON.stringify(logError, false, 1)}</pre>
       </FullBox>
@@ -65,7 +65,7 @@ function VisitorsLog() {
   }
   if (chunkError) {
     return (
-      <FullBox>
+      <FullBox useDims>
         <Text variant="fullbox">Error getting chunk data.</Text>
         <pre>{JSON.stringify(chunkError, false, 1)}</pre>
       </FullBox>
@@ -73,14 +73,14 @@ function VisitorsLog() {
   }
   if (!logData) {
     return (
-      <FullBox>
+      <FullBox useDims>
         <Spinner title="Loading Player Data" size={200} />
       </FullBox>
     );
   }
   if (!chunkData) {
     return (
-      <FullBox>
+      <FullBox useDims>
         <Spinner title="Loading Chunk Data" size={200} />
       </FullBox>
     );

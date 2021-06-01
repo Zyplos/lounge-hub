@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import MainLayout from "../internals/MainLayout";
 import MCHome from "./mc";
+import IndexPlayer from "./mc/IndexPlayer";
 import Player from "./mc/Player";
 import VisitorsLog from "./mc/VisitorsLog";
 
@@ -21,17 +22,11 @@ function MCRouter() {
         <Route exact path={path}>
           <MCHome />
         </Route>
-        <Route path={`${path}/player/:uuid`}>
+        <Route path={`${path}/player/:name`}>
           <Player />
         </Route>
         <Route path={`${path}/player`}>
-          <h1>
-            no uuid{" "}
-            <Link to="player/3dd5724c1bf54749b6332c04f3962b2e">CID 1</Link>
-            <Link to="player/b24ec2cb47b74337a3713be527ac71ec">CID 2</Link>
-            <Link to="player/3709f893520544b6996bd583e1966716">CID 3</Link>
-            <Link to="player/288d1400-d929-4034-a98c-28e9b9d72e55">CID 4</Link>
-          </h1>
+          <IndexPlayer />
         </Route>
         <Route path={`${path}/chunk/:uuid/:x/:z`}>
           <VisitorsLog />

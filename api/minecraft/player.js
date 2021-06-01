@@ -1,9 +1,9 @@
 const mysql = require("mysql2/promise");
 
 module.exports = async (req, res) => {
-  const { uuid } = req.query;
+  const { name } = req.query;
 
-  if (!uuid) {
+  if (!name) {
     res.json({ error: "No player name specified." });
   }
 
@@ -20,8 +20,9 @@ module.exports = async (req, res) => {
     .then((connection) => {
       connection
         .execute(
-          "SELECT BIN_TO_UUID(player_id) AS player_id, name, joined, community_id, home_x, home_y, home_z, BIN_TO_UUID(home_dimension) AS home_dimension FROM players WHERE player_id=UUID_TO_BIN(?)",
-          [uuid]
+          // "SELECT BIN_TO_UUID(player_id) AS player_id, name, joined, community_id, home_x, home_y, home_z, BIN_TO_UUID(home_dimension) AS home_dimension FROM players WHERE player_id=UUID_TO_BIN(?)",
+          "SELECT BIN_TO_UUID(player_id) AS player_id, name, joined, community_id, home_x, home_y, home_z, BIN_TO_UUID(home_dimension) AS home_dimension FROM players WHERE name=?",
+          [name]
         )
         .then(([rows, fields]) => {
           res.json({ data: rows });

@@ -1,5 +1,6 @@
 /** @jsxImportSource @theme-ui/core */
 
+import { Text } from "@theme-ui/components";
 import Navbar from "../components/Navbar";
 
 function MainLayout({ noPadding, ...props }) {
@@ -11,9 +12,16 @@ function MainLayout({ noPadding, ...props }) {
         alignSelf: "stretch",
         maxHeight: "100vh",
         height: "100vh",
+        position: "relative",
       }}
       id="App"
     >
+      <Text
+        variant="muted"
+        sx={{ position: "absolute", bottom: "25px", right: "25px" }}
+      >
+        Still in development
+      </Text>
       <section
         sx={{
           display: ["none", "flex"],

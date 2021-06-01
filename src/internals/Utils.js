@@ -37,10 +37,11 @@ const DimensionColorMap = {
   XXXXXXXXXXXXXXXXXXEND: "#C9B979",
 };
 
-const mapUrlBase =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:8100"
-    : "https://mc.lounge.haus";
+// const mapUrlBase =
+//   process.env.NODE_ENV === "development"
+//     ? "http://localhost:8100"
+//     : "https://mc.lounge.haus";
+const mapUrlBase = "https://mc.lounge.haus";
 
 const findChunkCenter = (cx, cz) => {
   const x = cx * 16 + 8;
