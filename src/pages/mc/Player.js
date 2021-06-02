@@ -76,7 +76,6 @@ function Player() {
   const [currentMapUrl, setMapUrl] = useState(
     mapUrlBase + "/#world:-7:58:214:30:0:0:0:0:perspective"
   );
-  console.log("CHUNKDATA", chunkData, "PLAYERDATA", playerData);
 
   if (playerError) {
     return (
@@ -216,8 +215,8 @@ function Player() {
                   position: "absolute",
                   width: "45px",
                   opacity: "75%",
-                  top: "25px",
-                  right: "25px",
+                  top: "15px",
+                  right: "15px",
                   zIndex: -1,
                 }}
               />

@@ -172,6 +172,9 @@ function VisitorsLog() {
           </div>
         </Box>
         <Grid p={4}>
+          {logData.data.length === 0 && (
+            <Text>Seems no one has visited this chunk yet.</Text>
+          )}
           {logData.data.map((logEntry, index) => {
             return (
               <ChunkCard
