@@ -131,6 +131,10 @@ function Player() {
   const player = playerData.data[0];
   const joinDate = new Date(player.joined);
 
+  if (!player.community_id) {
+    player.community_id = 99;
+  }
+
   const communityName = CommunityIdMap[player.community_id];
   const communityColor = CommunityColorMap[player.community_id];
 

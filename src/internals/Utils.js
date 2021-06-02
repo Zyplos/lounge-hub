@@ -15,6 +15,7 @@ const CommunityIdMap = {
   4: "blaster's circle",
   5: "The ultimate Minecraft fan club",
   6: "vold group",
+  99: "???",
 };
 
 const CommunityColorMap = {
@@ -24,6 +25,7 @@ const CommunityColorMap = {
   4: "#7c00ff",
   5: "#bfc125",
   6: "#d8b01a",
+  99: "#919191",
 };
 
 const DimensionNameMap = {
