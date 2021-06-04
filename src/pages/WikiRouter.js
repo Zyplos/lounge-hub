@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Button, Grid, Heading, Text } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Button, Grid, Heading, Text } from "theme-ui";
 import {
   Switch,
   Route,

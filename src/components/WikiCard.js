@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Flex, Heading, Text } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Flex, Heading, Text } from "theme-ui";
 import { Link } from "react-router-dom";
 
 function WikiCard({ link, image, gradient, heading, description }) {

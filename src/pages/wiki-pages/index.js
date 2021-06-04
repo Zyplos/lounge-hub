@@ -1,6 +1,6 @@
-/** @jsxImportSource @theme-ui/core */
+/** @jsxImportSource theme-ui */
 import React from "react";
-import { Grid, Text } from "@theme-ui/components";
+import { Grid, Text } from "theme-ui";
 import WikiCard from "../../components/WikiCard";
 
 import craftingTable from "../../assets/crafting-table.png";

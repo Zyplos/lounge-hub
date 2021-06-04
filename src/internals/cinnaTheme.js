@@ -33,8 +33,8 @@ const theme = {
   colors: {
     text: "#000",
     background: "#fff",
-    backgroundSecondary: "#302F2F",
-    backgroundTertiary: "#222222",
+    backgroundSecondary: "#171717",
+    backgroundTertiary: "#737373",
     primary: "#ff3e3e",
     secondary: "#ffde00",
     muted: "#808080",
@@ -42,7 +42,7 @@ const theme = {
     darkGrayAccent: "#353535",
     discord: "#7289DA",
     twitch: "#9146ff",
-    cardBg: "#c7aea9",
+    cardBg: "#efefef",
     modes: {
       dark: {
         text: "#fff",
@@ -70,7 +70,7 @@ const theme = {
     display: {
       // extends the text.heading styles
       variant: "text.heading",
-      fontSize: [7],
+      fontSize: [4, 8],
       fontWeight: "display",
     },
     italic: {

@@ -1,9 +1,8 @@
-/** @jsxImportSource @theme-ui/core */
+/** @jsxImportSource theme-ui */
 import React from "react";
 import ReactDOM from "react-dom";
 import { SWRConfig } from "swr";
-import { ThemeProvider } from "@theme-ui/theme-provider";
-import { ColorModeProvider } from "@theme-ui/color-modes";
+import { ThemeProvider } from "theme-ui";
 import fetch from "cross-fetch";
 import { BrowserRouter } from "react-router-dom";
 
@@ -22,11 +21,9 @@ ReactDOM.render(
       }}
     >
       <ThemeProvider theme={theme}>
-        <ColorModeProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ColorModeProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
     </SWRConfig>
   </React.StrictMode>,

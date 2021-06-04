@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Box, Grid, Heading, Spinner, Text } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Box, Grid, Heading, Spinner, Text } from "theme-ui";
 import { useParams } from "react-router";
 import useSWR from "swr";
 import FullBox from "../../components/FullBox";

@@ -1,4 +1,4 @@
-/** @jsxImportSource @theme-ui/core */
+/** @jsxImportSource theme-ui */
 
 function MinecraftText(props) {
   return (

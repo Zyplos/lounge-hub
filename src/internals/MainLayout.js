@@ -1,6 +1,6 @@
-/** @jsxImportSource @theme-ui/core */
+/** @jsxImportSource theme-ui */
 
-import { Text } from "@theme-ui/components";
+import { Text } from "theme-ui";
 import Navbar from "../components/Navbar";
 
 function MainLayout({ noPadding, ...props }) {

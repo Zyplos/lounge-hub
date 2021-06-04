@@ -1,6 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { useColorMode } from "@theme-ui/color-modes";
-import { Text } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { useColorMode, Text } from "theme-ui";
 
 function MinecraftSlot({ name, image, amount, type = "normal", ...props }) {
   const [colorMode] = useColorMode();

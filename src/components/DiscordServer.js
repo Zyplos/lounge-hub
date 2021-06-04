@@ -1,7 +1,7 @@
-/** @jsxImportSource @theme-ui/core */
+/** @jsxImportSource theme-ui */
 import React from "react";
 import useSWR from "swr";
-import { Text, Spinner, Flex, Badge, Grid } from "@theme-ui/components";
+import { Text, Spinner, Flex, Badge, Grid } from "theme-ui";
 
 import FullBox from "./FullBox";
 
@@ -39,8 +39,8 @@ function DiscordServer() {
     (channel) => channel.id === "426394718591778818"
   );
   const iconStyle = {
-    width: 55,
-    height: 55,
+    width: 60,
+    height: 60,
     borderRadius: "100%",
     mr: 2,
     border: "2px solid #7289DA",

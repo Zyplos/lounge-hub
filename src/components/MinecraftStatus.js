@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Flex, Text, Alert, Grid } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Flex, Text, Alert, Grid } from "theme-ui";
 
 import defaultServerIcon from "../assets/defaultServerIcon.png";
 import MinecraftStatusSkeleton from "./MinecraftStatusSkeleton";
@@ -65,7 +65,7 @@ function MinecraftStatus(props) {
         </Flex>
       </Flex>
       <Text>
-        IP: {props.ip} •{" "}
+        {/* IP: {props.ip} •{" "} */}
         {data.players.online !== 0 ? data.players.online : "No"}{" "}
         {computedPlural()} online
         {data.version ? " • " + data.version.name : ""}

@@ -13,7 +13,7 @@ const CommunityIdMap = {
   2: "3 AM",
   3: "MK7 Rock Rock Mountain",
   4: "blaster's circle",
-  5: "The ultimate Minecraft fan club",
+  5: "The ultimate Yakuza fan club",
   6: "vold group",
   99: "???",
 };

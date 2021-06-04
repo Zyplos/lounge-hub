@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Grid, Text } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Grid, Text } from "theme-ui";
 
 import MinecraftContainer from "./MinecraftContainer";
 import MinecraftSlot from "./MinecraftSlot";
@@ -19,7 +19,7 @@ function CraftingTable({ input, result, amount }) {
       >
         <Grid columns="repeat(3, 36px)" gap={0}>
           {input.map((item, index) => {
-            return <MinecraftSlot image={item[1]} name={item[0]} />;
+            return <MinecraftSlot key={index} image={item[1]} name={item[0]} />;
           })}
         </Grid>
 

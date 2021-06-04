@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Heading, Grid, Text, Image } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Heading, Grid, Text, Image } from "theme-ui";
 
 import aether from "../../assets/the-aether-screenshot.png";
 import ArticleLayout from "../../internals/ArticleLayout";

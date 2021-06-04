@@ -1,6 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { useColorMode } from "@theme-ui/color-modes";
-import { Button } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { useColorMode, Button } from "theme-ui";
 function ThemeToggle() {
   const [colorMode, setColorMode] = useColorMode();
   return (

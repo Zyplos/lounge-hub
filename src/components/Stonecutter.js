@@ -1,6 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Text } from "@theme-ui/components";
-import { useColorMode } from "@theme-ui/color-modes";
+/** @jsxImportSource theme-ui */
+import { useColorMode, Text } from "theme-ui";
 
 import MinecraftContainer from "./MinecraftContainer";
 import MinecraftSlot from "./MinecraftSlot";
@@ -28,6 +27,7 @@ function Stonecutter({ input, result }) {
             border:
               colorMode === "dark" ? "2px solid #080808" : "2px solid #373737",
             height: "56px",
+            boxSizing: "content-box",
           }}
         >
           <MinecraftResultSlot

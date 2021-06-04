@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Grid } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Grid } from "theme-ui";
 const SmallCardGrid = ({ width = "260px", ...props }) => (
   <Grid
     {...props}

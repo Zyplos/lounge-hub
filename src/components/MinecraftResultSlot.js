@@ -1,4 +1,4 @@
-/** @jsxImportSource @theme-ui/core */
+/** @jsxImportSource theme-ui */
 import MinecraftSlot from "./MinecraftSlot";
 
 function MinecraftResultSlot({ name, image, amount, type = "large" }) {

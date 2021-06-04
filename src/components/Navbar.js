@@ -1,6 +1,6 @@
-/** @jsxImportSource @theme-ui/core */
+/** @jsxImportSource theme-ui */
 import { useContext } from "react";
-import { Grid } from "@theme-ui/components";
+import { Grid } from "theme-ui";
 import { Link } from "react-router-dom";
 
 import MinecraftContext from "../internals/MinecraftContext";

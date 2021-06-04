@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Heading, Grid, Text, Badge } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Heading, Grid, Text, Badge } from "theme-ui";
 import SmallCardGrid from "../../components/SmallCardGrid";
 import ArticleLayout from "../../internals/ArticleLayout";
 

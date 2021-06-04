@@ -1,4 +1,4 @@
-import { Grid, Text, Alert } from "@theme-ui/components";
+import { Grid, Text, Alert } from "theme-ui";
 import MinecraftText from "../../components/MinecraftText";
 import ArticleLayout from "../../internals/ArticleLayout";
 

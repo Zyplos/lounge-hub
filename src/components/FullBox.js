@@ -1,9 +1,8 @@
-/** @jsxImportSource @theme-ui/core */
+/** @jsxImportSource theme-ui */
 
 function FullBox({ useDims, ...props }) {
   return (
     <div
-      {...props}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -13,6 +12,7 @@ function FullBox({ useDims, ...props }) {
         justifyContent: "center",
         overflow: "hidden",
       }}
+      {...props}
     >
       {props.children}
     </div>

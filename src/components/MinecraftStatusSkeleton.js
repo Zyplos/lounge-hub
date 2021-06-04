@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Flex, Grid } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Flex, Grid } from "theme-ui";
 import { keyframes } from "@emotion/react";
 
 const fadeIn = keyframes({ from: { opacity: 0.5 }, to: { opacity: 1 } });

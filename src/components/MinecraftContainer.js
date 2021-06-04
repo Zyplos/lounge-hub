@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { useColorMode } from "@theme-ui/color-modes";
+/** @jsxImportSource theme-ui */
+import { useColorMode } from "theme-ui";
 
 function MinecraftContainer(props) {
   const [colorMode] = useColorMode();

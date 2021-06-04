@@ -1,6 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Grid, Text } from "@theme-ui/components";
-import { useColorMode } from "@theme-ui/color-modes";
+/** @jsxImportSource theme-ui */
+import { Grid, Text, useColorMode } from "theme-ui";
 
 import coalImage from "../assets/items/coal.png";
 import MinecraftContainer from "./MinecraftContainer";

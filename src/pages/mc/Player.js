@@ -1,12 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import {
-  Box,
-  Button,
-  Grid,
-  Heading,
-  Spinner,
-  Text,
-} from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Box, Button, Grid, Heading, Spinner, Text } from "theme-ui";
 import { useParams, Redirect } from "react-router";
 import useSWR from "swr";
 import FullBox from "../../components/FullBox";
@@ -35,6 +28,7 @@ const ChunkCard = ({ x, z, y, dimension, claimed_on, isHome }) => {
         borderRadius: "7px",
         display: "flex",
         alignItems: "center",
+        color: (theme) => theme.colors.text,
       }}
     >
       <div

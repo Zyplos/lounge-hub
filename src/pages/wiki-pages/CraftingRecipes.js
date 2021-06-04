@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Heading, Grid, Text } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Heading, Grid, Text } from "theme-ui";
 
 import CraftingTable from "../../components/CraftingTable";
 import Stonecutter from "../../components/Stonecutter";

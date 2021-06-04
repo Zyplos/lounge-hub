@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Divider, Container } from "@theme-ui/components";
+import { Heading, Divider, Container } from "theme-ui";
 
 function ArticleLayout({ title, children }) {
   return (

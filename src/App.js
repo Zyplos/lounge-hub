@@ -1,11 +1,11 @@
-import { Switch, Route, useLocation, Link } from "react-router-dom";
+import { Switch, Route, useLocation, Link, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import MinecraftContext from "./internals/MinecraftContext";
 import useSWR from "swr";
 import WikiRouter from "./pages/WikiRouter";
 import MCRouter from "./pages/MCRouter";
 import FullBox from "./components/FullBox";
-import { Button, Grid, Heading, Text } from "@theme-ui/components";
+import { Button, Grid, Heading, Text } from "theme-ui";
 
 function App() {
   const { data: minecraftData, minecraftError } = useSWR(
@@ -27,6 +27,9 @@ function App() {
           </Route>
           <Route path="/mc">
             <MCRouter />
+          </Route>
+          <Route path="/youre-invited">
+            <Redirect to="/mc" />
           </Route>
 
           <Route path="*">

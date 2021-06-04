@@ -1,6 +1,6 @@
-/** @jsxImportSource @theme-ui/core */
+/** @jsxImportSource theme-ui */
 import { useContext } from "react";
-import { Heading, Grid } from "@theme-ui/components";
+import { Heading, Grid } from "theme-ui";
 import MainLayout from "../internals/MainLayout";
 
 import DiscordServer from "../components/DiscordServer";
@@ -18,11 +18,11 @@ function Home() {
         <Grid gap={5} columns={[1, 1, 2]}>
           <div>
             <Heading sx={{ mb: 3 }}>Minecraft • Main Server</Heading>
-            <MinecraftStatus data={vanilla} ip="mc.lounge.haus" />
+            <MinecraftStatus data={vanilla} ip="???" />
           </div>
           <div>
             <Heading sx={{ mb: 3 }}>Minecraft • Off-season</Heading>
-            <MinecraftStatus data={modded} ip="modded.lounge.haus" />
+            <MinecraftStatus data={modded} ip="???" />
           </div>
         </Grid>
 

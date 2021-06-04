@@ -1,5 +1,5 @@
-/** @jsxImportSource @theme-ui/core */
-import { Button, Grid, Heading, Text } from "@theme-ui/components";
+/** @jsxImportSource theme-ui */
+import { Button, Grid, Heading, Text } from "theme-ui";
 import {
   Switch,
   Route,
@@ -9,7 +9,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import MainLayout from "../internals/MainLayout";
-import MCHome from "./mc";
+import MCHome from "./mc/youre-invited";
 import IndexPlayer from "./mc/IndexPlayer";
 import Player from "./mc/Player";
 import VisitorsLog from "./mc/VisitorsLog";
