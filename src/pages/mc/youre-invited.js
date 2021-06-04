@@ -9,6 +9,7 @@ import {
   Paragraph,
   Text,
 } from "theme-ui";
+import { Link } from "react-router-dom";
 import InvitationSplashImage from "../../assets/invitation-splash.png";
 import EmblemMCImage from "../../assets/emblem-mc.png";
 import ChunkClaimImage from "../../assets/chunk-claim.png";
@@ -181,8 +182,13 @@ function MCHome() {
       <SectionBox heading="Land Claims" image={ChunkClaimImage}>
         <Text>
           Let others know who owns the land by claiming chunks in the world!
-          Your claims will show up to people who walk into your territory and
-          can be viewed by players on the server map.
+          Your claims will show up to people who walk into your territory, on{" "}
+          <Link to="/mc/player/Zyplos">your profile</Link>, and can be viewed by
+          players on the server map.{" "}
+          <Link to="/mc/chunk/7b1803e0-1cfa-443d-9948-ebaebd2b73e7/-1/21">
+            A visitor's log
+          </Link>{" "}
+          is kept that you can view at any time.
         </Text>
       </SectionBox>
 
