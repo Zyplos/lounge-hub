@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
-import { useContext } from "react";
-import { Grid } from "theme-ui";
+import { Fragment, useContext } from "react";
+import { Grid, Text } from "theme-ui";
 import { Link } from "react-router-dom";
 
 import MinecraftContext from "../internals/MinecraftContext";
@@ -65,103 +65,113 @@ const NavDivider = () => {
   );
 };
 
-function Navbar() {
-  const minecraftData = useContext(MinecraftContext);
+const NavText = ({ children }) => {
   return (
-    <div
+    <Text
       sx={{
-        backgroundColor: "backgroundSecondary",
-        padding: 4,
-        overflowY: "scroll",
-        scrollbarWidth: "thin",
-        scrollbarColor: "#ff3e3e #242424",
-        "::-webkit-scrollbar": {
-          width: "1px",
-        },
-        "::-webkit-scrollbar-track": {
-          background: "backgroundTertiary",
-        },
-        "::-webkit-scrollbar-thumb": {
-          backgroundColor: "primary",
-        },
+        display: ["inline-block", "none"],
+        ml: 4,
+        color: "text",
+        fontSize: 4,
+        verticalAlign: "text-bottom",
       }}
     >
+      {children}
+    </Text>
+  );
+};
+
+function Navbar() {
+  const minecraftData = useContext(MinecraftContext);
+
+  return (
+    <Fragment>
       <div
-        id="nav-toggle"
         sx={{
-          position: "absolute",
-          bottom: 30,
-          right: 30,
-          fontSize: 5,
-          padding: 3,
-          backgroundColor: "cardBg",
-          display: "none",
+          backgroundColor: "backgroundSecondary",
+          padding: 4,
+          overflowY: "scroll",
+          scrollbarWidth: "thin",
+          scrollbarColor: "#ff3e3e #242424",
+          "::-webkit-scrollbar": {
+            width: "1px",
+          },
+          "::-webkit-scrollbar-track": {
+            backgroundColor: "backgroundTertiary",
+          },
+          "::-webkit-scrollbar-thumb": {
+            backgroundColor: "primary",
+          },
         }}
       >
-        ≡
-      </div>
-      <Grid gap={4} sx={{ justifyItems: "center" }}>
-        <div sx={{ display: "flex" }}>
-          <Link
-            to="/"
-            sx={{
-              mx: "auto",
-              alignSelf: "center",
-            }}
-          >
-            <img src={emblem} width="48px" alt="emblem" />
+        <Grid gap={4} sx={{ justifyItems: ["flex-start", "center"] }}>
+          <div sx={{ display: "flex" }}>
+            <Link
+              to="/"
+              sx={{
+                mx: "auto",
+                alignSelf: "center",
+              }}
+            >
+              <img src={emblem} width="48px" alt="emblem" />
+            </Link>
+          </div>
+
+          <NavDivider />
+
+          <Link to={`/`}>
+            <img src={HomeIcon} alt="Home Icon" sx={{ width: "32px" }} />
+            <NavText>Home</NavText>
           </Link>
-        </div>
 
-        <NavDivider />
+          <Link to={`/wiki`}>
+            <img src={WikiIcon} alt="Wiki Icon" sx={{ width: "32px" }} />
+            <NavText>Wiki</NavText>
+          </Link>
 
-        <Link to={`/`}>
-          <img src={HomeIcon} alt="Home Icon" sx={{ width: "32px" }} />
-        </Link>
+          <Link to={`/mc`}>
+            <BlockIcon sx={{ width: "32px", height: "32px", fill: "white" }} />
+            <NavText>Minecraft</NavText>
+          </Link>
 
-        <Link to={`/wiki`}>
-          <img src={WikiIcon} alt="Wiki Icon" sx={{ width: "32px" }} />
-        </Link>
+          <Link to={`/mc/player`}>
+            <img src={PlayerIcon} alt="Player Icon" sx={{ width: "32px" }} />
+            <NavText>Player Lookup</NavText>
+          </Link>
 
-        <Link to={`/mc`}>
-          <BlockIcon sx={{ width: "32px", height: "32px", fill: "white" }} />
-        </Link>
+          <a href="https://mc.lounge.haus">
+            <img src={MapIcon} alt="Map Icon" sx={{ width: "32px" }} />
+            <NavText>Server Map</NavText>
+          </a>
 
-        <Link to={`/mc/player`}>
-          <img src={PlayerIcon} alt="Player Icon" sx={{ width: "32px" }} />
-        </Link>
+          <ThemeToggle />
 
-        <a href="https://mc.lounge.haus">
-          <img src={MapIcon} alt="Map Icon" sx={{ width: "32px" }} />
-        </a>
+          {minecraftData &&
+            (minecraftData.vanilla.players || minecraftData.modded.players) && (
+              <NavDivider />
+            )}
 
-        <ThemeToggle />
-
-        {minecraftData &&
-          (minecraftData.vanilla.players || minecraftData.modded.players) && (
-            <NavDivider />
-          )}
-
-        {minecraftData &&
-          minecraftData.vanilla &&
-          minecraftData.vanilla.players && (
-            <NavMinecraftItem
-              image={playerHead}
-              name="Vanilla Server Status"
-              playerAmount={minecraftData.vanilla.players.online}
-            />
-          )}
-        {minecraftData &&
-          minecraftData.modded &&
-          minecraftData.modded.players && (
-            <NavMinecraftItem
-              image={computerHead}
-              name="Modded Server Status"
-              playerAmount={minecraftData.modded.players.online}
-            />
-          )}
-      </Grid>
-    </div>
+          {minecraftData &&
+            minecraftData.vanilla &&
+            minecraftData.vanilla.players && (
+              <NavMinecraftItem
+                image={playerHead}
+                name="Vanilla Server Status"
+                playerAmount={minecraftData.vanilla.players.online}
+              />
+            )}
+          {minecraftData &&
+            minecraftData.modded &&
+            minecraftData.modded.players && (
+              <NavMinecraftItem
+                image={computerHead}
+                name="Modded Server Status"
+                playerAmount={minecraftData.modded.players.online}
+              />
+            )}
+        </Grid>
+      </div>
+    </Fragment>
   );
 }
 

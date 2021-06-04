@@ -1,9 +1,18 @@
 /** @jsxImportSource theme-ui */
 
-import { Text } from "theme-ui";
+import { useState } from "react";
+import { Close } from "theme-ui";
+import { ReactComponent as HamburgerIcon } from "../assets/hamburger.svg";
 import Navbar from "../components/Navbar";
 
 function MainLayout({ noPadding, ...props }) {
+  const [isOpen, setOpen] = useState(false);
+
+  function showNavbar() {
+    setOpen(!isOpen);
+    console.log("ouguh");
+  }
+
   return (
     <div
       sx={{
@@ -12,27 +21,37 @@ function MainLayout({ noPadding, ...props }) {
         alignSelf: "stretch",
         maxHeight: "100vh",
         height: "100vh",
-        position: "relative",
       }}
       id="App"
     >
-      <Text
-        variant="muted"
+      <div
+        id="nav-toggle"
         sx={{
           position: "absolute",
-          bottom: "25px",
-          right: "35px",
+          top: "5px",
+          right: "5px",
+          padding: 3,
+          backgroundColor: "backgroundSecondary",
+          display: ["block", "none"],
           zIndex: 100,
         }}
+        onClick={showNavbar}
       >
-        Still in development
-      </Text>
+        {isOpen ? (
+          <Close color="white" />
+        ) : (
+          <HamburgerIcon sx={{ display: "block", fill: "white" }} />
+        )}
+      </div>
       <section
         sx={{
-          display: ["none", "flex"],
-          // "& > div": {
-          //   p: 4,
-          // },
+          display: [isOpen ? "flex" : "none", "flex"],
+          width: [isOpen ? "100%" : "auto", "auto"],
+          ...(isOpen && {
+            "& > div": {
+              width: "100%",
+            },
+          }),
         }}
       >
         <Navbar />
@@ -43,6 +62,7 @@ function MainLayout({ noPadding, ...props }) {
           p: noPadding ? 0 : 4,
           pb: noPadding ? 0 : [4, 6],
           overflowY: "auto",
+          display: [isOpen ? "none" : "block", "block"],
         }}
       >
         {props.children}

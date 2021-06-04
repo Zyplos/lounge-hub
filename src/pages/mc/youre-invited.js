@@ -48,7 +48,7 @@ function SectionBox({ heading, image, children, isAlt, ...props }) {
       <Grid
         sx={{
           width: ["100%", null, "50%"],
-          py: 6,
+          py: [5, 6],
           px: 5,
           order: [2, null, !isAlt ? 1 : 2],
         }}
