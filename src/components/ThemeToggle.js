@@ -11,6 +11,9 @@ function ThemeToggle() {
         bg: "text",
         p: 1,
         lineHeight: "0",
+        borderWidth: "1px",
+        borderStyle: "solid",
+        borderColor: "default" ? "#fff" : "#000",
       }}
     >
       {colorMode === "default" ? (

@@ -117,7 +117,7 @@ function Player() {
   }
   function updateMapFrameHome(x, y, z, dimension) {
     setMapUrl(
-      `${mapUrlBase}/#${dimension}:${x}:${y + 4}:${z}:5:0:1.4:0:0:free`
+      `${mapUrlBase}/#${dimension}:${x}:${y + 2}:${z}:5:0:1.4:0:0:free`
     );
   }
 

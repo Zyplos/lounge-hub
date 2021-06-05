@@ -145,6 +145,9 @@ function DiscordServer() {
           );
         })}
       </Grid>
+      <Text variant="muted">
+        {discordData.members.length} currently online.
+      </Text>
     </React.Fragment>
   );
 }

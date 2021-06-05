@@ -204,9 +204,14 @@ function MCHome() {
         <ModifiedH2>Ready to join?</ModifiedH2>
 
         <Paragraph>
-          Grab the IP from any of the people below if you recognize them!
+          Reach out to any of the people below if you recognize them, they have
+          the IP!
         </Paragraph>
-        <Grid gap={4} columns={[1, 2, null, 3]} sx={{ justifyItems: "center" }}>
+        <Grid
+          gap={4}
+          columns={[1, 2, null, 3]}
+          sx={{ justifyItems: "center", mb: 5 }}
+        >
           <Image width="200px" src={CID1} alt="1" />
           <Image width="200px" src={CID2} alt="2" />
           <Image width="200px" src={CID3} alt="3" />
@@ -214,6 +219,9 @@ function MCHome() {
           <Image width="200px" src={CID5} alt="5" />
           <Image width="200px" src={CID6} alt="6" />
         </Grid>
+        <Paragraph pb={[4, 6]}>
+          The server opens as soon as the update releases, June 8th.
+        </Paragraph>
       </CenterSectionBox>
     </div>
   );

@@ -71,7 +71,7 @@ const NavText = ({ children }) => {
       sx={{
         display: ["inline-block", "none"],
         ml: 4,
-        color: "text",
+        color: "white",
         fontSize: 4,
         verticalAlign: "text-bottom",
       }}

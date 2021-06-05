@@ -1,4 +1,4 @@
-import { Grid, Text, Alert } from "theme-ui";
+import { Grid, Text, Alert, Heading } from "theme-ui";
 import MinecraftText from "../../components/MinecraftText";
 import ArticleLayout from "../../internals/ArticleLayout";
 
@@ -30,6 +30,20 @@ function LandClaiming() {
           Only one person can hold a claim to a chunk. If you no longer need a
           chunk, or claimed the wrong one, you can unclaim it by doing{" "}
           <MinecraftText>/unclaim</MinecraftText>.
+        </Text>
+
+        <Heading>Player Homes</Heading>
+        <Text>
+          The server has a <MinecraftText>/sethome</MinecraftText> command that
+          will set your player home to the location where you're standing. Doing{" "}
+          <MinecraftText>/home</MinecraftText> will not teleport you to your set
+          home however. Instead it will send you your home coordinates for you
+          to reference. Players are encouraged to create travel systems that
+          span the world.
+        </Text>
+        <Text>
+          The home you set is visibile on your public profile, so don't set it
+          somewhere you want to keep secret!
         </Text>
       </Grid>
     </ArticleLayout>

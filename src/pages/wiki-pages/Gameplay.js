@@ -18,7 +18,7 @@ function Gameplay() {
         <SmallCardGrid>
           <div>
             <Heading>keepInventory</Heading>
-            <Text>true</Text>
+            <Text>false</Text>
           </div>
           <div>
             <Heading>mobGriefing</Heading>
@@ -37,6 +37,14 @@ function Gameplay() {
         <Heading>Sleeping</Heading>
         <Text>
           Only half of the people online have to sleep for it to turn to day.
+        </Text>
+
+        <Heading>Graves on Player Death</Heading>
+        <Text>
+          Unlike previous seasons, keepInventory is turned off to keep that
+          vanilla feel that certain players prefer. To keep balance and fun,
+          your items will not drop but instead be placed into a grave that you
+          can later visit and retrieve your items from.
         </Text>
 
         <Heading>Mobs</Heading>
