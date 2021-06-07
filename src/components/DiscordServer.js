@@ -99,6 +99,7 @@ function DiscordServer() {
                     : "none",
                 color: member.status === "streaming" ? "white" : "text",
                 p: 2,
+                alignItems: "center",
               }}
             >
               <img
