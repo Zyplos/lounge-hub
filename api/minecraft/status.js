@@ -38,9 +38,9 @@ module.exports = async (req, res) => {
   };
 
   const vanillaIp =
-    process.env.NODE_ENV === "development" ? "192.168.1.163" : "mc.zyand.co";
+    process.env.NODE_ENV === "development" ? "192.168.1.163" : "mc.lounge.haus";
   const moddedIp =
-    process.env.NODE_ENV === "development" ? "192.168.1.163" : "mc.zyand.co";
+    process.env.NODE_ENV === "development" ? "192.168.1.163" : "mc.lounge.haus";
 
   const vanillaData = await getServerData(vanillaIp, 25565);
   const moddedData = await getServerData(moddedIp, 25577);
