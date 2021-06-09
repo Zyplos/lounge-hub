@@ -7,7 +7,7 @@ module.exports = async (_req, res) => {
     return util
       .status(ip, {
         enableSRV: true,
-        timeout: 5000,
+        timeout: 7000,
       })
       .then((response) => {
         motdparser.toHtml(
@@ -24,10 +24,11 @@ module.exports = async (_req, res) => {
       });
   };
 
-  const vanillaData = await getServerData("mc.zyand.co");
-  const moddedData = await getServerData("modded.zyand.co");
+  const vanillaData = await getServerData("mc.lounge.haus");
+  const moddedData = await getServerData("modded.lounge.haus");
 
   Promise.allSettled([vanillaData, moddedData]).then((results) => {
-    res.json({ vanilla: results[0].value, modded: results[1].value });
+    // console.log(results);
+    res.json({ vanilla: results[0].value, modded: { ...results[1].value } });
   });
 };

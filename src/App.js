@@ -9,7 +9,7 @@ import { Button, Grid, Heading, Text } from "theme-ui";
 
 function App() {
   const { data: minecraftData, minecraftError } = useSWR(
-    `/api/minecraft/status`,
+    `/api/minecraft/status-bugfix`,
     {
       refreshInterval: 60000,
     }

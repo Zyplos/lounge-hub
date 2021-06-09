@@ -147,26 +147,25 @@ function Navbar() {
           <ThemeToggle />
 
           {minecraftData &&
-            (minecraftData.vanilla.players || minecraftData.modded.players) && (
-              <NavDivider />
-            )}
+            (minecraftData.vanilla.onlinePlayers ||
+              minecraftData.modded.onlinePlayers) && <NavDivider />}
 
           {minecraftData &&
             minecraftData.vanilla &&
-            minecraftData.vanilla.players && (
+            minecraftData.vanilla.onlinePlayers && (
               <NavMinecraftItem
                 image={playerHead}
                 name="Vanilla Server Status"
-                playerAmount={minecraftData.vanilla.players.online}
+                playerAmount={minecraftData.vanilla.onlinePlayers}
               />
             )}
           {minecraftData &&
             minecraftData.modded &&
-            minecraftData.modded.players && (
+            minecraftData.modded.onlinePlayers && (
               <NavMinecraftItem
                 image={computerHead}
                 name="Modded Server Status"
-                playerAmount={minecraftData.modded.players.online}
+                playerAmount={minecraftData.modded.onlinePlayers}
               />
             )}
         </Grid>

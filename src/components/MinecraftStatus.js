@@ -11,23 +11,30 @@ function MinecraftStatus(props) {
     return <MinecraftStatusSkeleton />;
   }
 
-  const getPlayerImage = (uuid) => {
-    return `https://crafatar.com/avatars/${uuid}?size=64&default=MHF_Steve&overlay`;
-  };
-
-  const computedPlural = () => {
-    if (!data.players) return "players";
-
-    return data.players.online === 1 ? "player" : "players";
-  };
-
   if (!data || !data.description) {
     return <Alert>This server is currently offline.</Alert>;
   }
 
+  const getPlayerImage = (uuid) => {
+    return `https://crafatar.com/avatars/${uuid}?size=64&default=MHF_Steve&overlay`;
+  };
+
+  // const numPlayersOnline = data.players.online;
+  // const playerList = data.players.sample;
+  // const versionName = data.version.name;
+  const numPlayersOnline = data.onlinePlayers;
+  const playerList = data.samplePlayers;
+  const versionName = data.version;
+
+  const computedPlural = () => {
+    if (!data || !data.players) return "players";
+
+    return numPlayersOnline === 1 ? "player" : "players";
+  };
+
   // sort players so they dont change positions on component refresh
-  if (data.players.online > 0 && data.players.sample) {
-    data.players.sample.sort(function (a, b) {
+  if (numPlayersOnline > 0 && playerList) {
+    playerList.sort(function (a, b) {
       var nameA = a.name.toUpperCase(); // ignore upper and lowercase
       var nameB = b.name.toUpperCase(); // ignore upper and lowercase
       if (nameA < nameB) {
@@ -66,14 +73,24 @@ function MinecraftStatus(props) {
       </Flex>
       <Text>
         {/* IP: {props.ip} •{" "} */}
-        {data.players.online !== 0 ? data.players.online : "No"}{" "}
-        {computedPlural()} online
-        {data.version ? " • " + data.version.name : ""}
+        {numPlayersOnline !== 0
+          ? numPlayersOnline
+          : "No"} {computedPlural()} online
+        {versionName ? " • " + versionName : ""}
       </Text>
-      {data.players.online === 0 && <Text>No one's online at the moment.</Text>}
-      {data.players.online > 0 && data.players.sample && (
-        <Grid sx={{ gridTemplateColumns: "repeat(5, 1fr)" }}>
-          {data.players.sample.map((player, index) => {
+      {numPlayersOnline === 0 && <Text>No one's online at the moment.</Text>}
+      {numPlayersOnline > 0 && playerList && (
+        <Grid
+          sx={{
+            gridTemplateColumns: [
+              "repeat(3, 1fr)",
+              null,
+              null,
+              "repeat(5, 1fr)",
+            ],
+          }}
+        >
+          {playerList.map((player, index) => {
             return (
               <Flex
                 key={index}

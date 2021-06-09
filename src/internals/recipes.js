@@ -18,6 +18,7 @@ import redstone from "../assets/items/redstone.png";
 import nameTag from "../assets/items/name_tag.png";
 import apple from "../assets/items/apple.png";
 import enchantedGoldenApple from "../assets/items/enchanted_golden_apple.gif";
+import bundle from "../assets/items/bundle.png";
 
 import stonePickaxe from "../assets/items/stone_pickaxe.png";
 import stoneAxe from "../assets/items/stone_axe.png";
@@ -39,7 +40,6 @@ import polishedDiorite from "../assets/items/polished_diorite.png";
 import polishedGranite from "../assets/items/polished_granite.png";
 import blackstone from "../assets/items/blackstone.png";
 
-import blockOfGold from "../assets/items/block_of_gold.png";
 import furnace from "../assets/items/furnace.png";
 import piston from "../assets/items/piston.png";
 import observer from "../assets/items/observer.png";
@@ -81,6 +81,19 @@ import strippedAcaciaLog from "../assets/items/stripped_acacia_log.png";
 import strippedDarkOakLog from "../assets/items/stripped_dark_oak_log.png";
 import strippedCrimsonStem from "../assets/items/stripped_crimson_stem.png";
 import strippedWarpedStem from "../assets/items/stripped_warped_stem.png";
+
+import floweringAzaleaLeaves from "../assets/items/flowering_azalea_leaves.png";
+import azaleaLeaves from "../assets/items/azalea_leaves.png";
+import sporeBlossom from "../assets/items/spore_blossom.png";
+import bigDripleaf from "../assets/items/big_dripleaf.png";
+import smallDripleaf from "../assets/items/small_dripleaf.png";
+
+import blockOfRawIron from "../assets/items/block_of_raw_iron.png";
+import blockOfRawGold from "../assets/items/block_of_raw_gold.png";
+import blockOfRawCopper from "../assets/items/block_of_raw_copper.png";
+import blockOfIron from "../assets/items/block_of_iron.png";
+import blockOfGold from "../assets/items/block_of_gold.png";
+import blockOfCopper from "../assets/items/block_of_copper.png";
 
 const recipes = [
   {
@@ -720,6 +733,87 @@ const recipes = [
       false,
     ],
     result: ["Lever", lever],
+  },
+  {
+    type: "furnace",
+    input: ["Block of Raw Iron", blockOfRawIron],
+    result: ["Block of Iron", blockOfIron],
+  },
+  {
+    type: "blasting",
+    input: ["Block of Raw Iron", blockOfRawIron],
+    result: ["Block of Iron", blockOfIron],
+  },
+  {
+    type: "furnace",
+    input: ["Block of Raw Gold", blockOfRawGold],
+    result: ["Block of Gold", blockOfGold],
+  },
+  {
+    type: "blasting",
+    input: ["Block of Raw Gold", blockOfRawGold],
+    result: ["Block of Gold", blockOfGold],
+  },
+  {
+    type: "furnace",
+    input: ["Block of Raw Copper", blockOfRawCopper],
+    result: ["Block of Copper", blockOfCopper],
+  },
+  {
+    type: "blasting",
+    input: ["Block of Raw Copper", blockOfRawCopper],
+    result: ["Block of Copper", blockOfCopper],
+  },
+  {
+    type: "crafting",
+    input: [
+      false,
+      false,
+      false,
+
+      false,
+      ["Big Dripleaf", bigDripleaf],
+      false,
+
+      false,
+      false,
+      false,
+    ],
+    result: ["Small Dripleaf", smallDripleaf, 2],
+  },
+  {
+    type: "crafting",
+    input: [
+      ["Flowering Azalea Leaves", floweringAzaleaLeaves],
+      ["Azalea Leaves", azaleaLeaves],
+      false,
+
+      ["Azalea Leaves", azaleaLeaves],
+      ["Flowering Azalea Leaves", floweringAzaleaLeaves],
+      false,
+
+      false,
+      false,
+      false,
+    ],
+    result: ["Spore Blossom", sporeBlossom, 1],
+  },
+  {
+    type: "crafting",
+    input: [
+      ["String", string],
+      ["Leather", leather],
+      ["String", string],
+
+      ["Leather", leather],
+      false,
+      ["Leather", leather],
+
+      ["Leather", leather],
+      ["Leather", leather],
+      ["Leather", leather],
+    ],
+    result: ["Bundle", bundle, 1],
   },
 ];
 
