@@ -82,6 +82,14 @@ import strippedDarkOakLog from "../assets/items/stripped_dark_oak_log.png";
 import strippedCrimsonStem from "../assets/items/stripped_crimson_stem.png";
 import strippedWarpedStem from "../assets/items/stripped_warped_stem.png";
 
+import anyLog from "../assets/items/any_log.gif";
+import anyWood from "../assets/items/any_wood.gif";
+import anyStrippedLog from "../assets/items/any_stripped_log.gif";
+import anyStrippedWood from "../assets/items/any_stripped_wood.gif";
+import anyPlanks from "../assets/items/any_planks.gif";
+import anySlab from "../assets/items/any_slab.gif";
+import anyStairs from "../assets/items/any_stairs.gif";
+
 import floweringAzaleaLeaves from "../assets/items/flowering_azalea_leaves.png";
 import azaleaLeaves from "../assets/items/azalea_leaves.png";
 import sporeBlossom from "../assets/items/spore_blossom.png";
@@ -814,6 +822,96 @@ const recipes = [
       ["Leather", leather],
     ],
     result: ["Bundle", bundle, 1],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Wood", anyWood],
+    result: ["Any Log", anyLog],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Wood", anyWood],
+    result: ["Any Planks", anyPlanks, 4],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Wood", anyWood],
+    result: ["Any Stripped Log", anyStrippedLog],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Wood", anyWood],
+    result: ["Any Stripped Wood", anyStrippedWood],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Log", anyLog],
+    result: ["Any Wood", anyWood],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Log", anyLog],
+    result: ["Any Planks", anyPlanks, 4],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Log", anyLog],
+    result: ["Any Stripped Log", anyStrippedLog],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Log", anyLog],
+    result: ["Any Stripped Wood", anyStrippedWood],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Planks", anyPlanks],
+    result: ["Any Wood Slab", anySlab, 2],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Planks", anyPlanks],
+    result: ["Any Wood Stairs", anyStairs],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Stripped Log", anyStrippedLog],
+    result: ["Any Wood", anyWood],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Stripped Log", anyStrippedLog],
+    result: ["Any Log", anyLog],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Stripped Log", anyStrippedLog],
+    result: ["Any Planks", anyPlanks, 4],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Stripped Log", anyStrippedLog],
+    result: ["Any Stripped Wood", anyStrippedWood],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Stripped Wood", anyStrippedWood],
+    result: ["Any Wood", anyWood],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Stripped Wood", anyStrippedWood],
+    result: ["Any Log", anyLog],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Stripped Wood", anyStrippedWood],
+    result: ["Any Planks", anyPlanks, 4],
+  },
+  {
+    type: "stonecutter",
+    input: ["Any Stripped Wood", anyStrippedWood],
+    result: ["Any Stripped Log", anyStrippedLog],
   },
 ];
 

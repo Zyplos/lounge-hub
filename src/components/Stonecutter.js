@@ -6,7 +6,7 @@ import MinecraftSlot from "./MinecraftSlot";
 import MinecraftResultSlot from "./MinecraftResultSlot";
 import MinecraftResultArrow from "./MinecraftResultArrow";
 
-function Stonecutter({ input, result }) {
+function Stonecutter({ input, result, amount }) {
   const [colorMode] = useColorMode();
 
   return (
@@ -33,6 +33,7 @@ function Stonecutter({ input, result }) {
           <MinecraftResultSlot
             name={result[0]}
             image={result[1]}
+            amount={amount}
             type="stonecutter"
           />
         </span>
