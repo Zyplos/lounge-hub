@@ -11,11 +11,11 @@ the_deep_dark                    66981552-9dc5-430b-a46b-ed748d9384d1
 const CommunityIdMap = {
   1: "the lounge",
   2: "3 AM",
-  3: "MK7 Rock Rock Mountain",
+  3: "3DS Rock Rock Mountain",
   4: "blaster's circle",
   5: "The ultimate Yakuza fan club",
   6: "vold group",
-  99: "???",
+  99: "Friend of Friend",
 };
 
 const CommunityColorMap = {

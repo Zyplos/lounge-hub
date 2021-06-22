@@ -38,7 +38,8 @@ const theme = {
       borderLeftStyle: "solid",
       borderLeftColor: "highlight",
       borderRadius: 4,
-      bg: "backgroundSecondary",
+      bg: "cardBg",
+      color: "text",
     },
   },
   colors: {

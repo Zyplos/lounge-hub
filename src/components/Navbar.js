@@ -84,6 +84,39 @@ const NavText = ({ children }) => {
 function Navbar() {
   const minecraftData = useContext(MinecraftContext);
 
+  const minecraftFragments = [];
+
+  if (minecraftData) {
+    const isVanillaOnline = minecraftData.vanilla.onlinePlayers >= 0;
+    const isModdedOnline = minecraftData.modded.onlinePlayers >= 0;
+
+    if (isVanillaOnline || isModdedOnline) {
+      minecraftFragments.push(<NavDivider key={0} />);
+    }
+
+    if (isVanillaOnline) {
+      minecraftFragments.push(
+        <NavMinecraftItem
+          key={1}
+          image={playerHead}
+          name="Vanilla Server Status"
+          playerAmount={minecraftData.vanilla.onlinePlayers}
+        />
+      );
+    }
+
+    if (isModdedOnline) {
+      minecraftFragments.push(
+        <NavMinecraftItem
+          key={2}
+          image={computerHead}
+          name="Modded Server Status"
+          playerAmount={minecraftData.modded.onlinePlayers}
+        />
+      );
+    }
+  }
+
   return (
     <Fragment>
       <div
@@ -146,28 +179,7 @@ function Navbar() {
 
           <ThemeToggle />
 
-          {minecraftData &&
-            (minecraftData.vanilla.onlinePlayers ||
-              minecraftData.modded.onlinePlayers) && <NavDivider />}
-
-          {minecraftData &&
-            minecraftData.vanilla &&
-            minecraftData.vanilla.onlinePlayers && (
-              <NavMinecraftItem
-                image={playerHead}
-                name="Vanilla Server Status"
-                playerAmount={minecraftData.vanilla.onlinePlayers}
-              />
-            )}
-          {minecraftData &&
-            minecraftData.modded &&
-            minecraftData.modded.onlinePlayers && (
-              <NavMinecraftItem
-                image={computerHead}
-                name="Modded Server Status"
-                playerAmount={minecraftData.modded.onlinePlayers}
-              />
-            )}
+          {minecraftFragments}
         </Grid>
       </div>
     </Fragment>
