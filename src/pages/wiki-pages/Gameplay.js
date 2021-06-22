@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Heading, Grid, Text, Alert } from "theme-ui";
+import MinecraftText from "../../components/MinecraftText";
 import SmallCardGrid from "../../components/SmallCardGrid";
 import ArticleLayout from "../../internals/ArticleLayout";
 
@@ -7,9 +8,6 @@ function Gameplay() {
   return (
     <ArticleLayout title="Gameplay">
       <Grid>
-        <Alert>
-          This page is currently under development for Season 5 (1.17).
-        </Alert>
         <Text>
           Some stuff on the server functions a little differently from Vanilla.
         </Text>
@@ -36,10 +34,23 @@ function Gameplay() {
 
         <Heading>Sleeping</Heading>
         <Text>
-          Only half of the people online have to sleep for it to turn to day.
+          Only a third of the people online have to sleep for it to turn to day.
+        </Text>
+
+        <Heading>Nicknames and Colors</Heading>
+        <Text>
+          Players can set their own nickname by doing{" "}
+          <MinecraftText>/nickname [name]</MinecraftText>.
+        </Text>
+        <Text>
+          You can use standard Minecraft colors in your nickname. You can also
+          use custom hex colors, for example:{" "}
+          <MinecraftText>/nickname &#ff9d00[name]</MinecraftText>. This would
+          give you an orange name.
         </Text>
 
         <Heading>Graves on Player Death</Heading>
+        <Alert>This will be implemented later.</Alert>
         <Text>
           Unlike previous seasons, keepInventory is turned off to keep that
           vanilla feel that certain players prefer. To keep balance and fun,

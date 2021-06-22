@@ -17,7 +17,8 @@ function LandClaiming() {
         </Text>
         <Text>
           People who walk into your owned chunk will be shown a message above
-          their hotbar telling that they are walking in someone's territory.
+          their hotbar telling that they are walking in someone's territory. It
+          will also show in <MinecraftText>/chunkinfo</MinecraftText>.
         </Text>
         <Text>
           When players walk into a claimed chunk, their visit is recorded. Check
@@ -32,6 +33,19 @@ function LandClaiming() {
           <MinecraftText>/unclaim</MinecraftText>.
         </Text>
 
+        <Heading>Player Profiles</Heading>
+        <Text>
+          Each player has a profile that is viewable ingame and online. They
+          show a player's home coords if they have set one and have it set to
+          public. Your profile online shows a bit more detail by listing all the
+          chunks the player has claimed.
+        </Text>
+        <Text>
+          See your own profile by doing <MinecraftText>/profile</MinecraftText>.
+          See another player's profile by doing{" "}
+          <MinecraftText>/profile [name]</MinecraftText>.
+        </Text>
+
         <Heading>Player Homes</Heading>
         <Text>
           The server has a <MinecraftText>/sethome</MinecraftText> command that
@@ -42,8 +56,10 @@ function LandClaiming() {
           span the world.
         </Text>
         <Text>
-          The home you set is visibile on your public profile, so don't set it
-          somewhere you want to keep secret!
+          The home you set is visibile on your public profile by default. If you
+          want to hide it, do <MinecraftText>/hidehome</MinecraftText>. If you
+          want it to show publicly again, do{" "}
+          <MinecraftText>/showhome</MinecraftText>.
         </Text>
       </Grid>
     </ArticleLayout>
