@@ -36,11 +36,11 @@ function ProximityChat() {
 
         <Heading>Downloading Plasmo Voice</Heading>
         <Text>
-          Head on over to the{" "}
+          Go to the{" "}
           <Link href="https://www.curseforge.com/minecraft/mc-mods/plasmo-voice-client" target="_blank">
             Plasmo Voice mod page
           </Link>{" "}
-          to download the mod. The download button for the mod should be on the left side of the page. You might have to scroll a bit down. Click the orange button next
+          to download the mod. The download button for the mod should be on the right side of the page. You might have to scroll a bit down. Click the orange button next
           to the file name. Make sure it corresponds to the Minecraft version the server is running.
         </Text>
         <Image src={CurseforgePlasmoPage} alt="Screenshot of the Plasmo Voice mod page" />
