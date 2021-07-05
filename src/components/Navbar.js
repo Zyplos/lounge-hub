@@ -14,6 +14,7 @@ import { ReactComponent as BlockIcon } from "../assets/block-icon.svg";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
 import ThemeToggle from "./ThemeToggle";
+import { mapUrlBase } from "../internals/Utils";
 
 const MinecraftContainer = ({ ...props }) => (
   <div
@@ -172,7 +173,7 @@ function Navbar() {
             <NavText>Player Lookup</NavText>
           </Link>
 
-          <a href="https://mc.lounge.haus">
+          <a href={mapUrlBase} target="_blank" rel="noreferrer">
             <img src={MapIcon} alt="Map Icon" sx={{ width: "32px" }} />
             <NavText>Server Map</NavText>
           </a>

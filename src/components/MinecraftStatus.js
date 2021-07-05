@@ -86,9 +86,10 @@ function MinecraftStatus(props) {
               "repeat(3, 1fr)",
               null,
               null,
-              "repeat(5, 1fr)",
+              "repeat(4, 1fr)",
             ],
           }}
+          gap={4}
         >
           {playerList.map((player, index) => {
             return (
