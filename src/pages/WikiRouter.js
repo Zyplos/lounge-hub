@@ -1,18 +1,13 @@
 /** @jsxImportSource theme-ui */
 import { Button, Grid, Heading, Text } from "theme-ui";
-import {
-  Switch,
-  Route,
-  useRouteMatch,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { Switch, Route, useRouteMatch, Link, useLocation } from "react-router-dom";
 import MainLayout from "../internals/MainLayout";
 import WikiHome from "./wiki-pages/index";
 import Changelog from "./wiki-pages/Changelog";
 import CraftingRecipes from "./wiki-pages/CraftingRecipes";
 import Gameplay from "./wiki-pages/Gameplay";
 import LandClaiming from "./wiki-pages/LandClaiming";
+import ProximityChat from "./wiki-pages/ProximityChat";
 import TheAether from "./wiki-pages/TheAether";
 
 function WikiRouter() {
@@ -38,6 +33,9 @@ function WikiRouter() {
         </Route>
         <Route path={`${path}/land-claiming`}>
           <LandClaiming />
+        </Route>
+        <Route path={`${path}/proximity-chat`}>
+          <ProximityChat />
         </Route>
         <Route path="*">
           <Grid>
