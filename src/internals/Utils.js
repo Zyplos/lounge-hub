@@ -71,7 +71,7 @@ const prettyPrintDate = (date) => {
   return date.toLocaleDateString("en-US");
 };
 
-module.exports = {
+export {
   CommunityIdMap,
   CommunityColorMap,
   DimensionNameMap,
