@@ -25,28 +25,35 @@ const CommunityColorMap = {
   99: "#919191",
 };
 
+const worldUUIDs = {
+  overworld: "3f7dbb2b-9d3b-4373-a571-50928068bd32",
+  nether: "95040cf6-c591-4791-9e12-0818933654ed",
+  end: "3fa11ea0-196d-4539-9121-cf92e61ebc1a",
+  aether: "6fdffaa4-66c9-40ca-ae14-489711eee5e3",
+};
+
 const DimensionNameMap = {
-  "3f7dbb2b-9d3b-4373-a571-50928068bd32": "The Overworld",
-  "eb9185e0-1485-4e21-b4c2-63085408f81f": "The Aether",
-  "95040cf6-c591-4791-9e12-0818933654ed": "The Nether",
-  "3fa11ea0-196d-4539-9121-cf92e61ebc1a": "The End",
+  [worldUUIDs.overworld]: "The Overworld",
+  [worldUUIDs.nether]: "The Nether",
+  [worldUUIDs.end]: "The End",
+  [worldUUIDs.aether]: "The Aether",
 };
 
 const DimensionInternalNameMap = {
-  "3f7dbb2b-9d3b-4373-a571-50928068bd32": "world",
-  "eb9185e0-1485-4e21-b4c2-63085408f81f": "world_zydims_aether",
-  "95040cf6-c591-4791-9e12-0818933654ed": "nether",
-  "3fa11ea0-196d-4539-9121-cf92e61ebc1a": "end",
+  [worldUUIDs.overworld]: "world",
+  [worldUUIDs.nether]: "nether",
+  [worldUUIDs.end]: "end",
+  [worldUUIDs.aether]: "aether",
 };
 
 const DimensionColorMap = {
-  "3f7dbb2b-9d3b-4373-a571-50928068bd32": "#41BC49",
-  "eb9185e0-1485-4e21-b4c2-63085408f81f": "#6CBAE8",
-  "95040cf6-c591-4791-9e12-0818933654ed": "#B81E1E",
-  "3fa11ea0-196d-4539-9121-cf92e61ebc1a": "#C9B979",
+  [worldUUIDs.overworld]: "#41BC49",
+  [worldUUIDs.nether]: "#B81E1E",
+  [worldUUIDs.end]: "#C9B979",
+  [worldUUIDs.aether]: "#6CBAE8",
 };
 
-const mapUrlBase = "https://map.lounge.haus/";
+const mapUrlBase = "https://map.lounge.haus";
 
 const findChunkCenter = (cx, cz) => {
   const x = cx * 16 + 8;
