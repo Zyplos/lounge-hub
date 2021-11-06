@@ -1,5 +1,4 @@
 import { Grid, Text, Link, Heading, Image, Message } from "theme-ui";
-import MinecraftText from "../../components/MinecraftText";
 import ArticleLayout from "../../internals/ArticleLayout";
 import FabricInstallerScreenshot from "../../assets/fabric-installer-screenshot.png";
 import CurseforgePlasmoPage from "../../assets/curseforge-plasmo-page.png";

@@ -62,25 +62,25 @@ import anyStainedGlass from "../assets/items/stained_glass.gif";
 import anyStainedGlassPane from "../assets/items/stained_glass_pane.gif";
 import anyWool from "../assets/items/wool.gif";
 
-import oakLog from "../assets/items/oak_log.png";
-import birchLog from "../assets/items/birch_log.png";
-import spruceLog from "../assets/items/spruce_log.png";
+// import oakLog from "../assets/items/oak_log.png";
+// import birchLog from "../assets/items/birch_log.png";
+// import spruceLog from "../assets/items/spruce_log.png";
 import jungleLog from "../assets/items/jungle_log.png";
-import acaciaLog from "../assets/items/acacia_log.png";
-import darkOakLog from "../assets/items/dark_oak_log.png";
-import crimsonStem from "../assets/items/crimson_stem.gif";
-import warpedStem from "../assets/items/warped_stem.gif";
+// import acaciaLog from "../assets/items/acacia_log.png";
+// import darkOakLog from "../assets/items/dark_oak_log.png";
+// import crimsonStem from "../assets/items/crimson_stem.gif";
+// import warpedStem from "../assets/items/warped_stem.gif";
 
 import oakPlanks from "../assets/items/oak_planks.png";
 
-import strippedOakLog from "../assets/items/stripped_oak_log.png";
-import strippedBirchLog from "../assets/items/stripped_birch_log.png";
-import strippedSpruceLog from "../assets/items/stripped_spruce_log.png";
-import strippedJungleLog from "../assets/items/stripped_jungle_log.png";
-import strippedAcaciaLog from "../assets/items/stripped_acacia_log.png";
-import strippedDarkOakLog from "../assets/items/stripped_dark_oak_log.png";
-import strippedCrimsonStem from "../assets/items/stripped_crimson_stem.png";
-import strippedWarpedStem from "../assets/items/stripped_warped_stem.png";
+// import strippedOakLog from "../assets/items/stripped_oak_log.png";
+// import strippedBirchLog from "../assets/items/stripped_birch_log.png";
+// import strippedSpruceLog from "../assets/items/stripped_spruce_log.png";
+// import strippedJungleLog from "../assets/items/stripped_jungle_log.png";
+// import strippedAcaciaLog from "../assets/items/stripped_acacia_log.png";
+// import strippedDarkOakLog from "../assets/items/stripped_dark_oak_log.png";
+// import strippedCrimsonStem from "../assets/items/stripped_crimson_stem.png";
+// import strippedWarpedStem from "../assets/items/stripped_warped_stem.png";
 
 import anyLog from "../assets/items/any_log.gif";
 import anyWood from "../assets/items/any_wood.gif";
@@ -106,19 +106,7 @@ import blockOfCopper from "../assets/items/block_of_copper.png";
 const recipes = [
   {
     type: "crafting",
-    input: [
-      ["Water Bucket", waterBucket],
-      ["Green Dye", greenDye],
-      false,
-
-      ["Wheat", wheat],
-      false,
-      false,
-
-      false,
-      false,
-      false,
-    ],
+    input: [["Water Bucket", waterBucket], ["Green Dye", greenDye], false, ["Wheat", wheat], false, false, false, false, false],
     result: ["Slime Ball", slimeBall],
   },
   {
@@ -173,36 +161,12 @@ const recipes = [
   },
   {
     type: "crafting",
-    input: [
-      false,
-      ["Fire Charge", fireCharge],
-      false,
-
-      false,
-      ["Stick", stick],
-      false,
-
-      false,
-      ["Soul Soil", soulSoil],
-      false,
-    ],
+    input: [false, ["Fire Charge", fireCharge], false, false, ["Stick", stick], false, false, ["Soul Soil", soulSoil], false],
     result: ["Soul Torch", soulTorch, 4],
   },
   {
     type: "crafting",
-    input: [
-      false,
-      ["Fire Charge", fireCharge],
-      false,
-
-      false,
-      ["Stick", stick],
-      false,
-
-      false,
-      ["Soul Sand", soulSand],
-      false,
-    ],
+    input: [false, ["Fire Charge", fireCharge], false, false, ["Stick", stick], false, false, ["Soul Sand", soulSand], false],
     result: ["Soul Torch", soulTorch, 4],
   },
   {
@@ -212,19 +176,7 @@ const recipes = [
   },
   {
     type: "crafting",
-    input: [
-      ["Any Bed", anyBed],
-      ["Any Dye", anyDye],
-      ["Any Dye", anyDye],
-
-      ["Any Dye", anyDye],
-      false,
-      false,
-
-      false,
-      false,
-      false,
-    ],
+    input: [["Any Bed", anyBed], ["Any Dye", anyDye], ["Any Dye", anyDye], ["Any Dye", anyDye], false, false, false, false, false],
     result: ["Any Bed", anyBed],
   },
   {
@@ -297,19 +249,7 @@ const recipes = [
   },
   {
     type: "crafting",
-    input: [
-      ["Any Wool", anyWool],
-      ["Any Dye", anyDye],
-      false,
-
-      false,
-      false,
-      false,
-
-      false,
-      false,
-      false,
-    ],
+    input: [["Any Wool", anyWool], ["Any Dye", anyDye], false, false, false, false, false, false, false],
     result: ["Any Wool", anyWool],
   },
   {
@@ -331,36 +271,12 @@ const recipes = [
   },
   {
     type: "crafting",
-    input: [
-      ["Sandstone", sandstone],
-      ["Sandstone", sandstone],
-      ["Red Dye", redDye],
-
-      false,
-      false,
-      false,
-
-      false,
-      false,
-      false,
-    ],
+    input: [["Sandstone", sandstone], ["Sandstone", sandstone], ["Red Dye", redDye], false, false, false, false, false, false],
     result: ["Red Sandstone", redSandstone, 2],
   },
   {
     type: "crafting",
-    input: [
-      ["Smooth Sandstone", smoothSandstone],
-      ["Smooth Sandstone", smoothSandstone],
-      ["Red Dye", redDye],
-
-      false,
-      false,
-      false,
-
-      false,
-      false,
-      false,
-    ],
+    input: [["Smooth Sandstone", smoothSandstone], ["Smooth Sandstone", smoothSandstone], ["Red Dye", redDye], false, false, false, false, false, false],
     result: ["Smooth Red Sandstone", smoothRedSandstone, 2],
   },
   {
@@ -370,19 +286,7 @@ const recipes = [
   },
   {
     type: "crafting",
-    input: [
-      false,
-      ["Iron Ingot", ironIngot],
-      ["String", string],
-
-      false,
-      ["Paper", paper],
-      ["Iron Ingot", ironIngot],
-
-      ["Paper", paper],
-      false,
-      false,
-    ],
+    input: [false, ["Iron Ingot", ironIngot], ["String", string], false, ["Paper", paper], ["Iron Ingot", ironIngot], ["Paper", paper], false, false],
     result: ["Name Tag", nameTag],
   },
   {
@@ -404,87 +308,27 @@ const recipes = [
   },
   {
     type: "crafting",
-    input: [
-      false,
-      ["Blackstone", blackstone],
-      false,
-
-      false,
-      ["Blackstone", blackstone],
-      false,
-
-      false,
-      ["Stick", stick],
-      false,
-    ],
+    input: [false, ["Blackstone", blackstone], false, false, ["Blackstone", blackstone], false, false, ["Stick", stick], false],
     result: ["Stone Sword", stoneSword],
   },
   {
     type: "crafting",
-    input: [
-      ["Blackstone", blackstone],
-      ["Blackstone", blackstone],
-      ["Blackstone", blackstone],
-
-      false,
-      ["Stick", stick],
-      false,
-
-      false,
-      ["Stick", stick],
-      false,
-    ],
+    input: [["Blackstone", blackstone], ["Blackstone", blackstone], ["Blackstone", blackstone], false, ["Stick", stick], false, false, ["Stick", stick], false],
     result: ["Stone Pickaxe", stonePickaxe],
   },
   {
     type: "crafting",
-    input: [
-      ["Blackstone", blackstone],
-      ["Blackstone", blackstone],
-      false,
-
-      ["Blackstone", blackstone],
-      ["Stick", stick],
-      false,
-
-      false,
-      ["Stick", stick],
-      false,
-    ],
+    input: [["Blackstone", blackstone], ["Blackstone", blackstone], false, ["Blackstone", blackstone], ["Stick", stick], false, false, ["Stick", stick], false],
     result: ["Stone Axe", stoneAxe],
   },
   {
     type: "crafting",
-    input: [
-      false,
-      ["Blackstone", blackstone],
-      false,
-
-      false,
-      ["Stick", stick],
-      false,
-
-      false,
-      ["Stick", stick],
-      false,
-    ],
+    input: [false, ["Blackstone", blackstone], false, false, ["Stick", stick], false, false, ["Stick", stick], false],
     result: ["Stone Shovel", stoneShovel],
   },
   {
     type: "crafting",
-    input: [
-      ["Blackstone", blackstone],
-      ["Blackstone", blackstone],
-      false,
-
-      false,
-      ["Stick", stick],
-      false,
-
-      false,
-      ["Stick", stick],
-      false,
-    ],
+    input: [["Blackstone", blackstone], ["Blackstone", blackstone], false, false, ["Stick", stick], false, false, ["Stick", stick], false],
     result: ["Stone Hoe", stoneHoe],
   },
   {
@@ -540,19 +384,7 @@ const recipes = [
   },
   {
     type: "crafting",
-    input: [
-      false,
-      ["Blaze Rod", blazeRod],
-      false,
-
-      ["Blackstone", blackstone],
-      ["Blackstone", blackstone],
-      ["Blackstone", blackstone],
-
-      false,
-      false,
-      false,
-    ],
+    input: [false, ["Blaze Rod", blazeRod], false, ["Blackstone", blackstone], ["Blackstone", blackstone], ["Blackstone", blackstone], false, false, false],
     result: ["Brewing Stand", brewingStand],
   },
   {
@@ -591,19 +423,7 @@ const recipes = [
   },
   {
     type: "crafting",
-    input: [
-      false,
-      false,
-      false,
-
-      false,
-      ["Stick", stick],
-      false,
-
-      false,
-      ["Blackstone", blackstone],
-      false,
-    ],
+    input: [false, false, false, false, ["Stick", stick], false, false, ["Blackstone", blackstone], false],
     result: ["Lever", lever],
   },
   {
@@ -638,19 +458,7 @@ const recipes = [
   },
   {
     type: "crafting",
-    input: [
-      false,
-      false,
-      false,
-
-      false,
-      ["Big Dripleaf", bigDripleaf],
-      false,
-
-      false,
-      false,
-      false,
-    ],
+    input: [false, false, false, false, ["Big Dripleaf", bigDripleaf], false, false, false, false],
     result: ["Small Dripleaf", smallDripleaf, 2],
   },
   {

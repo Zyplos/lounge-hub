@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { Heading, Grid, Text, Alert } from "theme-ui";
+import { Heading, Grid, Text } from "theme-ui";
 import MinecraftText from "../../components/MinecraftText";
 import SmallCardGrid from "../../components/SmallCardGrid";
 import ArticleLayout from "../../internals/ArticleLayout";

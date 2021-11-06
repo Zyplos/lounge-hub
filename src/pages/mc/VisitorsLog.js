@@ -1,8 +1,7 @@
 /** @jsxImportSource theme-ui */
-import { Box, Grid, Heading, Spinner, Text } from "theme-ui";
+import { Box, Grid, Heading, Text } from "theme-ui";
 import { useParams } from "react-router";
 import useSWR from "swr";
-import FullBox from "../../components/FullBox";
 import { mapUrlBase, DimensionInternalNameMap, DimensionColorMap, findChunkCenter, prettyPrintDate, prettyPrintDateAndTime } from "../../internals/Utils";
 
 import { ReactComponent as CalendarIcon } from "../../assets/calendar-icon.svg";
