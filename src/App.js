@@ -8,12 +8,9 @@ import FullBox from "./components/FullBox";
 import { Button, Grid, Heading, Text } from "theme-ui";
 
 function App() {
-  const { data: minecraftData, minecraftError } = useSWR(
-    `/api/minecraft/status-bugfix`,
-    {
-      refreshInterval: 60000,
-    }
-  );
+  const { data: minecraftData, error: minecraftError } = useSWR(`/api/minecraft/status-bugfix`, {
+    refreshInterval: 60000,
+  });
   let { pathname } = useLocation();
   return (
     <div>

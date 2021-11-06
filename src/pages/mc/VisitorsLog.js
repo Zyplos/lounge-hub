@@ -3,17 +3,12 @@ import { Box, Grid, Heading, Spinner, Text } from "theme-ui";
 import { useParams } from "react-router";
 import useSWR from "swr";
 import FullBox from "../../components/FullBox";
-import {
-  mapUrlBase,
-  DimensionInternalNameMap,
-  DimensionColorMap,
-  findChunkCenter,
-  prettyPrintDate,
-  prettyPrintDateAndTime,
-} from "../../internals/Utils";
+import { mapUrlBase, DimensionInternalNameMap, DimensionColorMap, findChunkCenter, prettyPrintDate, prettyPrintDateAndTime } from "../../internals/Utils";
 
 import { ReactComponent as CalendarIcon } from "../../assets/calendar-icon.svg";
 import PlayerIcon from "../../assets/player-icon.png";
+import ErrorFullBox from "../../components/ErrorFullBox";
+import LoadingFullBox from "../../components/LoadingFullBox";
 
 const ChunkCard = ({ enteredTime, playerUUID, name }) => {
   return (
@@ -31,11 +26,7 @@ const ChunkCard = ({ enteredTime, playerUUID, name }) => {
           mr: 3,
         }}
       >
-        <img
-          src={`https://crafatar.com/avatars/${playerUUID}?size=64&overlay`}
-          alt={`${name}'s Head`}
-          sx={{ borderRadius: "9px" }}
-        />
+        <img src={`https://crafatar.com/avatars/${playerUUID}?size=64&overlay`} alt={`${name}'s Head`} sx={{ borderRadius: "9px" }} />
       </div>
       <Grid>
         <Text sx={{ variant: "text.heading", fontSize: 3 }}>{name}</Text>
@@ -48,43 +39,20 @@ const ChunkCard = ({ enteredTime, playerUUID, name }) => {
 function VisitorsLog() {
   const { uuid, x, z } = useParams();
 
-  const { data: logData, logError } = useSWR(
-    `/api/minecraft/logEntryByCoords?x=${x}&z=${z}&dimension=${uuid}`
-  );
-  const { data: chunkData, chunkError } = useSWR(
-    `/api/minecraft/chunkByCoords?x=${x}&z=${z}&dimension=${uuid}`
-  );
+  const { data: logData, error: logError } = useSWR(`/api/minecraft/logEntryByCoords?x=${x}&z=${z}&dimension=${uuid}`);
+  const { data: chunkData, error: chunkError } = useSWR(`/api/minecraft/chunkByCoords?x=${x}&z=${z}&dimension=${uuid}`);
 
   if (logError) {
-    return (
-      <FullBox useDims>
-        <Text variant="fullbox">Error getting log data.</Text>
-        <pre>{JSON.stringify(logError, false, 1)}</pre>
-      </FullBox>
-    );
+    return <ErrorFullBox header={logError.status} text="Error getting log data." />;
   }
   if (chunkError) {
-    return (
-      <FullBox useDims>
-        <Text variant="fullbox">Error getting chunk data.</Text>
-        <pre>{JSON.stringify(chunkError, false, 1)}</pre>
-      </FullBox>
-    );
+    return <ErrorFullBox header={chunkData.status} text="Error getting chunk data." />;
   }
   if (!logData) {
-    return (
-      <FullBox useDims>
-        <Spinner title="Grabbing log entries" size={200} /> Grabbing log
-        entries.
-      </FullBox>
-    );
+    return <LoadingFullBox text="Grabbing log entries..." />;
   }
   if (!chunkData) {
-    return (
-      <FullBox useDims>
-        <Spinner title="Loading Chunk Data" size={200} /> Loading chunk data.
-      </FullBox>
-    );
+    return <LoadingFullBox text="Loading chunk data..." />;
   }
 
   const newCoords = findChunkCenter(x, z);
@@ -113,11 +81,7 @@ function VisitorsLog() {
           },
         }}
       >
-        <Box
-          color="white"
-          bg={DimensionColorMap[ownedChunk.dimension]}
-          sx={{ position: "sticky", top: 0 }}
-        >
+        <Box color="white" bg={DimensionColorMap[ownedChunk.dimension]} sx={{ position: "sticky", top: 0 }}>
           <div
             sx={{
               height: "125px",
@@ -172,18 +136,9 @@ function VisitorsLog() {
           </div>
         </Box>
         <Grid p={4}>
-          {logData.data.length === 0 && (
-            <Text>Seems no one has visited this chunk yet.</Text>
-          )}
+          {logData.data.length === 0 && <Text>Seems no one has visited this chunk yet.</Text>}
           {logData.data.map((logEntry, index) => {
-            return (
-              <ChunkCard
-                key={index}
-                enteredTime={new Date(logEntry.entered_time)}
-                playerUUID={logEntry.player_id}
-                name={logEntry.name}
-              />
-            );
+            return <ChunkCard key={index} enteredTime={new Date(logEntry.entered_time)} playerUUID={logEntry.player_id} name={logEntry.name} />;
           })}
         </Grid>
       </div>

@@ -3,7 +3,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { SWRConfig } from "swr";
 import { ThemeProvider } from "theme-ui";
-import fetch from "cross-fetch";
 import { BrowserRouter } from "react-router-dom";
 
 import theme from "./internals/cinnaTheme";
@@ -11,15 +10,13 @@ import theme from "./internals/cinnaTheme";
 import App from "./App";
 import "./index.css";
 
+import fetcher from "./internals/fetcher";
+
 require("@south-paw/typeface-minecraft");
 
 ReactDOM.render(
   <React.StrictMode>
-    <SWRConfig
-      value={{
-        fetcher: (...args) => fetch(...args).then((res) => res.json()),
-      }}
-    >
+    <SWRConfig value={{ fetcher }}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <App />

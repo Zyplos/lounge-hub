@@ -87,6 +87,9 @@ const theme = {
       fontSize: [4, 8],
       fontWeight: "display",
     },
+    monospace: {
+      fontFamily: "monospace",
+    },
     italic: {
       fontStyle: "italic",
     },

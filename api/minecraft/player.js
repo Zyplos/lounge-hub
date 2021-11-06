@@ -9,10 +9,7 @@ module.exports = async (req, res) => {
 
   mysql
     .createConnection({
-      host:
-        process.env.NODE_ENV === "development"
-          ? "192.168.1.163"
-          : "mc.zyand.co",
+      host: process.env.DB_HOST,
       user: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: "loungeSurvival",
@@ -20,7 +17,6 @@ module.exports = async (req, res) => {
     .then((connection) => {
       connection
         .execute(
-          // "SELECT BIN_TO_UUID(player_id) AS player_id, name, joined, community_id, home_x, home_y, home_z, BIN_TO_UUID(home_dimension) AS home_dimension FROM players WHERE player_id=UUID_TO_BIN(?)",
           "SELECT BIN_TO_UUID(player_id) AS player_id, name, joined, community_id, home_x, home_y, home_z, BIN_TO_UUID(home_dimension) AS home_dimension, home_hidden FROM players WHERE name=?",
           [name]
         )
@@ -37,10 +33,10 @@ module.exports = async (req, res) => {
           res.json({ data: rows });
         })
         .catch((error) => {
-          res.json({ error: error });
+          res.status(504).json({ error: error });
         });
     })
     .catch((error) => {
-      res.json({ error: error });
+      res.status(504).json({ error: error });
     });
 };

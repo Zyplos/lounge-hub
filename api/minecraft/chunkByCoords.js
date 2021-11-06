@@ -13,10 +13,7 @@ module.exports = async (req, res) => {
 
   mysql
     .createConnection({
-      host:
-        process.env.NODE_ENV === "development"
-          ? "192.168.1.163"
-          : "mc.zyand.co",
+      host: process.env.DB_HOST,
       user: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: "loungeSurvival",
@@ -34,11 +31,11 @@ module.exports = async (req, res) => {
         })
         .catch((error) => {
           console.error("===========CONNECTION ERROR", error);
-          res.json({ error: error.toString() });
+          res.status(504).json({ error: error.toString() });
         });
     })
     .catch((error) => {
       console.error("===========CREATECONNECTION ERROR", error);
-      res.json({ error: error.toString() });
+      res.status(504).json({ error: error.toString() });
     });
 };
