@@ -1,14 +1,5 @@
 /** @jsxImportSource theme-ui */
-import {
-  Box,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Image,
-  Paragraph,
-  Text,
-} from "theme-ui";
+import { Box, Container, Flex, Grid, Heading, Image, Paragraph, Text } from "theme-ui";
 import { Link } from "react-router-dom";
 import InvitationSplashImage from "../../assets/invitation-splash.png";
 import EmblemMCImage from "../../assets/emblem-mc.png";
@@ -81,8 +72,7 @@ function CenterSectionBox({ children }) {
   );
 }
 
-const singlePixelShadow =
-  "1px 1px 0px black, -1px 1px 0px black, -1px -1px 0px black ,1px -1px 0px black";
+const singlePixelShadow = "1px 1px 0px black, -1px 1px 0px black, -1px -1px 0px black ,1px -1px 0px black";
 
 function MCHome() {
   return (
@@ -122,8 +112,7 @@ function MCHome() {
           <Heading
             as="h1"
             sx={{
-              textShadow:
-                "2px 2px 0px black, -2px 2px 0px black, -2px -2px 0px black ,2px -2px 0px black",
+              textShadow: "2px 2px 0px black, -2px 2px 0px black, -2px -2px 0px black ,2px -2px 0px black",
             }}
           >
             the lounge SMP server
@@ -132,10 +121,7 @@ function MCHome() {
             // as="h2"
             variant="display"
             sx={{
-              textShadow: [
-                singlePixelShadow,
-                "5px 5px 0px black, -5px 5px 0px black, -5px -5px 0px black ,5px -5px 0px black",
-              ],
+              textShadow: [singlePixelShadow, "5px 5px 0px black, -5px 5px 0px black, -5px -5px 0px black ,5px -5px 0px black"],
             }}
           >
             season 5
@@ -143,8 +129,7 @@ function MCHome() {
 
           <Text
             sx={{
-              textShadow:
-                "1px 1px 0px black, -1px 1px 0px black, -1px -1px 0px black ,1px -1px 0px black",
+              textShadow: "1px 1px 0px black, -1px 1px 0px black, -1px -1px 0px black ,1px -1px 0px black",
               position: "absolute",
               bottom: 4,
               left: "50%",
@@ -162,56 +147,30 @@ function MCHome() {
       <CenterSectionBox>
         <ModifiedH2>You're invited!</ModifiedH2>
         <Paragraph>
-          This season we're inviting friends of friends to join us with one of
-          Minecraft's most impactful updates! We've got some stuff lined up for
-          season 5.
+          This season we're inviting friends of friends to join us with one of Minecraft's most impactful updates! We've got some stuff lined up for season 5.
         </Paragraph>
       </CenterSectionBox>
 
-      <SectionBox
-        heading="Mojang's 1.18 Worldgen Pack"
-        image={WorldgenPackImage}
-        isAlt
-      >
-        <Text>
-          Ready to go with the prototype worldgen that will be in 1.18. Have fun
-          building with the new height limits!
-        </Text>
+      <SectionBox heading="Mojang's 1.18 Worldgen Pack" image={WorldgenPackImage} isAlt>
+        <Text>Ready to go with the prototype worldgen that will be in 1.18. Have fun building with the new height limits!</Text>
       </SectionBox>
 
       <SectionBox heading="Land Claims" image={ChunkClaimImage}>
         <Text>
-          Let others know who owns the land by claiming chunks in the world!
-          Your claims will show up to people who walk into your territory, on{" "}
-          <Link to="/mc/player/Zyplos">your profile</Link>, and can be viewed by
-          players on the server map.{" "}
-          <Link to="/mc/chunk/7b1803e0-1cfa-443d-9948-ebaebd2b73e7/-1/21">
-            A visitor's log
-          </Link>{" "}
-          is kept that you can view at any time.
+          Let others know who owns the land by claiming chunks in the world! Your claims will show up to people who walk into your territory, on{" "}
+          <Link to="/mc/player/Zyplos">your profile</Link>, and can be viewed by players on the server map. A visitor's log is kept that you can view at any time.
         </Text>
       </SectionBox>
 
       <SectionBox heading="The Aether" image={CloudsMiscImage} isAlt>
-        <Text>
-          We added a new dimension! Feel free to explore a sky dimension full of
-          floating islands. Build bases, set spawnpoints, and claim chunks as
-          you wish.
-        </Text>
+        <Text>We added a new dimension! Feel free to explore a sky dimension full of floating islands. Build bases, set spawnpoints, and claim chunks as you wish.</Text>
       </SectionBox>
 
       <CenterSectionBox>
         <ModifiedH2>Ready to join?</ModifiedH2>
 
-        <Paragraph>
-          Reach out to any of the people below if you recognize them, they have
-          the IP!
-        </Paragraph>
-        <Grid
-          gap={4}
-          columns={[1, 2, null, 3]}
-          sx={{ justifyItems: "center", mb: 5 }}
-        >
+        <Paragraph>Reach out to any of the people below if you recognize them, they have the IP!</Paragraph>
+        <Grid gap={4} columns={[1, 2, null, 3]} sx={{ justifyItems: "center", mb: 5 }}>
           <Image width="200px" src={CID1} alt="1" />
           <Image width="200px" src={CID2} alt="2" />
           <Image width="200px" src={CID3} alt="3" />
@@ -219,9 +178,6 @@ function MCHome() {
           <Image width="200px" src={CID5} alt="5" />
           <Image width="200px" src={CID6} alt="6" />
         </Grid>
-        <Paragraph pb={[4, 6]}>
-          The server opens as soon as the update releases, June 8th.
-        </Paragraph>
       </CenterSectionBox>
     </div>
   );

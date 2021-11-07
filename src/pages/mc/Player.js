@@ -30,6 +30,9 @@ const ChunkCard = ({ x, z, y, dimension, claimed_on, isHome }) => {
         display: "flex",
         alignItems: "center",
         color: (theme) => theme.colors.text,
+        "&:hover": {
+          bg: "backgroundSecondary",
+        },
       }}
     >
       <div

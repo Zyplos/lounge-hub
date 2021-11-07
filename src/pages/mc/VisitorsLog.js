@@ -54,6 +54,10 @@ function VisitorsLog() {
     return <LoadingFullBox text="Loading chunk data..." />;
   }
 
+  if (chunkData.data.length === 0 || logData.data.length === 0) {
+    return <ErrorFullBox header="404" text="This chunk has no data." />;
+  }
+
   const newCoords = findChunkCenter(x, z);
   const ownedChunk = chunkData.data[0];
 
