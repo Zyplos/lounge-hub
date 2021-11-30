@@ -13,7 +13,7 @@ require("@south-paw/typeface-minecraft");
 
 function App({ Component, pageProps }) {
   const { data: minecraftData, error: minecraftError } = useSWR("/api/minecraft/status-bugfix", {
-    refreshInterval: 0,
+    refreshInterval: 60000,
   });
 
   return (
