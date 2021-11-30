@@ -1,5 +1,7 @@
 /** @jsxImportSource theme-ui */
-import { Box, Container, Flex, Grid, Heading, Paragraph, Text } from "theme-ui";
+import { Box, Container, Flex, Grid, Heading, Paragraph, Text, Button } from "theme-ui";
+import { signIn } from "next-auth/react";
+
 import Link from "next/link";
 import Image from "next/image";
 import InvitationSplashImage from "../../assets/invitation-splash.png";
@@ -10,6 +12,13 @@ import WorldgenPackImage from "../../assets/worldgen-pack.png";
 
 import { keyframes } from "@emotion/react";
 import MainLayout from "../../internals/MainLayout";
+
+import CID1 from "../../assets/ref/1.png";
+import CID2 from "../../assets/ref/2.png";
+import CID3 from "../../assets/ref/3.png";
+import CID4 from "../../assets/ref/4.png";
+import CID5 from "../../assets/ref/5.png";
+import CID6 from "../../assets/ref/6.png";
 
 const bounceAnimation = keyframes({
   from: { bottom: "32px" },
@@ -65,6 +74,10 @@ function CenterSectionBox({ children }) {
       <Container>{children}</Container>
     </Box>
   );
+}
+
+function SignInButton() {
+  return <Button onClick={() => signIn("discord", { callbackUrl: "/yourspace" })}>Sign in with Discord</Button>;
 }
 
 const singlePixelShadow = "1px 1px 0px black, -1px 1px 0px black, -1px -1px 0px black ,1px -1px 0px black";
@@ -125,6 +138,10 @@ function MCHome() {
               season 5
             </Text>
 
+            <div sx={{ mt: 5 }}>
+              <SignInButton />
+            </div>
+
             <Text
               sx={{
                 textShadow: "1px 1px 0px black, -1px 1px 0px black, -1px -1px 0px black ,1px -1px 0px black",
@@ -149,9 +166,9 @@ function MCHome() {
           </Paragraph>
         </CenterSectionBox>
 
-        <SectionBox heading="Mojang's 1.18 Worldgen Pack" image={WorldgenPackImage} isAlt>
+        {/* <SectionBox heading="Mojang's 1.18 Worldgen Pack" image={WorldgenPackImage} isAlt>
           <Text>Ready to go with the prototype worldgen that will be in 1.18. Have fun building with the new height limits!</Text>
-        </SectionBox>
+        </SectionBox> */}
 
         <SectionBox heading="Land Claims" image={ChunkClaimImage}>
           <Text>
@@ -166,19 +183,22 @@ function MCHome() {
           </Text>
         </SectionBox>
 
-        {/* <CenterSectionBox>
+        <CenterSectionBox>
           <ModifiedH2>Ready to join?</ModifiedH2>
+          <Paragraph mb={4}>lounge mutuals only. Sign in to see if we already have you on our list.</Paragraph>
+          <SignInButton />
 
-          <Paragraph>Reach out to any of the people below if you recognize them, they have the IP!</Paragraph>
+          <Paragraph mt={4}>Or ask for the IP if you recognize any of the people below!</Paragraph>
+
           <Grid gap={4} columns={[1, 2, null, 3]} sx={{ justifyItems: "center", mb: 5 }}>
-            <Image width="200px" src={CID1} alt="1" />
-            <Image width="200px" src={CID2} alt="2" />
-            <Image width="200px" src={CID3} alt="3" />
-            <Image width="200px" src={CID4} alt="4" />
-            <Image width="200px" src={CID5} alt="5" />
-            <Image width="200px" src={CID6} alt="6" />
+            <Image width="200px" height="200px" src={CID1} alt="1" layout="fixed" />
+            <Image width="200px" height="200px" src={CID2} alt="2" layout="fixed" />
+            <Image width="200px" height="200px" src={CID3} alt="3" layout="fixed" />
+            <Image width="200px" height="200px" src={CID4} alt="4" layout="fixed" />
+            <Image width="200px" height="200px" src={CID5} alt="5" layout="fixed" />
+            <Image width="200px" height="200px" src={CID6} alt="6" layout="fixed" />
           </Grid>
-        </CenterSectionBox> */}
+        </CenterSectionBox>
       </div>
     </MainLayout>
   );

@@ -87,7 +87,13 @@ const theme = {
       // extends the text.heading styles
       variant: "text.heading",
       fontSize: [4, 8],
-      fontWeight: "display",
+      fontWeight: "bold",
+    },
+    display2: {
+      // extends the text.heading styles
+      variant: "text.heading",
+      fontSize: [4, 7],
+      fontWeight: "bold",
     },
     monospace: {
       fontFamily: "monospace",

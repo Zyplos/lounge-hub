@@ -1,13 +1,16 @@
 import admin from "./index";
 
-export const getProfileData = async (username) => {
-  const db = admin.firestore();
-  const profileCollection = db.collection("users");
-  const profileDoc = await profileCollection.doc(username).get();
+export const getProfileData = async (discordID) => {
+  const dbRef = admin.database().ref();
+  const snapshot = await dbRef.child("loungeusers").child(discordID).get();
 
-  if (!profileDoc.exists) {
+  if (!snapshot.exists()) {
     return null;
   }
 
-  return profileDoc.data();
+  const data = snapshot.val();
+  data.vc = true;
+  await dbRef.child("loungeusers").child(discordID).set(data);
+
+  return snapshot.val();
 };

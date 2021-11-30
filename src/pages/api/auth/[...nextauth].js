@@ -78,7 +78,9 @@ export default NextAuth({
       session.user.id = token.sub;
       return session;
     },
-    // async jwt({ token, user, account, profile, isNewUser }) { return token }
+    // async jwt({ token, user, account, profile, isNewUser }) {
+    //   return token;
+    // },
   },
 
   // Events are useful for logging
@@ -88,7 +90,9 @@ export default NextAuth({
   // You can set the theme to 'light', 'dark' or use 'auto' to default to the
   // whatever prefers-color-scheme is set to in the browser. Default is 'auto'
   theme: {
-    colorScheme: "light",
+    colorScheme: "dark", // "auto" | "dark" | "light"
+    brandColor: "#ff3e3e", // Hex color code
+    // logo: "" // Absolute URL to image
   },
 
   // Enable debug messages in the console if you are having problems

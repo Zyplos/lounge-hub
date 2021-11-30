@@ -21,4 +21,13 @@ module.exports = {
   images: {
     domains: ["cdn.discordapp.com", "visage.surgeplay.com", "crafatar.com"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/youre-invited",
+        destination: "/mc",
+        permanent: false,
+      },
+    ];
+  },
 };

@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { useContext } from "react";
-import { Heading, Grid } from "theme-ui";
+import { Heading, Grid, Message } from "theme-ui";
 import MainLayout from "../internals/MainLayout";
 
 import DiscordServer from "../components/DiscordServer";
@@ -25,6 +25,9 @@ function Home() {
             <MinecraftStatus data={modded} ip="???" />
           </div>
         </Grid>
+        <Message variant="primary">
+          The server map, land claim profiles, and parts of the Wiki are not working due to the recent 1.18 update. These features will be added as plugins update.
+        </Message>
         <Heading sx={{ mt: 4 }}>the lounge</Heading>
         <DiscordServer />
       </Grid>

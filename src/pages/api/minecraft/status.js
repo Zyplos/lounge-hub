@@ -37,16 +37,8 @@ module.exports = async (req, res) => {
     return data;
   };
 
-  // const vanillaIp =
-  //   process.env.NODE_ENV === "development" ? "192.168.1.163" : "mc.lounge.haus";
-  // const moddedIp =
-  //   process.env.NODE_ENV === "development" ? "192.168.1.163" : "mc.lounge.haus";
-
-  const vanillaIp = "mc.lounge.haus";
-  const moddedIp = "mc.lounge.haus";
-
-  const vanillaData = await getServerData(vanillaIp, 25565);
-  const moddedData = await getServerData(moddedIp, 25577);
+  const vanillaData = await getServerData(process.env.NEXT_PUBLIC_MCIP, 25565);
+  const moddedData = await getServerData(process.env.NEXT_PUBLIC_MCMODDEDIP, 25577);
 
   res.json({ vanilla: vanillaData, modded: moddedData });
 };

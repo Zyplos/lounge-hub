@@ -9,7 +9,7 @@ async function UserCB(req, res) {
   if (profile) {
     res.json(profile);
   } else {
-    res.status(404).json({ message: "no data" });
+    res.status(404).json({ error: "no data" });
   }
 }
 

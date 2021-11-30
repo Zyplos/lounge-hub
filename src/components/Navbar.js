@@ -10,8 +10,9 @@ import emblem from "../assets/emblem.png";
 import HomeIcon from "../assets/home-icon.png";
 import WikiIcon from "../assets/wiki-icon.png";
 import PlayerIcon from "../assets/player-icon.png";
-import MapIcon from "../assets/map-icon.png";
+import CompassIcon from "../assets/compass-icon.svg";
 import BlockIcon from "../assets/block-icon.svg";
+import YourspaceIcon from "../assets/yourspace-icon.svg";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
 import ThemeToggle from "./ThemeToggle";
@@ -134,6 +135,13 @@ function Navbar() {
             </Link>
           </div>
 
+          <Link href={"/yourspace"}>
+            <a>
+              <YourspaceIcon sx={{ width: "32px", height: "32px", fill: "white" }} />
+              <NavText>Yourspace</NavText>
+            </a>
+          </Link>
+
           <NavDivider />
 
           <Link href={"/"}>
@@ -166,7 +174,7 @@ function Navbar() {
 
           <a href={mapUrlBase} target="_blank" rel="noreferrer">
             <a>
-              <Image src={MapIcon} alt="Map Icon" width="32px" height="32px" />
+              <CompassIcon sx={{ width: "32px", height: "32px", fill: "white" }} />
               <NavText>Server Map</NavText>
             </a>
           </a>

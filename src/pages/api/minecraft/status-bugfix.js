@@ -10,12 +10,9 @@ module.exports = async (_req, res) => {
         timeout: 7000,
       })
       .then((response) => {
-        motdparser.toHtml(
-          response.description.descriptionText,
-          (err, htmlText) => {
-            response.description.html = htmlText;
-          }
-        );
+        motdparser.toHtml(response.description.descriptionText, (err, htmlText) => {
+          response.description.html = htmlText;
+        });
 
         return response;
       })
@@ -24,8 +21,8 @@ module.exports = async (_req, res) => {
       });
   };
 
-  const vanillaData = await getServerData("mc.lounge.haus");
-  const moddedData = await getServerData("modded.lounge.haus");
+  const vanillaData = await getServerData(process.env.NEXT_PUBLIC_MCIP);
+  const moddedData = await getServerData(process.env.NEXT_PUBLIC_MCMODDEDIP);
 
   Promise.allSettled([vanillaData, moddedData]).then((results) => {
     // console.log(results);
