@@ -1,5 +1,5 @@
 import { getSession } from "next-auth/react";
-import { getProfileData } from "../../../firebase/fetchData";
+import { getProfileData } from "../../../../firebase/fetchData";
 
 async function UserCB(req, res) {
   const session = await getSession({ req });
