@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { useColorMode, Text } from "theme-ui";
+import Image from "next/image";
 
 function MinecraftSlot({ name, image, amount, type = "normal", ...props }) {
   const [colorMode] = useColorMode();
@@ -64,17 +65,16 @@ function MinecraftSlot({ name, image, amount, type = "normal", ...props }) {
       {/* {name && isShown && <span sx={tooltipStyles}>{name}</span>} */}
 
       {name && image && (
-        <img
-          src={image}
-          alt={name}
+        <div
           sx={{
             position: "absolute",
-            top: "50%",
+            top: "53%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: "32px",
           }}
-        />
+        >
+          <Image src={image} alt={name} width="32px" height="32px" layout="fixed" />
+        </div>
       )}
 
       {amount > 1 && (

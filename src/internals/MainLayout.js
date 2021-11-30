@@ -1,8 +1,7 @@
 /** @jsxImportSource theme-ui */
-
 import { useState } from "react";
 import { Close } from "theme-ui";
-import { ReactComponent as HamburgerIcon } from "../assets/hamburger.svg";
+import HamburgerIcon from "../assets/hamburger.svg";
 import Navbar from "../components/Navbar";
 
 function MainLayout({ noPadding, ...props }) {
@@ -37,11 +36,7 @@ function MainLayout({ noPadding, ...props }) {
         }}
         onClick={showNavbar}
       >
-        {isOpen ? (
-          <Close color="white" />
-        ) : (
-          <HamburgerIcon sx={{ display: "block", fill: "white" }} />
-        )}
+        {isOpen ? <Close color="white" /> : <HamburgerIcon sx={{ display: "block", fill: "white" }} />}
       </div>
       <section
         sx={{

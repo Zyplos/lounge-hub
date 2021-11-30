@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
-import { Flex, Text, Alert, Grid } from "theme-ui";
+import { Flex, Text, Alert, Grid, Image as ThemedImage } from "theme-ui";
+import Image from "next/image";
 
 import defaultServerIcon from "../assets/defaultServerIcon.png";
 import MinecraftStatusSkeleton from "./MinecraftStatusSkeleton";
@@ -52,12 +53,8 @@ function MinecraftStatus(props) {
   return (
     <Grid>
       <Flex sx={{ flexDirection: "row" }}>
-        <div>
-          <img
-            src={data.favicon || defaultServerIcon}
-            alt="server icon"
-            sx={{ mr: 3 }}
-          />
+        <div sx={{ mr: 3 }}>
+          <Image src={data.favicon || defaultServerIcon} alt="server icon" width="64px" height="64px" />
         </div>
         <Flex
           sx={{
@@ -66,28 +63,19 @@ function MinecraftStatus(props) {
             fontFamily: "Minecraft, monospace",
           }}
         >
-          <div
-            dangerouslySetInnerHTML={{ __html: data.description.html }}
-          ></div>
+          <div dangerouslySetInnerHTML={{ __html: data.description.html }}></div>
         </Flex>
       </Flex>
       <Text>
         {/* IP: {props.ip} •{" "} */}
-        {numPlayersOnline !== 0
-          ? numPlayersOnline
-          : "No"} {computedPlural()} online
+        {numPlayersOnline !== 0 ? numPlayersOnline : "No"} {computedPlural()} online
         {versionName ? " • " + versionName : ""}
       </Text>
       {numPlayersOnline === 0 && <Text>No one's online at the moment.</Text>}
       {numPlayersOnline > 0 && playerList && (
         <Grid
           sx={{
-            gridTemplateColumns: [
-              "repeat(3, 1fr)",
-              null,
-              null,
-              "repeat(4, 1fr)",
-            ],
+            gridTemplateColumns: ["repeat(3, 1fr)", null, null, "repeat(4, 1fr)"],
           }}
           gap={4}
         >
@@ -102,13 +90,9 @@ function MinecraftStatus(props) {
                   flexWrap: "wrap",
                 }}
               >
-                <img
-                  src={getPlayerImage(player.id)}
-                  alt="player icon"
-                  sx={{ width: "45px", height: "45px", mb: 1 }}
-                />
+                <Image src={getPlayerImage(player.id)} alt="player icon" width="45px" height="45px" />
 
-                <Text>{player.name}</Text>
+                <Text sx={{ mt: 1 }}>{player.name}</Text>
               </Flex>
             );
           })}

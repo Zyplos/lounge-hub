@@ -1,4 +1,5 @@
-import { Grid, Text, Link, Heading, Image, Message } from "theme-ui";
+import { Grid, Text, Link, Heading, Message } from "theme-ui";
+import Image from "next/image";
 import ArticleLayout from "../../internals/ArticleLayout";
 import FabricInstallerScreenshot from "../../assets/fabric-installer-screenshot.png";
 import CurseforgePlasmoPage from "../../assets/curseforge-plasmo-page.png";
@@ -23,7 +24,7 @@ function ProximityChat() {
           Head on over to <Link href="https://fabricmc.net/use/">fabricmc.net/use</Link> to get the Fabric Installer. Download the Windows installer (or the universal
           installer if you're on any other platform) and open the file. You should be greeted by something that looks like this:
         </Text>
-        <Image src={FabricInstallerScreenshot} alt="Screenshot of the Fabric installer" />
+        <Image src={FabricInstallerScreenshot} alt="Screenshot of the Fabric installer" layout="responsive" />
         <Message variant="primary">
           The Fabric installer will list the default location where Minecraft is usually installed. This is usually fine unless you've manually changed it. Regardless,
           copy this text containing the install location, you'll need it later.
@@ -42,7 +43,7 @@ function ProximityChat() {
           to download the mod. The download button for the mod should be on the right side of the page. You might have to scroll a bit down. Click the orange button next
           to the file name. Make sure it corresponds to the Minecraft version the server is running.
         </Text>
-        <Image src={CurseforgePlasmoPage} alt="Screenshot of the Plasmo Voice mod page" />
+        <Image src={CurseforgePlasmoPage} alt="Screenshot of the Plasmo Voice mod page" layout="responsive" />
         <Text>You should have downloaded a .jar file. This file will have to be moved to the "mods" folder in your Minecraft appdata folder.</Text>
         <Text>
           For Windows users, a quick way to get there is through the "Run" dialog. You can press <kbd>WINDOWS KEY</kbd> + <kbd>R</kbd> to bring this up. Paste the install
@@ -52,7 +53,7 @@ function ProximityChat() {
           If you don't have this text in your clipboard, you can also type <code>%appdata%/.minecraft</code> into the dialog to get there (assuming you haven't messed
           with Minecraft's default install location and that you installed Fabric there).
         </Text>
-        <Image src={RunScreenshot} alt="Screenshot of the Run dialog" />
+        <Image src={RunScreenshot} alt="Screenshot of the Run dialog" layout="responsive" />
         <Text>
           You should be in the directory where Fabric was installed. There should also be a folder called "mods" in that directory. If there isn't one, create it. Move
           the Plasmo Voice .jar file into that folder.
@@ -61,7 +62,7 @@ function ProximityChat() {
 
         <Heading>Using Plasmo Voice</Heading>
         <Text>Open the Minecraft Launcher, making sure you're using the Fabric profile that should have automatically have been made.</Text>
-        <Image src={LauncherScreenshot} alt="Screenshot of the Launcher" />
+        <Image src={LauncherScreenshot} alt="Screenshot of the Launcher" layout="responsive" />
         <Text>
           Once you're in the vanilla server you can configure Plasmo Voice by pressing <kbd>V</kbd>. Change settings as you wish.
         </Text>

@@ -57,6 +57,7 @@ const theme = {
     discord: "#7289DA",
     twitch: "#9146ff",
     cardBg: "#efefef",
+    cardBgSecondary: "#c7c7c7",
     modes: {
       dark: {
         text: "#fff",
@@ -66,6 +67,7 @@ const theme = {
         darkGray: "#000",
         muted: "#8e8e8e",
         cardBg: "#4a403e",
+        cardBgSecondary: "#332c2b",
       },
     },
   },

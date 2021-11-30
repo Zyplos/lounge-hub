@@ -1,7 +1,8 @@
 /** @jsxImportSource theme-ui */
 import { Fragment, useContext } from "react";
 import { Grid, Text } from "theme-ui";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 
 import MinecraftContext from "../internals/MinecraftContext";
 
@@ -10,7 +11,7 @@ import HomeIcon from "../assets/home-icon.png";
 import WikiIcon from "../assets/wiki-icon.png";
 import PlayerIcon from "../assets/player-icon.png";
 import MapIcon from "../assets/map-icon.png";
-import { ReactComponent as BlockIcon } from "../assets/block-icon.svg";
+import BlockIcon from "../assets/block-icon.svg";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
 import ThemeToggle from "./ThemeToggle";
@@ -41,13 +42,7 @@ const MinecraftLabel = ({ ...props }) => (
 const NavMinecraftItem = ({ image, name, playerAmount }) => {
   return (
     <MinecraftContainer>
-      <img
-        src={image}
-        alt={name}
-        sx={{
-          width: "32px",
-        }}
-      />
+      <Image src={image} alt={name} width="32px" height="32px" />
       <MinecraftLabel>{playerAmount}</MinecraftLabel>
     </MinecraftContainer>
   );
@@ -96,25 +91,11 @@ function Navbar() {
     }
 
     if (isVanillaOnline) {
-      minecraftFragments.push(
-        <NavMinecraftItem
-          key={1}
-          image={playerHead}
-          name="Vanilla Server Status"
-          playerAmount={minecraftData.vanilla.onlinePlayers}
-        />
-      );
+      minecraftFragments.push(<NavMinecraftItem key={1} image={playerHead} name="Vanilla Server Status" playerAmount={minecraftData.vanilla.onlinePlayers} />);
     }
 
     if (isModdedOnline) {
-      minecraftFragments.push(
-        <NavMinecraftItem
-          key={2}
-          image={computerHead}
-          name="Modded Server Status"
-          playerAmount={minecraftData.modded.onlinePlayers}
-        />
-      );
+      minecraftFragments.push(<NavMinecraftItem key={2} image={computerHead} name="Modded Server Status" playerAmount={minecraftData.modded.onlinePlayers} />);
     }
   }
 
@@ -141,41 +122,53 @@ function Navbar() {
         <Grid gap={4} sx={{ justifyItems: ["flex-start", "center"] }}>
           <div sx={{ display: "flex" }}>
             <Link
-              to="/"
+              href="/"
               sx={{
                 mx: "auto",
                 alignSelf: "center",
               }}
             >
-              <img src={emblem} width="48px" alt="emblem" />
+              <a>
+                <Image src={emblem} alt="emblem" layout="fixed" width="48px" height="28px" />
+              </a>
             </Link>
           </div>
 
           <NavDivider />
 
-          <Link to={`/`}>
-            <img src={HomeIcon} alt="Home Icon" sx={{ width: "32px" }} />
-            <NavText>Home</NavText>
+          <Link href={"/"}>
+            <a>
+              <Image src={HomeIcon} alt="Home Icon" width="32px" height="32px" />
+              <NavText>Home</NavText>
+            </a>
           </Link>
 
-          <Link to={`/wiki`}>
-            <img src={WikiIcon} alt="Wiki Icon" sx={{ width: "32px" }} />
-            <NavText>Wiki</NavText>
+          <Link href={"/wiki"}>
+            <a>
+              <Image src={WikiIcon} alt="Wiki Icon" width="32px" height="32px" />
+              <NavText>Wiki</NavText>
+            </a>
           </Link>
 
-          <Link to={`/mc`}>
-            <BlockIcon sx={{ width: "32px", height: "32px", fill: "white" }} />
-            <NavText>Minecraft</NavText>
+          <Link href={"/mc"}>
+            <a>
+              <BlockIcon sx={{ width: "32px", height: "32px", fill: "white" }} />
+              <NavText>Minecraft</NavText>
+            </a>
           </Link>
 
-          <Link to={`/mc/player`}>
-            <img src={PlayerIcon} alt="Player Icon" sx={{ width: "32px" }} />
-            <NavText>Player Lookup</NavText>
+          <Link href={"/mc/player"}>
+            <a>
+              <Image src={PlayerIcon} alt="Player Icon" width="32px" height="32px" />
+              <NavText>Player Lookup</NavText>
+            </a>
           </Link>
 
           <a href={mapUrlBase} target="_blank" rel="noreferrer">
-            <img src={MapIcon} alt="Map Icon" sx={{ width: "32px" }} />
-            <NavText>Server Map</NavText>
+            <a>
+              <Image src={MapIcon} alt="Map Icon" width="32px" height="32px" />
+              <NavText>Server Map</NavText>
+            </a>
           </a>
 
           <ThemeToggle />

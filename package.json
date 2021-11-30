@@ -2,6 +2,7 @@
   "name": "lounge-hub",
   "version": "1.0.0",
   "author": "Angel (Zyplos)",
+  "license": "ISC",
   "repository": "https://github.com/Zyplos/lounge-hub",
   "private": true,
   "dependencies": {
@@ -11,29 +12,26 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
     "cross-fetch": "^3.1.4",
+    "firebase-admin": "^10.0.0",
     "mcmotdparser": "^1.2.3",
     "minecraft-server-ping": "0.0.3",
     "minecraft-server-util": "^3.5.1",
     "mysql2": "^2.2.5",
+    "next": "^12.0.4",
+    "next-auth": "^4.0.0-beta.7",
+    "normalize.css": "^8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "swr": "^0.5.6",
-    "theme-ui": "^0.9.1",
+    "theme-ui": "^0.12.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "dev": "next",
+    "lint": "next lint",
+    "build": "next build",
+    "start": "next start"
   },
   "browserslist": {
     "production": [
@@ -46,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "eslint-config-next": "^12.0.4"
   }
 }

@@ -1,14 +1,13 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import useSWR from "swr";
+import Image from "next/image";
 import { Text, Spinner, Flex, Badge, Grid } from "theme-ui";
 
 import FullBox from "./FullBox";
 
 function DiscordServer() {
-  const { data: discordData, error } = useSWR(
-    "https://canary.discordapp.com/api/guilds/426394718172086273/widget.json"
-  );
+  const { data: discordData, error } = useSWR("https://canary.discordapp.com/api/guilds/426394718172086273/widget.json");
   if (error) {
     return (
       <FullBox>
@@ -25,25 +24,17 @@ function DiscordServer() {
       </FullBox>
     );
   }
-  const knownBots = [
-    "Metabyte",
-    "Buggy",
-    "scooter",
-    "Sine",
-    "Tessie",
-    "Maestro",
-    "Rythm",
-    "NotSoBot",
-  ];
-  const voiceChannel = discordData.channels.find(
-    (channel) => channel.id === "426394718591778818"
-  );
+  const knownBots = ["Metabyte", "Buggy", "scooter", "Sine", "Tessie", "Maestro", "Rythm", "NotSoBot"];
+  const voiceChannel = discordData.channels.find((channel) => channel.id === "426394718591778818");
   const iconStyle = {
-    width: 60,
-    height: 60,
-    borderRadius: "100%",
+    width: "64px",
+    height: "64px",
     mr: 2,
     border: "2px solid #7289DA",
+    borderRadius: "100%",
+    "& img": {
+      borderRadius: "100%",
+    },
   };
   const statusStyles = {
     online: {
@@ -68,12 +59,7 @@ function DiscordServer() {
       >
         <Flex sx={{ flexDirection: "row", alignItems: "center", p: 2 }}>
           <div>
-            <svg
-              name="Speaker"
-              aria-hidden="false"
-              viewBox="0 0 24 24"
-              sx={iconStyle}
-            >
+            <svg name="Speaker" aria-hidden="false" viewBox="0 0 24 24" sx={iconStyle}>
               <path
                 fill="currentColor"
                 fillRule="evenodd"
@@ -93,20 +79,15 @@ function DiscordServer() {
               key={index}
               sx={{
                 flexDirection: "row",
-                background:
-                  member.status === "streaming"
-                    ? "linear-gradient(0deg, rgba(145,70,255,0.7) 0%, rgba(255,0,185,0) 75%)"
-                    : "none",
+                background: member.status === "streaming" ? "linear-gradient(0deg, rgba(145,70,255,0.7) 0%, rgba(255,0,185,0) 75%)" : "none",
                 color: member.status === "streaming" ? "white" : "text",
                 p: 2,
                 alignItems: "center",
               }}
             >
-              <img
-                alt="profile"
-                src={member.avatar_url}
-                sx={{ ...iconStyle, ...statusStyles[member.status] }}
-              />
+              <div sx={{ ...iconStyle, ...statusStyles[member.status], position: "relative" }}>
+                <Image alt="profile" layout="fixed" src={member.avatar_url} width={60} height={60} />
+              </div>
 
               <Flex sx={{ justifyContent: "center", flexDirection: "column" }}>
                 <Text
@@ -146,9 +127,7 @@ function DiscordServer() {
           );
         })}
       </Grid>
-      <Text variant="muted">
-        {discordData.members.length} currently online.
-      </Text>
+      <Text variant="muted">{discordData.members.length} currently online.</Text>
     </React.Fragment>
   );
 }

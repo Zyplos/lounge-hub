@@ -3,9 +3,7 @@ import { Heading, Grid, Text, Badge } from "theme-ui";
 import SmallCardGrid from "../../components/SmallCardGrid";
 import ArticleLayout from "../../internals/ArticleLayout";
 
-const SmallerCardGrid = ({ ...props }) => (
-  <SmallCardGrid width="200px" {...props} />
-);
+const SmallerCardGrid = ({ ...props }) => <SmallCardGrid width="200px" {...props} />;
 
 function Changelog() {
   return (
@@ -14,9 +12,13 @@ function Changelog() {
         <Heading>Vanilla Minecraft</Heading>
         <SmallerCardGrid>
           <div>
-            <Heading>
-              Season 5 <Badge>Current</Badge>
-            </Heading>
+            <Heading>Season 5: Part II</Heading>
+            <Text>
+              1.18 <Badge>Current</Badge>
+            </Text>
+          </div>
+          <div>
+            <Heading>Season 5</Heading>
             <Text>1.17</Text>
           </div>
           <div>
