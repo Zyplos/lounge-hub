@@ -17,8 +17,8 @@ function TheAether() {
 
         <Heading>Portal</Heading>
         <Text>
-          Getting to The Aether requires <b>14 Glowstone Blocks</b>. They must be arranged the classic Nether Portal way (4x5, the corners must be filled in too). Light
-          up the portal by right clicking the portal with a <b>Water Bucket</b>.
+          Getting to The Aether requires <b>14 Glowstone Blocks</b>. They can be made like any Nether Portal. Light up the portal by right clicking the portal with a{" "}
+          <b>Water Bucket</b>. Note: You can only build an Aether Portal above Y:90.
         </Text>
         <Text>Aether Portal traveling is different from Nether Portal traveling. The portal coordinates will be the exact same in The Overworld and The Aether.</Text>
 

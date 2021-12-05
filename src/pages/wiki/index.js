@@ -66,13 +66,6 @@ function WikiHome() {
           description="Claim land for your community."
         />
         <WikiCard
-          link="/wiki/proximity-chat"
-          image={skulkSensor}
-          gradient={{ left: "#24c8d4", right: "#148283" }}
-          heading="Proximity Chat"
-          description="A guide on setting up Fabric."
-        />
-        <WikiCard
           link="/wiki/the-aether"
           image={glowstone}
           gradient={{ left: "#72EDF2", right: "#5151E5" }}

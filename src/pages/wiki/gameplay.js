@@ -20,17 +20,17 @@ function Gameplay() {
             <Heading>mobGriefing</Heading>
             <Text>true*</Text>
           </div>
-          <div>
+          {/* <div>
             <Heading>doWeatherCycle</Heading>
             <Text>false</Text>
-          </div>
+          </div> */}
         </SmallCardGrid>
 
         <Heading>Sleeping</Heading>
         <Text>Only a third of the people online have to sleep for it to turn to day.</Text>
 
-        <Heading>Tree Chopping</Heading>
-        <Text>Press shift while mining a tree to topple it all down.</Text>
+        {/* <Heading>Tree Chopping</Heading>
+        <Text>Press shift while mining a tree to topple it all down.</Text> */}
 
         <Heading>Nicknames and Colors</Heading>
         <Text>
