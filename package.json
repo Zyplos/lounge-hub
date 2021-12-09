@@ -17,7 +17,7 @@
     "minecraft-server-ping": "0.0.3",
     "minecraft-server-util": "^3.5.1",
     "mysql2": "^2.2.5",
-    "next": "^12.0.4",
+    "next": "^12.0.5",
     "next-auth": "^4.0.0-beta.7",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
