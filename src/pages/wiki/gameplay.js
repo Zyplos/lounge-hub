@@ -51,6 +51,7 @@ function Gameplay() {
         </Text>
         <Text>The Ender Dragon will drop an Elytra and a Dragon Egg when defeated.</Text>
         <Text>Shulkers have a chance of dropping more than 1 Shulker Shell.</Text>
+        <Text>You can trade with Wandering Villagers to get Mini Blocks.</Text>
       </Grid>
     </ArticleLayout>
   );

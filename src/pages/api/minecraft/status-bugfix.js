@@ -4,28 +4,18 @@ const motdparser = require("mcmotdparser");
 
 module.exports = async (_req, res) => {
   const getServerData = async (ip) => {
-    return util
-      .status(ip, {
-        enableSRV: true,
-        timeout: 7000,
-      })
-      .then((response) => {
-        motdparser.toHtml(response.description.descriptionText, (err, htmlText) => {
-          response.description.html = htmlText;
-        });
-
-        return response;
-      })
-      .catch((error) => {
-        return error;
-      });
+    return util.status(ip, {
+      enableSRV: true,
+      timeout: 7000,
+    });
   };
 
-  const vanillaData = await getServerData(process.env.NEXT_PUBLIC_MCIP);
-  const moddedData = await getServerData(process.env.NEXT_PUBLIC_MCMODDEDIP);
+  const vanillaData = getServerData(process.env.NEXT_PUBLIC_MCIP);
+  const moddedData = getServerData(process.env.NEXT_PUBLIC_MCMODDEDIP);
 
-  Promise.allSettled([vanillaData, moddedData]).then((results) => {
-    // console.log(results);
-    res.json({ vanilla: results[0].value, modded: { ...results[1].value } });
-  });
+  // await this allSettled and then send response instead of sending response in a .then()
+  // script resolves without a "API resolved without sending a response" error
+  const results = await Promise.allSettled([vanillaData, moddedData]);
+
+  res.json({ vanilla: results[0].value, modded: { ...results[1].value } });
 };

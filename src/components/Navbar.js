@@ -135,13 +135,6 @@ function Navbar() {
             </Link>
           </div>
 
-          <Link href={"/yourspace"}>
-            <a>
-              <YourspaceIcon sx={{ width: "32px", height: "32px", fill: "white" }} />
-              <NavText>Yourspace</NavText>
-            </a>
-          </Link>
-
           <NavDivider />
 
           <Link href={"/"}>

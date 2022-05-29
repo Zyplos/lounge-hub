@@ -76,11 +76,21 @@ export default NextAuth({
     // async redirect({ url, baseUrl }) { return baseUrl },
     async session({ session, token, user }) {
       session.user.id = token.sub;
+      session.user.banner = token.banner;
       return session;
     },
-    // async jwt({ token, user, account, profile, isNewUser }) {
-    //   return token;
-    // },
+    async jwt({ token, user, account, profile, isNewUser }) {
+      // wrapped in if since profile only exists when the user logs in, not subsequent jwt reads
+      if (profile) {
+        if (!profile.banner) {
+          token.banner = profile.banner;
+        } else {
+          const format = profile.banner.startsWith("a_") ? "gif" : "png";
+          token.banner = `https://cdn.discordapp.com/banners/${profile.id}/${profile.banner}.${format}`;
+        }
+      }
+      return token;
+    },
   },
 
   // Events are useful for logging

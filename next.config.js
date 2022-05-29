@@ -28,6 +28,11 @@ module.exports = {
         destination: "/mc",
         permanent: false,
       },
+      {
+        source: "/friend-invite",
+        destination: "/mc",
+        permanent: false,
+      },
     ];
   },
 };

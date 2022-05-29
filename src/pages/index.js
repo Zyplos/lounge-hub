@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { useContext } from "react";
-import { Heading, Grid, Message } from "theme-ui";
+import { Heading, Grid, Message, Paragraph } from "theme-ui";
 import MainLayout from "../internals/MainLayout";
 
 import DiscordServer from "../components/DiscordServer";
@@ -26,7 +26,9 @@ function Home() {
           </div>
         </Grid>
         <Message variant="primary">
-          The server map, land claim profiles, and parts of the Wiki are not working due to the recent 1.18 update. These features will be added as plugins update.
+          <Paragraph>map and player data are outdated at the moment</Paragraph>
+          <Paragraph>this site is currently on my to-do list</Paragraph>
+          <Paragraph>- me</Paragraph>
         </Message>
         <Heading sx={{ mt: 4 }}>the lounge</Heading>
         <DiscordServer />

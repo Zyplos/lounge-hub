@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { Box, Container, Flex, Grid, Heading, Paragraph, Text, Button } from "theme-ui";
 import { signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -12,6 +13,7 @@ import WorldgenPackImage from "../../assets/worldgen-pack.png";
 
 import { keyframes } from "@emotion/react";
 import MainLayout from "../../internals/MainLayout";
+import Yourspace from "../../components/Yourspace";
 
 import CID1 from "../../assets/ref/1.png";
 import CID2 from "../../assets/ref/2.png";
@@ -77,12 +79,16 @@ function CenterSectionBox({ children }) {
 }
 
 function SignInButton() {
-  return <Button onClick={() => signIn("discord", { callbackUrl: "/yourspace" })}>Sign in with Discord</Button>;
+  return (
+    <Button sx={{ cursor: "pointer" }} onClick={() => signIn("discord", { callbackUrl: "/mc" })}>
+      Sign in with Discord
+    </Button>
+  );
 }
 
 const singlePixelShadow = "1px 1px 0px black, -1px 1px 0px black, -1px -1px 0px black ,1px -1px 0px black";
 
-function MCHome() {
+function MCHomeNotSignedIn() {
   return (
     <MainLayout noPadding>
       <div sx={{ fontSize: 4, color: "white" }}>
@@ -135,7 +141,7 @@ function MCHome() {
                 textShadow: [singlePixelShadow, "5px 5px 0px black, -5px 5px 0px black, -5px -5px 0px black ,5px -5px 0px black"],
               }}
             >
-              season 5
+              season 6
             </Text>
 
             <div sx={{ mt: 5 }}>
@@ -160,35 +166,11 @@ function MCHome() {
         </div>
 
         <CenterSectionBox>
-          <ModifiedH2>You're invited!</ModifiedH2>
-          <Paragraph>
-            This season we're inviting friends of friends to join us with one of Minecraft's most impactful updates! We've got some stuff lined up for season 5.
-          </Paragraph>
-        </CenterSectionBox>
-
-        {/* <SectionBox heading="Mojang's 1.18 Worldgen Pack" image={WorldgenPackImage} isAlt>
-          <Text>Ready to go with the prototype worldgen that will be in 1.18. Have fun building with the new height limits!</Text>
-        </SectionBox> */}
-
-        <SectionBox heading="Land Claims" image={ChunkClaimImage}>
-          <Text>
-            Let others know who owns the land by claiming chunks in the world! Your claims will show up to people who walk into your territory, on{" "}
-            <Link href="/mc/player/Zyplos">your profile</Link>, and can be viewed by players on the server map. A visitor's log is kept that you can view at any time.
-          </Text>
-        </SectionBox>
-
-        <SectionBox heading="The Aether" image={CloudsMiscImage} isAlt>
-          <Text>
-            We added a new dimension! Feel free to explore a sky dimension full of floating islands. Build bases, set spawnpoints, and claim chunks as you wish.
-          </Text>
-        </SectionBox>
-
-        <CenterSectionBox>
-          <ModifiedH2>Ready to join?</ModifiedH2>
-          <Paragraph mb={4}>lounge mutuals only. Sign in to see if we already have you on our list.</Paragraph>
+          <ModifiedH2>latest vanilla release</ModifiedH2>
+          <Paragraph mb={4}>lounge mutuals only. Sign in to see if you're on the allowlist.</Paragraph>
           <SignInButton />
 
-          <Paragraph mt={4}>Or ask for the IP if you recognize any of the people below!</Paragraph>
+          <Paragraph mt={4}>Or ask for the IP from anyone you recognize below!</Paragraph>
 
           <Grid gap={4} columns={[1, 2, null, 3]} sx={{ justifyItems: "center", mb: 5 }}>
             <Image width="200px" height="200px" src={CID1} alt="1" layout="fixed" />
@@ -202,6 +184,15 @@ function MCHome() {
       </div>
     </MainLayout>
   );
+}
+
+function MCHome() {
+  const { data: session, status } = useSession();
+  if (session) {
+    return <Yourspace />;
+  } else {
+    return <MCHomeNotSignedIn />;
+  }
 }
 
 export default MCHome;
