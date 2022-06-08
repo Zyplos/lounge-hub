@@ -84,8 +84,8 @@ function Navbar() {
   const minecraftFragments = [];
 
   if (minecraftData) {
-    const isVanillaOnline = minecraftData.vanilla.onlinePlayers >= 0;
-    const isModdedOnline = minecraftData.modded.onlinePlayers >= 0;
+    const isVanillaOnline = minecraftData?.vanilla?.onlinePlayers >= 0;
+    const isModdedOnline = minecraftData?.modded?.onlinePlayers >= 0;
 
     if (isVanillaOnline || isModdedOnline) {
       minecraftFragments.push(<NavDivider key={0} />);

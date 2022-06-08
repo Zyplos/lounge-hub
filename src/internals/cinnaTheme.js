@@ -55,7 +55,7 @@ const theme = {
     muted: "#808080",
     darkGray: "#242424",
     darkGrayAccent: "#353535",
-    discord: "#7289DA",
+    discord: "#5865F2",
     twitch: "#9146ff",
     cardBg: "#efefef",
     cardBgSecondary: "#c7c7c7",

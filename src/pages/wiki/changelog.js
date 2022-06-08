@@ -12,10 +12,14 @@ function Changelog() {
         <Heading>Vanilla Minecraft</Heading>
         <SmallerCardGrid>
           <div>
-            <Heading>Season 5: Part II</Heading>
+            <Heading>Season 6</Heading>
             <Text>
-              1.18 <Badge>Current</Badge>
+              1.19 <Badge>Current</Badge>
             </Text>
+          </div>
+          <div>
+            <Heading>Season 5: Part II</Heading>
+            <Text>1.18</Text>
           </div>
           <div>
             <Heading>Season 5</Heading>

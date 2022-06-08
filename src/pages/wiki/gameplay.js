@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Heading, Grid, Text } from "theme-ui";
+import Link from "next/link";
 import MinecraftText from "../../components/MinecraftText";
 import SmallCardGrid from "../../components/SmallCardGrid";
 import ArticleLayout from "../../internals/ArticleLayout";
@@ -18,40 +19,31 @@ function Gameplay() {
           </div>
           <div>
             <Heading>mobGriefing</Heading>
-            <Text>true*</Text>
+            <Text>true</Text>
           </div>
-          {/* <div>
-            <Heading>doWeatherCycle</Heading>
-            <Text>false</Text>
-          </div> */}
+          <div>
+            <Heading>sleepingPercent</Heading>
+            <Text>33</Text>
+          </div>
         </SmallCardGrid>
 
         <Heading>Sleeping</Heading>
         <Text>Only a third of the people online have to sleep for it to turn to day.</Text>
 
-        {/* <Heading>Tree Chopping</Heading>
-        <Text>Press shift while mining a tree to topple it all down.</Text> */}
-
-        <Heading>Nicknames and Colors</Heading>
+        <Heading>Name Colors</Heading>
         <Text>
-          Players can set their own nickname by doing <MinecraftText>/nickname [name]</MinecraftText>.
-        </Text>
-        <Text>
-          You can use standard Minecraft colors in your nickname. You can also use custom hex colors, for example: <MinecraftText>/nickname &#ff9d00[name]</MinecraftText>
-          . This would give you an orange name.
+          Players can recolor their username in chat by doing <MinecraftText>/trigger color</MinecraftText>.
         </Text>
 
         <Heading>Mobs</Heading>
-        <Text>Mob behavior has been modified a bit:</Text>
-        <Text>
-          Mob griefing is technically on. However, creepers will not damage the world when they explode (they will still damage you though if you're too close).
-        </Text>
         <Text>
           All mobs have a chance to drop their own head as an item. These chances can be increased with the <b>Looting</b> enchantment.
         </Text>
-        <Text>The Ender Dragon will drop an Elytra and a Dragon Egg when defeated.</Text>
-        <Text>Shulkers have a chance of dropping more than 1 Shulker Shell.</Text>
+        <Text>Shulkers will always drop 2 Shulker Shells.</Text>
         <Text>You can trade with Wandering Villagers to get Mini Blocks.</Text>
+        <Text>
+          Various <Link href="/wiki/crafting-recipes">crafting recipes</Link> have been added to make things a bit easier.
+        </Text>
       </Grid>
     </ArticleLayout>
   );

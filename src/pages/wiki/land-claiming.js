@@ -6,7 +6,7 @@ function LandClaiming() {
   return (
     <ArticleLayout title="Land Claiming">
       <Grid>
-        <Alert>This is currently not working in 1.18.</Alert>
+        <Alert>Unavailable until further notice.</Alert>
         <Text>
           Chunks in the world can be claimed by players. Typing <MinecraftText>/claim</MinecraftText> will make the chunk you're standing in yours. This will be shown on
           your public profile, so don't claim chunks that have things you want to keep secret.

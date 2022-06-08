@@ -65,13 +65,6 @@ function WikiHome() {
           heading="Land Claiming"
           description="Claim land for your community."
         />
-        <WikiCard
-          link="/wiki/the-aether"
-          image={glowstone}
-          gradient={{ left: "#72EDF2", right: "#5151E5" }}
-          heading="The Aether"
-          description="Travel into the sky dimension!"
-        />
       </Grid>
     </MainLayout>
   );

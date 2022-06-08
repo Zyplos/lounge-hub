@@ -24,8 +24,11 @@ function DiscordServer() {
       </FullBox>
     );
   }
-  const knownBots = ["Metabyte", "Buggy", "scooter", "Sine", "Tessie", "Maestro", "Rythm", "NotSoBot"];
-  const voiceChannel = discordData.channels.find((channel) => channel.id === "426394718591778818");
+  const knownBots = ["Metabyte", "Buggy", "scooter", "Sine", "Tessie", "Maestro", "Rythm", "NotSoBot", "ProBot"];
+  const voiceChannelId = "426394718591778818";
+  const voiceChannel = discordData.channels.find((channel) => channel.id === voiceChannelId);
+  const numberInVoice = discordData.members.filter((m) => m.channel_id == voiceChannelId).length;
+  console.log(discordData);
   const iconStyle = {
     width: "64px",
     height: "64px",
@@ -57,19 +60,50 @@ function DiscordServer() {
           gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr) )",
         }}
       >
-        <Flex sx={{ flexDirection: "row", alignItems: "center", p: 2 }}>
-          <div>
-            <svg name="Speaker" aria-hidden="false" viewBox="0 0 24 24" sx={iconStyle}>
-              <path
-                fill="currentColor"
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M11.383 3.07904C11.009 2.92504 10.579 3.01004 10.293 3.29604L6 8.00204H3C2.45 8.00204 2 8.45304 2 9.00204V15.002C2 15.552 2.45 16.002 3 16.002H6L10.293 20.71C10.579 20.996 11.009 21.082 11.383 20.927C11.757 20.772 12 20.407 12 20.002V4.00204C12 3.59904 11.757 3.23204 11.383 3.07904ZM14 5.00195V7.00195C16.757 7.00195 19 9.24595 19 12.002C19 14.759 16.757 17.002 14 17.002V19.002C17.86 19.002 21 15.863 21 12.002C21 8.14295 17.86 5.00195 14 5.00195ZM14 9.00195C15.654 9.00195 17 10.349 17 12.002C17 13.657 15.654 15.002 14 15.002V13.002C14.551 13.002 15 12.553 15 12.002C15 11.451 14.551 11.002 14 11.002V9.00195Z"
-              />
-            </svg>
-          </div>
-          <Flex sx={{ justifyContent: "center" }}>
-            <Text>{voiceChannel.name}</Text>
+        <Flex
+          sx={{
+            flexDirection: "row",
+            p: 2,
+            alignItems: "center",
+          }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" sx={{ ...iconStyle, position: "relative" }}>
+            <path
+              style={{
+                fill: "#5865f2",
+              }}
+              d="M0 0h60v60H0z"
+            />
+            <path
+              d="M29.8 14.98c-.63-.26-1.35-.12-1.83.37l-7.23 7.92h-5.05c-.93 0-1.68.76-1.68 1.68v10.1c0 .93.76 1.68 1.68 1.68h5.05l7.23 7.92c.48.48 1.21.63 1.83.37a1.69 1.69 0 0 0 1.04-1.56V16.53c0-.68-.41-1.3-1.04-1.55Zm4.4 3.24v3.37c4.64 0 8.42 3.78 8.42 8.42s-3.78 8.42-8.42 8.42v3.37c6.5 0 11.78-5.28 11.78-11.78S40.69 18.24 34.2 18.24Zm0 6.73c2.78 0 5.05 2.27 5.05 5.05s-2.27 5.05-5.05 5.05v-3.37c.93 0 1.68-.76 1.68-1.68s-.76-1.68-1.68-1.68v-3.37Z"
+              style={{
+                fill: "#fff",
+              }}
+            />
+          </svg>
+
+          <Flex sx={{ justifyContent: "center", flexDirection: "column" }}>
+            <Text
+              sx={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              voice
+            </Text>
+
+            <Text
+              variant={"muted"}
+              sx={{
+                fontSize: "14px",
+              }}
+            >
+              <Text as="span" variant="bold">
+                {numberInVoice}
+              </Text>{" "}
+              in channel.
+            </Text>
           </Flex>
         </Flex>
 
