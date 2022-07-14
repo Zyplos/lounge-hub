@@ -1,4 +1,5 @@
 import { Grid, Text, Alert, Heading } from "theme-ui";
+import Link from "next/link";
 import MinecraftText from "../../components/MinecraftText";
 import ArticleLayout from "../../internals/ArticleLayout";
 
@@ -6,7 +7,6 @@ function LandClaiming() {
   return (
     <ArticleLayout title="Land Claiming">
       <Grid>
-        <Alert>Unavailable until further notice.</Alert>
         <Text>
           Chunks in the world can be claimed by players. Typing <MinecraftText>/claim</MinecraftText> will make the chunk you're standing in yours. This will be shown on
           your public profile, so don't claim chunks that have things you want to keep secret.
@@ -32,6 +32,9 @@ function LandClaiming() {
         </Text>
         <Text>
           See your own profile by doing <MinecraftText>/profile</MinecraftText>. See another player's profile by doing <MinecraftText>/profile [name]</MinecraftText>.
+        </Text>
+        <Text>
+          More detailed player profiles can be viewed on the <Link href="/wiki/crafting-recipes">player profile page</Link>.
         </Text>
 
         <Heading>Player Homes</Heading>

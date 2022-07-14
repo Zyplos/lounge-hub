@@ -10,6 +10,9 @@ function Gameplay() {
     <ArticleLayout title="Gameplay">
       <Grid>
         <Text>Some stuff on the server functions a little differently from Vanilla.</Text>
+        <Text>
+          Various <Link href="/wiki/crafting-recipes">crafting recipes</Link> have been added to make things a bit easier.
+        </Text>
 
         <Heading>Gamerules</Heading>
         <SmallCardGrid>
@@ -41,9 +44,6 @@ function Gameplay() {
         </Text>
         <Text>Shulkers will always drop 2 Shulker Shells.</Text>
         <Text>You can trade with Wandering Villagers to get Mini Blocks.</Text>
-        <Text>
-          Various <Link href="/wiki/crafting-recipes">crafting recipes</Link> have been added to make things a bit easier.
-        </Text>
       </Grid>
     </ArticleLayout>
   );

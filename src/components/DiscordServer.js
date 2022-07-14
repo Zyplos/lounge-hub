@@ -24,7 +24,7 @@ function DiscordServer() {
       </FullBox>
     );
   }
-  const knownBots = ["Metabyte", "Buggy", "scooter", "Sine", "Tessie", "Maestro", "Rythm", "NotSoBot", "ProBot"];
+  const knownBots = ["Metabyte", "Buggy", "scooter", "Sine", "Tessie", "Maestro", "Rythm", "NotSoBot", "ProBot", "SoundCloud"];
   const voiceChannelId = "426394718591778818";
   const voiceChannel = discordData.channels.find((channel) => channel.id === voiceChannelId);
   const numberInVoice = discordData.members.filter((m) => m.channel_id == voiceChannelId).length;
@@ -57,7 +57,7 @@ function DiscordServer() {
     <React.Fragment>
       <Grid
         sx={{
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr) )",
+          gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr) )",
         }}
       >
         <Flex

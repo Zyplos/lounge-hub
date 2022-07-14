@@ -8,11 +8,13 @@ import MinecraftStatusSkeleton from "./MinecraftStatusSkeleton";
 function MinecraftStatus(props) {
   const data = props.data;
 
+  console.log(data);
+
   if (!data) {
     return <MinecraftStatusSkeleton />;
   }
 
-  if (!data || !data.description) {
+  if (!data || !data.motd) {
     return <Alert>This server is currently offline.</Alert>;
   }
 
@@ -23,9 +25,9 @@ function MinecraftStatus(props) {
   // const numPlayersOnline = data.players.online;
   // const playerList = data.players.sample;
   // const versionName = data.version.name;
-  const numPlayersOnline = data.onlinePlayers;
-  const playerList = data.samplePlayers;
-  const versionName = data.version;
+  const numPlayersOnline = data.players.online;
+  const playerList = data.players.sample;
+  const versionName = data.version.name;
 
   const computedPlural = () => {
     if (!data || !data.players) return "players";
@@ -61,9 +63,10 @@ function MinecraftStatus(props) {
             flexDirection: "column",
             justifyContent: "center",
             fontFamily: "Minecraft, monospace",
+            whiteSpace: "pre-wrap",
           }}
         >
-          <div dangerouslySetInnerHTML={{ __html: data.description.html }}></div>
+          <div>{data.motd.clean}</div>
         </Flex>
       </Flex>
       <Text>
