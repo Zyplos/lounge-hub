@@ -26,9 +26,9 @@ const CommunityColorMap = {
 };
 
 const worldUUIDs = {
-  overworld: "3f7dbb2b-9d3b-4373-a571-50928068bd32",
-  nether: "95040cf6-c591-4791-9e12-0818933654ed",
-  end: "3fa11ea0-196d-4539-9121-cf92e61ebc1a",
+  overworld: "11e52781-9149-4b29-accb-6acfb3d9f071",
+  nether: "884d7c09-52e1-42a4-8a2a-7a21dfc49bc8",
+  end: "ed0d5979-be3b-4ba6-a9b3-b3126e306ff1",
   aether: "6fdffaa4-66c9-40ca-ae14-489711eee5e3",
 };
 
