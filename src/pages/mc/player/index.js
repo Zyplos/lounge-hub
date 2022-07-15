@@ -11,8 +11,8 @@ function IndexPlayer() {
   const router = useRouter();
 
   const handleSubmit = (event) => {
-    router.push("/mc/player/" + playerName);
     event.preventDefault();
+    router.push("/mc/player/" + playerName);
   };
 
   return (
@@ -29,21 +29,6 @@ function IndexPlayer() {
             </label>
 
             <Button>View Profile</Button>
-            <div>
-              Test Profiles:{" "}
-              <Link href="/mc/player/Zyplos">
-                <a>CiD 1</a>
-              </Link>{" "}
-              <Link href="/mc/player/alfiemoon">
-                <a>CiD 2</a>
-              </Link>{" "}
-              <Link href="/mc/player/pegg">
-                <a>CiD 3</a>
-              </Link>{" "}
-              <Link href="/mc/player/ABlasterCatCD">
-                <a>CiD 4</a>
-              </Link>
-            </div>
           </Grid>
         </form>
       </FullBox>

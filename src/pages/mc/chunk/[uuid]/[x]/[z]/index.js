@@ -94,7 +94,7 @@ function VisitorsLog() {
             },
           }}
         >
-          <Box color="white" bg={DimensionColorMap[ownedChunk.dimension]} sx={{ position: "sticky", top: 0 }}>
+          <Box color="white" bg={DimensionColorMap[ownedChunk.dimension]} sx={{ position: "sticky", top: 0, zIndex: 10 }}>
             <div
               sx={{
                 height: "125px",

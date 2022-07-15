@@ -20,22 +20,31 @@ function Gameplay() {
             <Heading>keepInventory</Heading>
             <Text>true</Text>
           </div>
-          <div>
-            <Heading>mobGriefing</Heading>
-            <Text>true</Text>
-          </div>
+
           <div>
             <Heading>sleepingPercent</Heading>
             <Text>33</Text>
+          </div>
+          <div>
+            <Heading>doInsomnia</Heading>
+            <Text>false</Text>
           </div>
         </SmallCardGrid>
 
         <Heading>Sleeping</Heading>
         <Text>Only a third of the people online have to sleep for it to turn to day.</Text>
 
-        <Heading>Name Colors</Heading>
+        <Heading>Nicknames and Colors</Heading>
         <Text>
-          Players can recolor their username in chat by doing <MinecraftText>/trigger color</MinecraftText>.
+          Players can set their own nickname by doing <MinecraftText>/nickname [name]</MinecraftText>. You can use Minecraft color codes in your nickname or use custom
+          hex colors by using <MinecraftText>&#&lt;hexcolor&gt;</MinecraftText>.
+        </Text>
+        <Text>
+          For example, <MinecraftText>/nickname &#ff8408Zyp</MinecraftText> would give you an orange username with the nickname "Zyp". If you'd like just the color
+          without a nickname, you can use <MinecraftText>/nickcolor [colorcode]</MinecraftText> to set your entire username to one color.
+        </Text>
+        <Text>
+          You can do <MinecraftText>/nonick</MinecraftText> to remove your nickname.
         </Text>
 
         <Heading>Mobs</Heading>
@@ -44,6 +53,7 @@ function Gameplay() {
         </Text>
         <Text>Shulkers will always drop 2 Shulker Shells.</Text>
         <Text>You can trade with Wandering Villagers to get Mini Blocks.</Text>
+        <Text>Phantoms will not spawn.</Text>
       </Grid>
     </ArticleLayout>
   );

@@ -25,11 +25,7 @@ function Home() {
             <MinecraftStatus data={modded} ip="???" />
           </div>
         </Grid>
-        <Message variant="primary">
-          <Paragraph>map and player data are outdated at the moment</Paragraph>
-          <Paragraph>this site is currently on my to-do list</Paragraph>
-          <Paragraph>- me</Paragraph>
-        </Message>
+
         <Heading sx={{ mt: 4 }}>the lounge</Heading>
         <DiscordServer />
       </Grid>
