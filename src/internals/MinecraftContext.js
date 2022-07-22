@@ -1,8 +1,17 @@
-import React from "react";
+import { createContext, useContext } from "react";
+import useSWR from "swr";
 
-const MinecraftContext = React.createContext({
+const MinecraftContext = createContext({
   vanilla: null,
   modded: null,
 });
 MinecraftContext.displayName = "MinecraftContext";
-export default MinecraftContext;
+
+export function MinecraftDataProvider({ children }) {
+  const { data, error } = useSWR("/api/minecraft/status-bugfix", {
+    refreshInterval: 60000,
+  });
+  return <MinecraftContext.Provider value={error || data}>{children}</MinecraftContext.Provider>;
+}
+
+export const useMinecraftData = () => useContext(MinecraftContext);

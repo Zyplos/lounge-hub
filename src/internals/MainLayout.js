@@ -36,7 +36,7 @@ function MainLayout({ noPadding, ...props }) {
         }}
         onClick={showNavbar}
       >
-        {isOpen ? <Close color="white" /> : <HamburgerIcon sx={{ display: "block", fill: "white" }} />}
+        {isOpen ? <Close color="white" /> : <HamburgerIcon sx={{ display: "block", fill: "white", width: "24px", height: "24px" }} />}
       </div>
       <section
         sx={{

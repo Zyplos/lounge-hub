@@ -8,7 +8,7 @@ import DiscordIcon from "../assets/discord-icon.svg";
 import CBOAIcon from "../assets/cbOA-icon.svg";
 import { Heading, Box, Text, Grid, Container, Message, Paragraph, Divider, Button } from "theme-ui";
 import useSWR from "swr";
-import MinecraftContext from "../internals/MinecraftContext";
+import { useMinecraftData } from "../internals/MinecraftContext";
 import MinecraftStatus from "./MinecraftStatus";
 
 import CID1 from "../assets/ref/1.png";
@@ -102,7 +102,7 @@ function Yourspace() {
     refreshInterval: 0,
   });
 
-  const minecraftData = useContext(MinecraftContext);
+  const minecraftData = useMinecraftData();
   const vanilla = minecraftData ? minecraftData.vanilla : null;
   const modded = minecraftData ? minecraftData.modded : null;
 
@@ -214,17 +214,13 @@ function Yourspace() {
         <Message variant="primary" mb={3}>
           indev
         </Message>
-
         {cbData && cbData.cb.p && <PComponent />}
-
         <Divider my={4} />
-
         <Paragraph>Feel free to join the server at:</Paragraph>
         <Heading as="h1" mb={3}>
           {process.env.NEXT_PUBLIC_MCIP}
         </Heading>
         <MinecraftStatus data={vanilla} ip="???" />
-
         <Paragraph mt={5}>Sometimes we'll have a modded server online. Join that at:</Paragraph>
         <Heading as="h1" mb={3}>
           {process.env.NEXT_PUBLIC_MCMODDEDIP}

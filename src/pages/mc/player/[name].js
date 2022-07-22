@@ -42,7 +42,11 @@ const ChunkCard = ({ x, z, y, dimension, claimed_on, isHome }) => {
           mr: 3,
         }}
       >
-        {isHome ? <BaseIcon fill={DimensionColorMap[dimension]} /> : <DimensionIcon fill={DimensionColorMap[dimension]} />}
+        {isHome ? (
+          <BaseIcon fill={DimensionColorMap[dimension]} sx={{ width: "64px", height: "64px" }} />
+        ) : (
+          <DimensionIcon fill={DimensionColorMap[dimension]} sx={{ width: "64px", height: "64px" }} />
+        )}
       </div>
       <Grid>
         <Text sx={{ variant: "text.heading", fontSize: 3 }}>{isHome ? "Home" : `(${x}, ${z})`}</Text>

@@ -68,7 +68,7 @@ function MinecraftSlot({ name, image, amount, type = "normal", ...props }) {
         <div
           sx={{
             position: "absolute",
-            top: "53%",
+            top: "55%",
             left: "50%",
             transform: "translate(-50%, -50%)",
           }}

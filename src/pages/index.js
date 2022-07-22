@@ -3,15 +3,18 @@ import { useContext } from "react";
 import { Heading, Grid, Message, Paragraph } from "theme-ui";
 import MainLayout from "../internals/MainLayout";
 
+import useSWR from "swr";
+
 import DiscordServer from "../components/DiscordServer";
 import MinecraftStatus from "../components/MinecraftStatus";
 
-import MinecraftContext from "../internals/MinecraftContext";
+import { useMinecraftData } from "../internals/MinecraftContext";
 
 function Home() {
-  const minecraftData = useContext(MinecraftContext);
+  const minecraftData = useMinecraftData();
   const vanilla = minecraftData ? minecraftData.vanilla : null;
   const modded = minecraftData ? minecraftData.modded : null;
+
   return (
     <MainLayout>
       <Grid gap={3}>

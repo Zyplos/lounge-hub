@@ -4,7 +4,7 @@ import { Grid, Text } from "theme-ui";
 import Link from "next/link";
 import Image from "next/image";
 
-import MinecraftContext from "../internals/MinecraftContext";
+import { useMinecraftData } from "../internals/MinecraftContext";
 
 import emblem from "../assets/emblem.png";
 import HomeIcon from "../assets/home-icon.png";
@@ -79,24 +79,25 @@ const NavText = ({ children }) => {
 };
 
 function Navbar() {
-  const minecraftData = useContext(MinecraftContext);
+  const minecraftData = useMinecraftData();
+  console.log(minecraftData);
 
   const minecraftFragments = [];
 
-  if (minecraftData) {
-    const isVanillaOnline = minecraftData?.vanilla?.onlinePlayers >= 0;
-    const isModdedOnline = minecraftData?.modded?.onlinePlayers >= 0;
+  if (minecraftData?.vanilla || minecraftData?.modded) {
+    const isVanillaOnline = minecraftData?.vanilla?.players?.online >= 0;
+    const isModdedOnline = minecraftData?.modded?.players?.online >= 0;
 
     if (isVanillaOnline || isModdedOnline) {
       minecraftFragments.push(<NavDivider key={0} />);
     }
 
     if (isVanillaOnline) {
-      minecraftFragments.push(<NavMinecraftItem key={1} image={playerHead} name="Vanilla Server Status" playerAmount={minecraftData.vanilla.onlinePlayers} />);
+      minecraftFragments.push(<NavMinecraftItem key={1} image={playerHead} name="Vanilla Server Status" playerAmount={minecraftData?.vanilla?.players?.online} />);
     }
 
     if (isModdedOnline) {
-      minecraftFragments.push(<NavMinecraftItem key={2} image={computerHead} name="Modded Server Status" playerAmount={minecraftData.modded.onlinePlayers} />);
+      minecraftFragments.push(<NavMinecraftItem key={2} image={computerHead} name="Modded Server Status" playerAmount={minecraftData?.modded?.players?.online} />);
     }
   }
 
@@ -166,10 +167,8 @@ function Navbar() {
           </Link>
 
           <a href={mapUrlBase} target="_blank" rel="noreferrer">
-            <a>
-              <CompassIcon sx={{ width: "32px", height: "32px", fill: "white" }} />
-              <NavText>Server Map</NavText>
-            </a>
+            <CompassIcon sx={{ width: "32px", height: "32px", fill: "white" }} />
+            <NavText>Server Map</NavText>
           </a>
 
           <ThemeToggle />
