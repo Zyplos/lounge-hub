@@ -1,4 +1,6 @@
-const theme = {
+import { get, Theme } from "theme-ui";
+
+export const theme: Theme = {
   breakpoints: ["40em", "52em", "64em"],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
@@ -34,8 +36,8 @@ const theme = {
   messages: {
     primary: {
       padding: 3,
-      paddingLeft: (t) => t.space[3] - t.space[1],
-      borderLeftWidth: (t) => t.space[2],
+      paddingLeft: (t) => get(t, "space.3") - get(t, "space.2"),
+      borderLeftWidth: (t) => get(t, "space.2"),
       borderLeftStyle: "solid",
       borderLeftColor: "highlight",
       borderRadius: 4,
@@ -185,4 +187,7 @@ const theme = {
   },
 };
 
-export default theme;
+// const makeTheme = <T extends Theme>(t: T) => t;
+// const theme = makeTheme();
+
+// export type CinnaTheme = typeof theme;
