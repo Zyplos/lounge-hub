@@ -1,16 +1,9 @@
-/*
-world | 3f7dbb2b-9d3b-4373-a571-50928068bd32
-world_nether | 95040cf6-c591-4791-9e12-0818933654ed
-world_the_end | 3fa11ea0-196d-4539-9121-cf92e61ebc1a
-world_zydims_aether | eb9185e0-1485-4e21-b4c2-63085408f81f
-*/
-
 const CommunityIdMap = {
   1: "the lounge",
   2: "3 AM",
   3: "3DS Rock Rock Mountain",
   4: "blaster's circle",
-  5: "The ultimate Yakuza fan club",
+  5: "The ultimate Mob Psycho fan club",
   6: "vold group",
   99: "Friend of Friend",
 };
@@ -20,7 +13,7 @@ const CommunityColorMap = {
   2: "#00a3a3",
   3: "#0094ff",
   4: "#7c00ff",
-  5: "#bfc125",
+  5: "#d2d42a",
   6: "#d8b01a",
   99: "#919191",
 };
@@ -55,19 +48,19 @@ const DimensionColorMap = {
 
 const mapUrlBase = "https://map.lounge.haus";
 
-const findChunkCenter = (cx, cz) => {
+const findChunkCenter = (cx: number, cz: number) => {
   const x = cx * 16 + 8;
   const z = cz * 16 + 8;
   return { x, y: 90, z };
 };
 
-const prettyPrintDateAndTime = (date) => {
+const prettyPrintDateAndTime = (date: Date) => {
   return date.toLocaleString("en-US", {
     dateStyle: "short",
     timeStyle: "short",
   });
 };
-const prettyPrintDate = (date) => {
+const prettyPrintDate = (date: Date) => {
   return date.toLocaleDateString("en-US");
 };
 

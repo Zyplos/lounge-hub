@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { Grid, Text } from "theme-ui";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,7 +12,6 @@ import WikiIcon from "../assets/wiki-icon.png";
 import PlayerIcon from "../assets/player-icon.png";
 import CompassIcon from "../assets/compass-icon.svg";
 import BlockIcon from "../assets/block-icon.svg";
-import YourspaceIcon from "../assets/yourspace-icon.svg";
 import playerHead from "../assets/head.png";
 import computerHead from "../assets/computer.png";
 import ThemeToggle from "./ThemeToggle";

@@ -2,7 +2,7 @@ import React from "react";
 import { Heading, Divider, Container } from "theme-ui";
 import MainLayout from "./MainLayout";
 
-function ArticleLayout({ title, children }) {
+function ArticleLayout({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <MainLayout>
       <Container>

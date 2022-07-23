@@ -1,10 +1,9 @@
-/** @jsxImportSource theme-ui */
 import { useState } from "react";
 import { Close } from "theme-ui";
 import HamburgerIcon from "../assets/hamburger.svg";
 import Navbar from "../components/Navbar";
 
-function MainLayout({ noPadding, ...props }) {
+function MainLayout({ noPadding, children, ...props }: { noPadding?: boolean, children: React.ReactNode }) {
   const [isOpen, setOpen] = useState(false);
 
   function showNavbar() {
@@ -60,7 +59,7 @@ function MainLayout({ noPadding, ...props }) {
           display: [isOpen ? "none" : "block", "block"],
         }}
       >
-        {props.children}
+        {children}
       </article>
     </div>
   );

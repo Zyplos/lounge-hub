@@ -7,7 +7,7 @@ const MinecraftContext = createContext({
 });
 MinecraftContext.displayName = "MinecraftContext";
 
-export function MinecraftDataProvider({ children }) {
+export function MinecraftDataProvider({ children }: { children: React.ReactNode }) {
   const { data, error } = useSWR("/api/minecraft/status-bugfix", {
     refreshInterval: 60000,
   });
