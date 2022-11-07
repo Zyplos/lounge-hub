@@ -34,7 +34,8 @@ function LandClaiming() {
           See your own profile by doing <MinecraftText>/profile</MinecraftText>. See another player's profile by doing <MinecraftText>/profile [name]</MinecraftText>.
         </Text>
         <Text>
-          More detailed player profiles can be viewed on the <Link href="/wiki/crafting-recipes">player profile page</Link>.
+          More detailed player profiles can be viewed on the <Link href="/mc/player/">player profile page</Link> (example here:{" "}
+          <Link href="/mc/player/Zyplos/">Zyplos's profile</Link>).
         </Text>
 
         <Heading>Player Homes</Heading>
