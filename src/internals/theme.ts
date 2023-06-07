@@ -33,6 +33,12 @@ export const theme: Theme = {
     body: 1.5,
     heading: 1.125,
   },
+  alerts: {
+    info: {
+      color: "#fff",
+      bg: "#fc6603",
+    },
+  },
   messages: {
     primary: {
       padding: 3,
@@ -85,6 +91,12 @@ export const theme: Theme = {
       letterSpacing: "0.2em",
       fontSize: 7,
       fontFamily: "monospace",
+    },
+    displaysm: {
+      // extends the text.heading styles
+      variant: "text.heading",
+      fontSize: [3, 6],
+      fontWeight: "bold",
     },
     display: {
       // extends the text.heading styles

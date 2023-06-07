@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { useContext } from "react";
-import { Heading, Grid, Message, Paragraph } from "theme-ui";
+import { Heading, Grid, Message, Paragraph, Alert } from "theme-ui";
 import MainLayout from "../internals/MainLayout";
 
 import useSWR from "swr";
@@ -28,6 +28,11 @@ function Home() {
             <MinecraftStatus data={modded} ip="???" />
           </div>
         </Grid>
+
+        <Alert variant="info" sx={{ mt: 4 }}>
+          The land claims system, player lookups, and other features are currently not working due to the recent release of Minecraft 1.20. They will be fixed as things
+          are updated for the new version.
+        </Alert>
 
         <Heading sx={{ mt: 4 }}>the lounge</Heading>
         <DiscordServer />

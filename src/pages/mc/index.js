@@ -129,7 +129,7 @@ function MCHomeNotSignedIn() {
             <Heading
               as="h1"
               sx={{
-                textShadow: "2px 2px 0px black, -2px 2px 0px black, -2px -2px 0px black ,2px -2px 0px black",
+                textShadow: "3px 3px 0px black, -3px 3px 0px black, -3px -3px 0px black ,3px -3px 0px black",
               }}
             >
               the lounge SMP server
@@ -139,9 +139,20 @@ function MCHomeNotSignedIn() {
               variant="display"
               sx={{
                 textShadow: [singlePixelShadow, "5px 5px 0px black, -5px 5px 0px black, -5px -5px 0px black ,5px -5px 0px black"],
+                display: "block",
               }}
             >
               season 6
+            </Text>
+            <Text
+              // as="h2"
+              variant="displaysm"
+              sx={{
+                textShadow: [singlePixelShadow, "3px 3px 0px black, -3px 3px 0px black, -3px -3px 0px black ,3px -3px 0px black"],
+                display: "block",
+              }}
+            >
+              echoes of the realm
             </Text>
 
             <div sx={{ mt: 5 }}>

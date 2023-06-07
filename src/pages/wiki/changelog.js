@@ -3,7 +3,8 @@ import { Heading, Grid, Text, Badge } from "theme-ui";
 import SmallCardGrid from "../../components/SmallCardGrid";
 import ArticleLayout from "../../internals/ArticleLayout";
 
-const SmallerCardGrid = ({ ...props }) => <SmallCardGrid width="200px" {...props} />;
+const SmallerCardGrid = ({ ...props }) => <SmallCardGrid width="300px" {...props} />;
+const EvenSmallerCardGrid = ({ ...props }) => <SmallCardGrid width="200px" {...props} />;
 
 function Changelog() {
   return (
@@ -12,10 +13,14 @@ function Changelog() {
         <Heading>Vanilla Minecraft</Heading>
         <SmallerCardGrid>
           <div>
-            <Heading>Season 6</Heading>
+            <Heading>Season 6: Echoes of the Realm</Heading>
             <Text>
-              1.19 <Badge>Current</Badge>
+              1.20 <Badge>Current</Badge>
             </Text>
+          </div>
+          <div>
+            <Heading>Season 6</Heading>
+            <Text>1.19</Text>
           </div>
           <div>
             <Heading>Season 5: Part II</Heading>
@@ -44,7 +49,11 @@ function Changelog() {
         </SmallerCardGrid>
 
         <Heading>Modded Minecraft</Heading>
-        <SmallerCardGrid>
+        <EvenSmallerCardGrid>
+          <div>
+            <Heading>Season 9</Heading>
+            <Text>ratpack</Text>
+          </div>
           <div>
             <Heading>Season 8</Heading>
             <Text>lounge S8 pack</Text>
@@ -77,10 +86,10 @@ function Changelog() {
             <Heading>Season 1</Heading>
             <Text>zy & co.'s modpack</Text>
           </div>
-        </SmallerCardGrid>
+        </EvenSmallerCardGrid>
 
         <Heading>Terraria</Heading>
-        <SmallerCardGrid>
+        <EvenSmallerCardGrid>
           <div>
             <Heading>Season 2</Heading>
             <Text>Journey's End</Text>
@@ -89,7 +98,7 @@ function Changelog() {
             <Heading>Season 1</Heading>
             <Text>1.3</Text>
           </div>
-        </SmallerCardGrid>
+        </EvenSmallerCardGrid>
       </Grid>
     </ArticleLayout>
   );
