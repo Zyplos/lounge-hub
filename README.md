@@ -16,25 +16,14 @@ This project was made specifically for the lounge and as such has functionality 
 
 This project expects a Firebase Realtime Database and a MySQL database to be configured and ready. The `.env` file contains some of the credentials and information the project needs to function.
 
-**This project depends on Vercel's serverless functions.** First install the Vercel CLI by doing `npm i -g vercel`.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-### `vercel dev`
+Install the dependencies and run the development server with:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+npm run dev
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
