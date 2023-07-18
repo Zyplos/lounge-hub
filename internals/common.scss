@@ -1,0 +1,10 @@
+$theme-colors: (
+  "someColor": #000,
+  "anotherColor": #fff,
+);
+
+:export {
+  @each $key, $value in $theme-colors {
+    #{unquote($key)}: $value;
+  }
+}

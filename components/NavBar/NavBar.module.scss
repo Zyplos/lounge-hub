@@ -1,0 +1,13 @@
+.navbar-wrapper {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  background-color: red;
+  height: 100%;
+
+  padding: var(--spacing-y) var(--spacing-x);
+}
+
+.nav-item {
+  margin: var(--spacing-y) 0;
+}
