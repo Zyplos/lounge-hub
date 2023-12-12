@@ -8,10 +8,10 @@ import fetcher from "../internals/fetcher";
 
 import "normalize.css";
 import "./app.css";
-import { AppProps } from "next/app";
+// import { AppProps } from "next/app";
 require("@south-paw/typeface-minecraft");
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }) {
   return (
     <SWRConfig value={{ fetcher }}>
       <ThemeProvider theme={theme}>
@@ -24,8 +24,5 @@ function App({ Component, pageProps }: AppProps) {
     </SWRConfig>
   );
 }
-
-
-
 
 export default App;
