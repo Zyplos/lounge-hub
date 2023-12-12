@@ -1,14 +1,22 @@
 /** @jsxImportSource theme-ui */
-import { Heading, Grid, Text, Badge } from "theme-ui";
+import { Heading, Grid, Text, Badge, Alert } from "theme-ui";
 import SmallCardGrid from "../../components/SmallCardGrid";
 import ArticleLayout from "../../internals/ArticleLayout";
 
 const SmallerCardGrid = ({ ...props }) => <SmallCardGrid width="300px" {...props} />;
 const EvenSmallerCardGrid = ({ ...props }) => <SmallCardGrid width="200px" {...props} />;
+const FastLink = ({ href, children }) => (
+  <a href={href} target="_blank" rel="noreferrer">
+    {children}
+  </a>
+);
 
 function Changelog() {
   return (
     <ArticleLayout title="Server History">
+      <Alert variant="info" sx={{ my: 4 }}>
+        i'll add world backups here sometime soon
+      </Alert>
       <Grid>
         <Heading>Vanilla Minecraft</Heading>
         <SmallerCardGrid>
@@ -51,32 +59,58 @@ function Changelog() {
         <Heading>Modded Minecraft</Heading>
         <EvenSmallerCardGrid>
           <div>
+            <Heading>Season 11</Heading>
+            <Text>
+              <FastLink href="https://www.technicpack.net/modpack/tekkit-2.1935271">Tekkit 2</FastLink>
+            </Text>
+          </div>
+          <div>
+            <Heading>Season 10</Heading>
+            <Text>
+              <FastLink href="https://drive.google.com/file/d/1mCPLbVJsjIM4IAEw-DVUjf7f1W8ELgzS/view?usp=sharing">kedr's FUNNY TIME FABRIC</FastLink>
+            </Text>
+          </div>
+          <div>
             <Heading>Season 9</Heading>
-            <Text>ratpack</Text>
+            <Text>
+              <FastLink href="https://drive.google.com/file/d/1KaJf4n3wM_kOl0tj3boYhkBCYNTbAQAd/view?usp=sharing">ratpack</FastLink>
+            </Text>
           </div>
           <div>
             <Heading>Season 8</Heading>
-            <Text>lounge S8 pack</Text>
+            <Text>
+              <FastLink href="https://drive.google.com/file/d/1-4UWqfbF16rS649tSf9EG3SrYNPsHJuG/view?usp=sharing">julian's lounge pack</FastLink>
+            </Text>
           </div>
           <div>
             <Heading>Season 7</Heading>
-            <Text>Vanilla & Sprinkles</Text>
+            <Text>
+              <FastLink href="https://www.technicpack.net/modpack/vanilla-sprinkles-modpack.1780181">Vanilla & Sprinkles</FastLink>
+            </Text>
           </div>
           <div>
             <Heading>Season 6</Heading>
-            <Text>Enigmatica 2</Text>
+            <FastLink href="https://www.curseforge.com/minecraft/modpacks/enigmatica2">Enigmatica 2</FastLink>
           </div>
           <div>
             <Heading>Season 5</Heading>
-            <Text>Tekxit</Text>
+            <Text>
+              <FastLink href="https://www.technicpack.net/modpack/tekxit-3-official-1122.1253751">Tekxit 3</FastLink>
+            </Text>
           </div>
           <div>
             <Heading>Season 4</Heading>
-            <Text>Enigmatica 2</Text>
+            <Text>
+              <FastLink href="https://www.curseforge.com/minecraft/modpacks/enigmatica2">Enigmatica 2</FastLink>
+            </Text>
           </div>
           <div>
             <Heading>Season 3</Heading>
-            <Text>Skyfactory</Text>
+            <Text>
+              <FastLink href="https://www.curseforge.com/minecraft/modpacks/skyfactory-4" target="_blank" rel="noreferrer">
+                SkyFactory 4
+              </FastLink>
+            </Text>
           </div>
           <div>
             <Heading>Season 2</Heading>
@@ -84,7 +118,9 @@ function Changelog() {
           </div>
           <div>
             <Heading>Season 1</Heading>
-            <Text>zy & co.'s modpack</Text>
+            <Text>
+              <FastLink href="https://www.technicpack.net/modpack/zy-cos-modpack.1260752">zy & co.'s modpack</FastLink>
+            </Text>
           </div>
         </EvenSmallerCardGrid>
 
