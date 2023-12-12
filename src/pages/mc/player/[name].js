@@ -70,14 +70,26 @@ function Player() {
   const [currentMapUrl, setMapUrl] = useState(mapUrlBase + "/#world:-7:58:214:30:0:0:0:0:perspective");
 
   if (!router.query.name) {
-    return <ErrorFullBox message="No username provided." />;
+    return (
+      <MainLayout>
+        <ErrorFullBox message="No username provided." />
+      </MainLayout>
+    );
   }
 
   if (playerError) {
-    return <ErrorFullBox header={playerError.status} text="Error getting player data." />;
+    return (
+      <MainLayout>
+        <ErrorFullBox header={playerError.status} text="Error getting player data." />
+      </MainLayout>
+    );
   }
   if (chunkError) {
-    return <ErrorFullBox header={chunkError.status} text="Error getting chunk data." />;
+    return (
+      <MainLayout>
+        <ErrorFullBox header={chunkError.status} text="Error getting chunk data." />
+      </MainLayout>
+    );
   }
 
   if (!playerData) {
@@ -85,7 +97,11 @@ function Player() {
   }
 
   if (playerData.data.length === 0) {
-    return <ErrorFullBox header={404} text="Player not found." />;
+    return (
+      <MainLayout>
+        <ErrorFullBox header={404} text="Player not found." />
+      </MainLayout>
+    );
   }
 
   if (!chunkData) {

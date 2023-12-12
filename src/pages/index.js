@@ -29,10 +29,10 @@ function Home() {
           </div>
         </Grid>
 
-        <Alert variant="info" sx={{ mt: 4 }}>
+        {/* <Alert variant="info" sx={{ mt: 4 }}>
           The land claims system, player lookups, and other features are currently not working due to the recent release of Minecraft 1.20. They will be fixed as things
           are updated for the new version.
-        </Alert>
+        </Alert> */}
 
         <Heading sx={{ mt: 4 }}>the lounge</Heading>
         <DiscordServer />

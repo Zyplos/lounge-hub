@@ -47,14 +47,26 @@ function VisitorsLog() {
   const { data: chunkData, error: chunkError } = useSWR(`/api/minecraft/chunkByCoords?x=${x}&z=${z}&dimension=${uuid}`);
 
   if (!uuid || !x || !z) {
-    return <ErrorFullBox message="Invalid query" />;
+    return (
+      <MainLayout>
+        <ErrorFullBox message="Invalid query" />;
+      </MainLayout>
+    );
   }
 
   if (logError) {
-    return <ErrorFullBox header={logError.status} text="Error getting log data." />;
+    return (
+      <MainLayout>
+        <ErrorFullBox header={logError.status} text="Error getting log data." />
+      </MainLayout>
+    );
   }
   if (chunkError) {
-    return <ErrorFullBox header={chunkData.status} text="Error getting chunk data." />;
+    return (
+      <MainLayout>
+        <ErrorFullBox header={chunkData.status} text="Error getting chunk data." />
+      </MainLayout>
+    );
   }
   if (!logData) {
     return <LoadingFullBox text="Grabbing log entries..." />;
@@ -64,7 +76,11 @@ function VisitorsLog() {
   }
 
   if (chunkData.data.length === 0 || logData.data.length === 0) {
-    return <ErrorFullBox header="404" text="This chunk has no data." />;
+    return (
+      <MainLayout>
+        <ErrorFullBox header="404" text="This chunk has no data." />
+      </MainLayout>
+    );
   }
 
   const newCoords = findChunkCenter(x, z);

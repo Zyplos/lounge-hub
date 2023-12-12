@@ -46,7 +46,7 @@ const DimensionColorMap = {
   [worldUUIDs.aether]: "#6CBAE8",
 };
 
-const mapUrlBase = "https://map.lounge.haus";
+const mapUrlBase = process.env.NEXT_PUBLIC_MAP_VANILLA_URL_BASE;
 
 const findChunkCenter = (cx: number, cz: number) => {
   const x = cx * 16 + 8;
